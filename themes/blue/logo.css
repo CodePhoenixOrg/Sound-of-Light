@@ -1,0 +1,48 @@
+/* 
+    Document   : logo.css
+    Created on : 14 août 2010, 02:13:39
+    Author     : david
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.divLogo {
+    display:table-cell;
+    position:relative;
+    vertical-align:middle;
+}
+
+.aLogo {
+    position:relative;
+}
+
+.alogo_big img no-repeat {
+    width: 876px;
+    height: 210px;
+    z-index: 100;
+    background-image: url(/themes/blue/big_logo.png);
+}
+
+
+.alogo_big img:hover {
+    width: 876px;
+    height: 210px;
+    z-index: 100;
+    background-image: url(/themes/blue/big_logo_light.png);
+}
+
+.alogo_small img no-repeat {
+    width: 418px;
+    height: 100px;
+    z-index: 100;
+    background-image: url(/themes/blue/small_logo.png);
+
+}
+
+.alogo_small img:hover {
+    width: 418px;
+    height: 100px;
+    z-index: 100;
+    background-image: url(/themes/blue/small_logo_light.png);
+
+}
