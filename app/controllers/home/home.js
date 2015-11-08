@@ -23,7 +23,8 @@ function getData(count, index, anchor) {
             , 'pagenum': index
         }
         , function (data) {
-            $.jPhoenix.bindTable('#grid', data.grid.values, data.grid.templates);
+            //$.jPhoenix.bindTable('#grid', data.grid.values, data.grid.templates);
+            $.jPhoenix.bindAccordion('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
             $(anchor).html(index);
         }
     );
