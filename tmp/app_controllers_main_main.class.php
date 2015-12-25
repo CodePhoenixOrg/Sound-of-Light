@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<?php
+namespace Detroit\Controllers;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of logme
+ *
+ * @author david
+ */
+class Main extends \Phoenix\Web\UI\TControl {
+    //put your code here
+    
+//    public function load() {
+//        $token = $this->request->getToken();
+//        $result = TAuthentication::getPermissionByToken($token);
+//        if(!$result) {
+//            $this->response->redirect(SERVER_ROOT);
+//        }
+//    }
+       	public function createObjects() {	}	public function declareObjects() {	}	public function displayHtml() {?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -53,3 +75,4 @@
 
 </body>
 </html>
+<?php	}}

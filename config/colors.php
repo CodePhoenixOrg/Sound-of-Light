@@ -1,5 +1,5 @@
 <?php 
-	//Paramètres côté serveur
+	//Paramï¿½tres cï¿½tï¿½ serveur
 	
 class ColorConfiguration {
 
@@ -8,7 +8,7 @@ class ColorConfiguration {
     private static $_diary_colors;
     private static $_grid_colors;
 
-    //Coleurs de la page assignées au tag BODY (text, fond, liens)
+    //Coleurs de la page assignï¿½es au tag BODY (text, fond, liens)
     public static function pageColors() {
         if(!self::$_page_colors) {
             self::$_page_colors=array(
@@ -75,4 +75,3 @@ class ColorConfiguration {
 
 }
 
-?>

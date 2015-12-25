@@ -1,0 +1,1 @@
+[{"opening":"<div class='accordion %s ui-accordion ui-widget' >","closing":"<\/div>"},{"opening":"<h3 class='ui-accordion-header ui-state-active ui-accordion-header-active' ><span class='ui-icon ui-accordion-header-icon ui-icon-minusthick'><\/span>","closing":"<\/h3>"},{"opening":"<div class='content ui-widget-content ui-accordion-content-active' >","closing":"<\/div>"}]
