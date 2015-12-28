@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)http://www.jqueryscript.net/demo/Smooth-Nested-Accordion-Plugin-with-jQuery-jQuery-UI-multiAccordion/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>jQuery multiAccordion Plugin Examples</title>
+  <link href="./jQuery multiAccordion Plugin Examples_files/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" async="" src="./jQuery multiAccordion Plugin Examples_files/ga.js"></script><script src="./jQuery multiAccordion Plugin Examples_files/jquery.min.js"></script><style type="text/css"></style>
+  <script src="./jQuery multiAccordion Plugin Examples_files/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="./jQuery multiAccordion Plugin Examples_files/jquery-ui.css">
+
+  <script src="./jQuery multiAccordion Plugin Examples_files/multiaccordion.jquery.min.js"></script>
+  <link rel="stylesheet" href="./jQuery multiAccordion Plugin Examples_files/multiaccordion.jquery.min.css">
+
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+    $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick",
+    activeIcon: "ui-icon-minusthick"});
+  });
+
+  </script>
+</head>
+<body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/accordion/Smooth-Nested-Accordion-Plugin-with-jQuery-jQuery-UI-multiAccordion.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1 style="margin:150px auto 30px auto; text-align:center">jQuery multiAccordion Plugin Examples</h1>
+<!-- example 1 -->
+<div class="accordion blue ui-accordion ui-widget">
+  <h3 class="ui-accordion-header ui-state-active ui-accordion-header-active"><span class="ui-icon ui-accordion-header-icon ui-icon-minusthick"></span>Simple Accordion 1</h3>
+  <div class="content ui-widget-content ui-accordion-content-active">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in facilisis orci. Vivamus dapibus feugiat.
+  </div>
+</div>
+
+<!-- example 2 -->
+<div class="accordion green ui-accordion ui-widget">
+  <h3 class="ui-accordion-header ui-state-active ui-accordion-header-active"><span class="ui-icon ui-accordion-header-icon ui-icon-minusthick"></span>Simple Accordion 2</h3>
+  <div class="content ui-widget-content ui-accordion-content-active">
+
+    <div class="accordion odd ui-accordion ui-widget">
+      <h3 class="ui-accordion-header ui-state-active ui-accordion-header-active"><span class="ui-icon ui-accordion-header-icon ui-icon-minusthick"></span>Nested Accordion 2.1</h3>
+      <div class="content ui-widget-content ui-accordion-content-active">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in facilisis orci. Vivamus dapibus feugiat.
+      </div>
+    </div>
+
+    <div class="accordion odd ui-accordion ui-widget">
+      <h3 class="ui-accordion-header ui-state-active ui-accordion-header-active"><span class="ui-icon ui-accordion-header-icon ui-icon-minusthick"></span>Nested Accordion 2.2</h3>
+      <div class="content ui-widget-content ui-accordion-content-active">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in facilisis orci. Vivamus dapibus feugiat.
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body></html>

@@ -1,46 +1,38 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span3">
-
-
-        </div>
-        <div class="span9">
-    <!-- Modal
-    ================================================== -->
-            <section id="modals">
-            <div class="page-header">
-                &nbsp;
-            </div>
-
-            <div>
-                <phx:Dummy id="dummy" />
-            </div>
-                <table>
-                <tr>
-                    <td width="50%">
-                        <div id="dataGrid" >
-                            <div id="grid">
-                                <phx:Grid id="grid0" anchor="#grid" pageCount="20" />
-                            </div>
-                            <phx:TPager id="pager" for="grid0" caption="Albums de ma musique"  onclick="getData" pageCount="20" />
-                        </div>
-                    </td>
-                    <td width="50%">
-                        <div id="vikipedia">
-                            
-                        </div>
-                    </td>
-                </tr>
-                </table>
-            </div>
-                
-            <div id="token">
-
-            </div>
-
-
-            </section>
-
+        <div class="page-header">
+            <phx:Dummy id="dummy" />
         </div>
     </div>
+        <!--left-->
+        <div class="col-sm-3">
+            <div id="dataGrid" >
+                <div id="grid">
+                    <phx:Grid id="grid0" anchor="#grid" pageCount="20" />
+                </div>
+                <phx:TPager id="pager" for="grid0" caption="Albums de ma musique"  onclick="getData" pageCount="20" />
+            </div>
+        </div><!--/left-->
+
+        <!--center-->
+        <div class="col-sm-6">
+            <div class="row">
+                <div id="vikipedia" class="col-xs-12">
+                </div>
+            </div>
+            <hr>
+            <hr>
+        </div><!--/center-->
+
+        <!--right-->
+        <div class="col-sm-3">
+            <h2>Side</h2>
+
+            <div id="token" class="panel panel-default">
+
+            </div>
+            <hr>
+
+        </div><!--/right-->
+        <hr>        
 </div>

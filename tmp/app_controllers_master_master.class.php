@@ -1,4 +1,12 @@
-    <!-- Navigation -->
+<?php
+namespace Phox\Controllers;
+
+use Phoenix\Web\UI\TControl;
+
+class Master extends TControl
+{
+    
+       	public function createObjects() {	}	public function declareObjects() {	}	public function displayHtml() {?>    <!-- Navigation -->
  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
         <a class="navbar-brand" rel="home" href="#">Brand</a>
@@ -89,3 +97,4 @@
     </div>
     <!-- /.container -->
 
+<?php	}}

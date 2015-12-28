@@ -26,6 +26,5 @@ class Index extends TWebApplication {
     }
 }
 */
-session_start();
 Phoenix\Web\TWebApplication::create();
 
