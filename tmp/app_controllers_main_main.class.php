@@ -23,7 +23,7 @@ class Main extends \Phoenix\Web\UI\TControl {
        	public function createObjects() {	}	public function declareObjects() {	}	public function displayHtml() {?><!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>Project Phoenix</title>
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0" -->
@@ -49,12 +49,7 @@ class Main extends \Phoenix\Web\UI\TControl {
       <script src="js/html5shiv.js"></script>
     <![endif]-->
 
-  <style type="text/css" id="holderjs-style">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style></head>
-
-  <body data-twttr-rendered="true" data-spy="scroll" >
-  <div id="mainContent">
-
-  </div>
+    <style type="text/css" id="holderjs-style">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -69,13 +64,15 @@ class Main extends \Phoenix\Web\UI\TControl {
     <script type="text/javascript" src="js/application.js"></script>
     <!--script type="text/javascript" src="js/spin.min.js"></script-->
     <script type="text/javascript" src="js/php.default.min.js"></script>
-    <script type="text/javascript" src="js/jphoenix.js"></script>
+    <!--script type="text/javascript" src="js/jphoenix.js"></script-->
     <script type="text/javascript" src="js/code_phoenix.js"></script>
     <script type="text/javascript" src="js/configuration.js"></script>
     <script type="text/javascript" src="app/controllers/main/main.js"></script>
     <script type="text/javascript" src="http://www.ladmin.loc/js/ladmin.js"></script>
 
+</head>
 
+<body data-twttr-rendered="true" data-spy="scroll" >
 </body>
 </html>
 <?php	}}

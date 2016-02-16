@@ -36,7 +36,7 @@ use Phoenix\Crypto\TCrypto;
 <table>
     <tr>
         <td>
-            <a id="tokenLink" href="javascript:void(0)" >
+            <a id="tokenLink" href="#" >
     <?php echo $this->token; ?>
             </a>
         </td>

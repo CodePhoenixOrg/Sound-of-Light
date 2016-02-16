@@ -1,8 +1,4 @@
-var home = (new TController()).actions({
-    oninit : function() {
-
-    }
-    , onload : function() {
+var home = (new TController()).onload(function() {
         var origin = TRegistry.item('home').origin + '/';
         
         $.jPhoenix.getCSS(origin + "css/accordion.css");
@@ -10,17 +6,20 @@ var home = (new TController()).actions({
         .done(function( script, textStatus ) {
             $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
             home.showToken();
-            $("#tokenLink").on("click", function() {
-                alert("Hello !");
-                home.showToken();
-            });
         })
         .fail(function( jqxhr, settings, exception ) {
             console.log(exception);
         });
     }
-    , showToken : function() {
-        this.getPartialView('token.html', 'showToken', '#token');
+).actions({
+    showToken : function() {
+
+        this.getPartialView('token.html', 'showToken', '#token', null, function(data) {
+            $("#tokenLink").on("click", function() {
+                home.showToken();
+            });
+            
+        });
         return false;
     }
     , showArtist : function(id) {
@@ -33,15 +32,18 @@ var home = (new TController()).actions({
         $("#vikipedia").html("Title #" + id);
     }
     , getData : function(count, index, anchor) {
-        $.jPhoenix.getJSON('grid.html'
+        var origin = TRegistry.item('home').origin + '/';
+        this.getJSON(origin + 'grid.html'
             , {
                 'action': "getData"
                 , 'pagecount': count
                 , 'pagenum': index
             }
             , function (data) {
-                $.jPhoenix.bindTable('#grid', data.grid.values, data.grid.templates);
+                $.jPhoenix.bindAccordion('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
                 $(anchor).html(index);
+                $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
+                
             }
         );
 
@@ -49,16 +51,3 @@ var home = (new TController()).actions({
     }
 
 });
-
-//home.showToken();
-//$(document).ready(function () {
-//    $.jPhoenix.getCSS("/css/accordion.css");
-//    $.getScript("/js/accordion.js")
-//    .done(function( script, textStatus ) {
-//        $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-//    })
-//    .fail(function( jqxhr, settings, exception ) {
-//        console.log(exception);
-//    });
-//    showToken();
-//});
