@@ -1,4 +1,5 @@
-var home = (new TController()).onload(function() {
+var home = TController.create()
+.onload(function() {
         var origin = TRegistry.item('home').origin + '/';
         
         $.jPhoenix.getCSS(origin + "css/accordion.css");
@@ -40,7 +41,7 @@ var home = (new TController()).onload(function() {
                 , 'pagenum': index
             }
             , function (data) {
-                $.jPhoenix.bindAccordion('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
+                TAccordion.create().bind('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
                 $(anchor).html(index);
                 $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
                 
