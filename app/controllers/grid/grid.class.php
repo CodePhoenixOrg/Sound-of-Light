@@ -1,5 +1,5 @@
 <?php
-namespace Detroit\Controllers;
+namespace Phox\Controllers;
 
 class Grid extends \Phoenix\MVC\TPartialController {
 

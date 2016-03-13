@@ -1,6 +1,6 @@
 <?php
 
-namespace Detroit\Controllers;
+namespace Phox\Controllers;
 
 /**
  * Description of xmlTest

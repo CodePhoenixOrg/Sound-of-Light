@@ -13,7 +13,7 @@ use Phoenix\Data\Client\PDO\TPdoCommand;
 
 require_once APP_DATA . 'connection.php';
 
-use Detroit\Data\Connection;
+use Phox\Data\Connection;
 
 /**
  * Description of user

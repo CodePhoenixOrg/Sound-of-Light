@@ -6,5 +6,5 @@
  * and open the template in the editor.
  */
 
-//header('Location: http://detroit.loc');
-header('Location: http://www.detroit.loc:8080');
+//header('Location: http://Phox.loc');
+header('Location: http://www.Phox.loc:8080');

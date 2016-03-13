@@ -1,6 +1,6 @@
 <?php
 
-namespace Detroit\Models;
+namespace Phox\Models;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,7 +17,7 @@ use Phoenix\MVC\TModel;
 use Phoenix\Auth\TAuthentication;
 use Phoenix\Data\Client\PDO\TPdoCommand;
 
-use Detroit\Data\Connection;
+use Phox\Data\Connection;
 /**
  * Description of login
  *

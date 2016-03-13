@@ -1,9 +1,9 @@
 var home = TController.create()
 .onload(function() {
-        var origin = TRegistry.item('home').origin + '/';
+        var origin = TRegistry.item('home').origin;
         
-        $.jPhoenix.getCSS(origin + "css/accordion.css");
-        $.getScript(origin + "js/accordion.js")
+        TWebObject.getCSS((origin !== undefined) ? origin + '/' + "css/accordion.css" : "css/accordion.css");
+        $.getScript((origin !== undefined) ? origin + '/' + "js/accordion.js" : "js/accordion.js")
         .done(function( script, textStatus ) {
             $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
             home.showToken();

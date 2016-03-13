@@ -1,6 +1,6 @@
 <?php
 
-namespace Detroit\Data;
+namespace Phox\Data;
 
 //require_once 'phoenix/data/client/pdo/pdo_connection.php';
 

@@ -33,11 +33,11 @@ var TRegistry = (function() {
 
     }
 
-    F.prototype.read = function(item, key, ifNull) {
+    F.prototype.read = function(item, key, defaultValue) {
         var result = null;
 
         if (this.registry[item] !== undefined) {
-            result = (this.registry[item][key] !== undefined) ? this.registry[item][key] : ((ifNull !== undefined) ? ifNull : null);
+            result = (this.registry[item][key] !== undefined) ? this.registry[item][key] : ((defaultValue !== undefined) ? defaultValue : null);
         }
 
         return result;
@@ -98,38 +98,35 @@ TWebObject.prototype.getOrigin = function() {
 
 TWebObject.parseUrl = function (url) {
 
+    console.log('url : ' + url);
     var result = {};
 
-    var protocolLess = url.replace('http://', '');
-    var hasProtocol = protocolLess.length < url.length;
-    var protocol = '';
-//                var isSecure = false;
-    if(!hasProtocol) {
-        protocolLess = url.replace('https://', '');
-        hasProtocol = protocolLess.length < url.length;
-        if(hasProtocol) {
-            isSecure = true;
-            protocol = 'https://';
-        }
-    } else {
-        protocol = 'http://';
+    var protocol = (url.search('http://') > -1) ? 'http' :
+        (url.search('https://') > -1) ? 'https' :
+        (url.search('ssh://') > -1) ? 'ssh' :
+        (url.search('smb://') > -1) ? 'smb' :
+        (url.search('ftp://') > -1) ? 'ftp' :
+        (url.search('sftp://') > -1) ? 'sftp' :
+        (url.search('ftps://') > -1) ? 'ftps' : null;
+
+    var page = window.location.pathname;
+    
+    if(protocol === null) {
+        result.protocol = window.location.protocol;
+        result.domain = window.location.hostname;
+        result.port = window.location.port;
+        //url = window.location.href.substring(0, window.location.href.search('/'));
+        page = url;
     }
 
-    result.protocol = protocol;
-    url = url.replace(protocol, '');
-
-    var domainLimit = url.indexOf('/');
-    var domain = url;
     var queryString = '';
-    if(domainLimit > -1) {
-        domain = url.substring(0, domainLimit);
+    if(page.search('/') > -1) {
+        queryString = page.substring(page.search('/'));
         url = url.replace(domain, '');
-    } else {
-        domain = '';
     }
-
-    result.domain = domain;
-    result.page = url.replace('.html', '');
+    
+    result.page = page; //url.replace('.html', '');
+    result.queryString = queryString;
 
     console.log(result);
     this.url = result;
@@ -212,6 +209,252 @@ TWebObject.prototype.getJSONP = function(url, postData, callBack) {
     });
 };
 
+
+/*
+* jQuery getCSS Plugin
+* Copyright 2013, intesso
+* MIT license.
+*
+* cross browser function to dynamically load an external css file.
+* see: [github page](http://intesso.github.com/jquery-getCSS/)
+*
+*/
+
+/*
+arguments: attributes
+attributes can be a string: then it goes directly inside the href attribute.
+e.g.: $.getCSS("fresh.css")
+
+attributes can also be an objcet.
+e.g.: $.getCSS({href:"cool.css", media:"print"})
+or: $.getCSS({href:"/styles/forest.css", media:"screen"})
+*/
+TWebObject.getCSS = function(attributes) {
+    // setting default attributes
+    if(typeof attributes === "string") {
+        var href = attributes;
+        attributes = {
+            href: href
+        };
+    }
+    if(!attributes.rel) {
+        attributes.rel = "stylesheet"
+    }
+    // appending the stylesheet
+    // no jQuery stuff here, just plain dom manipulations
+    var styleSheet = document.createElement("link");
+    for(var key in attributes) {
+        styleSheet.setAttribute(key, attributes[key]);
+    }
+    var head = document.getElementsByTagName("head")[0];
+        head.appendChild(styleSheet);
+};
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+var TAlgo = function() {
+    TWebObject.call(this);
+    
+};
+
+TAlgo.prototype = new TWebObject();
+TAlgo.prototype.constructor = TAlgo;
+
+TAlgo.create = function() {
+    return new TAlgo();
+}
+
+TAlgo.prototype.applyTemplate = function(templates, colNum, row, i) {
+    var html = row[i];
+    var template = templates[i];
+
+    if(template.content !== null && template.enabled) {
+        html = template.content;
+        var event = template.event;
+        var e = event.split('#');
+        if(e[0] === 'href') {
+            event = 'javascript:' + e[1];
+        } else {
+            event = e[0] + '="' + e[1] + '"'; 
+        }
+        for (var m = 0; m < colNum; m++) {
+            html = html.replace('<% ' + templates[m].name + ' %>', row[m]);
+            event = event.replace(templates[m].name, row[m]);
+            html = html.replace('<% &' + templates[m].name + ' %>', event);
+        }   
+    }
+
+    return html;
+}
+
+TAlgo.prototype.dataBind = function(tableId, values, templates) {
+    var colNum = templates.length;
+    var rowNum = values.length;
+    for(var j=0; j < rowNum; j++) {
+        var row = JSON.parse(values[j]);
+        for (var i=0; i < colNum; i++) {
+            var template = templates[i];
+            var html = row[i];
+
+            if(template.content !== null && template.enabled) {
+                html = template.content;
+                var event = template.event;
+                var e = event.split('#');
+                if(e[0] === 'href') {
+                    event = 'javascript:' + e[1];
+                } else {
+                    event = e[0] + '="' + e[1] + '"'; 
+                }
+                for (var m = 0; m < colNum; m++) {
+                    html = html.replace('<% ' + templates[m].name + ' %>', row[m]);
+                    event = event.replace(templates[m].name, row[m]);
+                    html = html.replace('<% &' + templates[m].name + ' %>', event);
+                }    
+            }
+            if(template.enabled) {
+                $(tableId + 'td' + (i + colNum * j).toString()).html(html);
+            }
+        }
+    }
+}/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+var TAccordion = function() {
+    TAlgo.call(this);
+    
+    
+};
+
+TAccordion.prototype = new TAlgo();
+TAccordion.prototype.constructor = TAccordion;
+
+TAccordion.create = function() {
+    return new TAccordion();
+}
+
+
+TAccordion.prototype.bind = function(accordionId, names, values, templates, elements) {
+    var templateNum = templates.length;
+    var colNum = names.length;
+    var rowNum = values.length;
+
+    var result = '';
+    var html = '';
+    var level = 0;
+    var row = 0;
+    var index = 0;
+    var canBind = 0;
+    var bound = [false, false, false];
+
+    num = 0;
+    var oldValues = Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '!#');
+
+    for(var k = 0; k < templateNum; k++) {
+        for(j = 0; j < colNum; j++) {
+            if(templates[k].name === names[j]) {
+                templates[k].index = j;
+            }
+        }
+    }
+
+    for(var i = 0; i < rowNum; i++) {
+
+        row = (values[i] !== null) ? JSON.parse(values[i]) : Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '&nbsp;');
+        for(var j = 0; j < templateNum; j++) {
+             if(j === 0) {
+                level = 0;
+            }
+            if(!templates[j].enabled) continue;
+            index = templates[j].index;
+            canBind = row[index] !== oldValues[j];
+
+            if(!canBind) {
+                bound[level] = canBind;
+                level++;
+                oldValues[j] = row[index];
+                continue;
+            }
+            //html = this.applyTemplate(templates[j], columns, row, names, j);
+            //html = this.applyTemplate(templates[j], colNum, row, i);
+            html = row[index];
+
+            if(level === 0) {
+                if(i > 0) {
+                    result += elements[2].closing + elements[0].closing;
+                    result += elements[2].closing + elements[0].closing;
+                    oldValues = Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '!#');
+                }
+                result += str_replace('%s', 'blue', elements[0].opening);
+                result += elements[1].opening + html + elements[1].closing;
+                result += elements[2].opening;
+            }
+            else if(level === 1) {
+                if(i > 0 && !bound[level - 1]) {
+                    result += elements[2].closing + elements[0].closing;
+                } else {
+
+                }
+                result += str_replace('%s', 'odd', elements[0].opening);
+                result += elements[1].opening + html + elements[1].closing;
+                result += elements[2].opening;
+            }
+            else if(level === 2) {
+                result += str_replace('%s', '', elements[2].opening) + html + elements[2].closing;
+            }                
+            bound[level] = canBind;
+            level++;
+            oldValues[j] = row[index];
+        }
+    }
+    result += elements[2].closing;
+    result += elements[0].closing;
+    result += elements[2].closing;
+    result += elements[0].closing;
+
+    $(accordionId).html("&nbsp;");
+    $(accordionId).html(result);
+}
+    
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+var TTable = function() {
+    TAlgo.call(this);
+};
+
+TTable.prototype = new TAlgo();
+TTable.prototype.constructor = TTable;
+
+TTable.create = function() {
+    return new TTable();
+}
+    
+TTable.prototype.bind = function(tableId, values, templates) {
+    var colNum = templates.length;
+    var rowNum = values.length;
+    for(var j=0; j < rowNum; j++) {
+        var row = JSON.parse(values[j]);
+        for (var i=0; i < colNum; i++) {
+            var template = templates[i];
+            var html = $.jPhoenix.applyTemplate(templates, colNum, row, i);
+            if(template.enabled) {
+                $(tableId + 'td' + (i + colNum * j).toString()).html(html);
+            }
+        }
+    }
+}
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -228,6 +471,10 @@ var TController = function() {
 
 TController.prototype = new TWebObject();
 TController.prototype.constructor = TController;
+
+TController.create = function() {
+    return new TController();
+}
 
 TController.prototype.oninit = function (callback) {
 
@@ -390,6 +637,27 @@ TController.prototype.attachView = function (pageName, anchor) {
         }
     });           
 };
+
+
+    
+TController.prototype.attachIframe = function(id, src, anchor) {
+//    var iframe = document.createElement('iframe');
+//    iframe.frameBorder = 0;
+//    iframe.width = "100%";
+//    iframe.height = "100%";
+//    iframe.id = id;
+//    iframe.setAttribute("src", src);
+//    document.getElementById(anchor).appendChild(iframe);
+
+    $(anchor).html('');
+    $('<iframe>', {
+        src: src,
+        id:  id,
+        frameborder: 0,
+        scrolling: 'no'
+    }).appendTo(anchor);
+
+}
 var spinnerOptions = {
   lines: 13, // The number of lines to draw
   length: 13, // The length of each line
@@ -436,118 +704,6 @@ if(!Object.create) {
     {
     };
 
-    $.jPhoenix.setToken = function(value) {
-        token = value;
-    }
-    
-    $.jPhoenix.getToken = function() {
-        return token;
-    }
-
-    $.jPhoenix.getJSON = function(
-        url, // Url du webService
-        postData, // Tableau JSON des données à poster au webserice
-        callBack // fonction qui gère le retour du webservice
-    ) {
-        //$("body").toggleClass('onLoad');
-//        spinner.spin();
-        var myToken = $.jPhoenix.getToken();
-        postData.token = myToken;
-
-        $.ajax({
-            type: 'POST',
-            url: url,
-            data: postData,
-            dataType: 'json',
-            async: true
-        }).done(function(data, textStatus, xhr) {
-            try 
-            {
-                $.jPhoenix.setToken(data.token);
-                if($.isFunction(callBack)) {
-                    callBack.call(this, data, textStatus, xhr);
-                }
-                //$("body").removeClass('onLoad');
-//                    spinner.stop();
-            }
-            catch(e)
-            {
-                debugLog(e);
-            }
-        }).fail(function(xhr, options, message) {
-            debugLog("Satus : " + xhr.status + "\r\n" +
-                    "Options : " + options + "\r\n" +
-                    "Message : " + message);
-        });
-    };
-
-    $.jPhoenix.getJSONP = function(url, postData, callBack) {
-        var myToken = $.jPhoenix.getToken();
-        postData.token = myToken;
-
-        $.ajax({
-            type: 'POST',
-            url: url + "&callback=?", // retour en JSONP
-            data: postData,
-            dataType: 'json',
-            async: true
-        }).done(function(data, textStatus, xhr) {
-            try {
-                data.status = textStatus;
-                data.headers = xhr.getAllResponseHeaders();
-                $.jPhoenix.setToken(data.token);
-                if($.isFunction(callBack)) {
-                    callBack.call(this, data, textStatus, xhr);
-                }
-            }
-            catch(e) {
-                debugLog(e);
-            }
-        }).fail(function(xhr, options, message) {
-            debugLog("Satus : " + xhr.status + "\r\n" +
-                "Options : " + options + "\r\n" +
-                "Message : " + message);
-        });
-    };
-    
-    $.jPhoenix.getView = function (pageName) {
-        
-        var myToken = $.jPhoenix.getToken();
-
-        $.ajax({
-            type: 'POST',
-            url: pageName,
-            data: {"action" : 'getViewHtml', "token" : myToken},
-            dataType: 'json',
-            async: true,
-            headers: {
-                "Accept" : "application/json, text/javascript, request/view, */*; q=0.01"
-//            ,   "X-Token:" : myToken
-            }
-        }).done(function(data, textStatus, xhr) {
-            try {
-                $.jPhoenix.setToken(data.token);
-
-                var l = data.scripts.length;
-                for(i = 0; i < l; i++) {
-                    $.getScript(data.scripts[i]);
-                }
-
-                var url = TWebObject.parseUrl(pageName);
-                TRegistry.item(url.page).origin = xhr.getResponseHeader('origin');
-
-                var html = base64_decode(data.view);
-                $("#mainContent").html(html);
-            }
-            catch(e) {
-                debugLog(e);
-            }
-        }).fail(function(xhr, options, message) {
-            debugLog("Satus : " + xhr.status + "\r\n" +
-                "Options : " + options + "\r\n" +
-                "Message : " + message);
-        });
-    };
     
     $.jPhoenix.getViewEx = function (pageName, action, attach, postData, callBack) {
         
@@ -593,98 +749,6 @@ if(!Object.create) {
         });
     };
     
-    $.jPhoenix.getPartialView = function (pageName, action, attach, postData, callBack) {
-        var myToken = $.jPhoenix.getToken();
-        
-        if(postData === undefined) {
-            postData = {};
-        }
-        
-        postData.action = action;
-        postData.token = myToken;
-
-        $.ajax({
-            type: 'POST',
-            url: pageName,
-            data: postData,
-            dataType: 'json',
-            async: true,
-            headers: {
-                "Accept" : "application/json, text/javascript, request/partialview, */*; q=0.01"
-//            ,   "X-Token:" : myToken
-            }
-        }).done(function(data, textStatus, xhr) {
-            try 
-            {
-                var l = data.scripts.length;
-                for(i = 0; i < l; i++) {
-                    $.getScript(data.scripts[i]);
-                }
-
-                $.jPhoenix.setToken(data.token);
-                if($.isFunction(callBack)) {
-                    callBack.call(this, data);
-                }
-                
-                var url = new TWebObject.parseUrl(pageName);
-                TRegistry.item(url.page).origin = xhr.getResponseHeader('origin');
-             
-                var html = base64_decode(data.view);
-                $(attach).html(html);
-            }
-            catch(e)
-            {
-                debugLog(e);
-            }
-        }).fail(function(xhr, options, message) {
-            debugLog("Satus : " + xhr.status + "\r\n" +
-                    "Options : " + options + "\r\n" +
-                    "Message : " + message);
-        });
-    };
-
-    $.jPhoenix.attachWindow = function (pageName, anchor) {
-        var myToken = $.jPhoenix.getToken();
-        $.jPhoenix.getJSON('' + pageName, {"action" : 'getViewHtml', "token" : myToken}, function(data, status, xhr) {
-            try {
-                $.jPhoenix.setToken(data.token);
-
-                var url = TWebObject.parseUrl(pageName);
-                TRegistry.item(url.page).origin = xhr.getResponseHeader('origin');
- 
-                var html = base64_decode(data.view);
-                $(anchor).html(html);
-                
-//                TRegistry.write(page, 'origin', xhr.getResponseHeader('origin'));
-//                window[page] = {};
-//                window[page].origin = xhr.getResponseHeader('origin');
-
-            }
-            catch(e) {
-                debugLog(e);
-            }
-        });           
-    };
-
-    $.jPhoenix.attachView = function (pageName, anchor) {
-        var myToken = $.jPhoenix.getToken();
-        $.jPhoenix.getJSON('' + pageName, {"action" : 'getViewHtml', "token" : myToken}, function(data) {
-            try {
-                $.jPhoenix.setToken(data.token);
-
-                var l = data.scripts.length;
-                for(i = 0; i < l; i++) {
-                    $.getScript(data.scripts[i]);
-                }
-                
-                var html = base64_decode(data.view);
-                $(anchor).html(html);                
-            }
-            catch(e) {
-                debugLog(e);
-            }
-        });           
-    };
 
     $.jPhoenix.attachViewP = function (pageName, anchor) {
         var myToken = $.jPhoenix.getToken();
@@ -705,25 +769,6 @@ if(!Object.create) {
             }
         });           
     };
-    
-    $.jPhoenix.attachIframe = function(id, src, anchor) {
-//        var iframe = document.createElement('iframe');
-//        iframe.frameBorder = 0;
-//        iframe.width = "100%";
-//        iframe.height = "100%";
-//        iframe.id = id;
-//        iframe.setAttribute("src", src);
-//        document.getElementById(anchor).appendChild(iframe);
-        
-        $(anchor).html('');
-        $('<iframe>', {
-            src: src,
-            id:  id,
-            frameborder: 0,
-            scrolling: 'no'
-            }).appendTo(anchor);
-
-    }
 
     $.jPhoenix.html64 = function(container, html) {
         $(container).html(base64_decode(html));
@@ -759,45 +804,6 @@ if(!Object.create) {
     }
 
 
-    /*
-    * jQuery getCSS Plugin
-    * Copyright 2013, intesso
-    * MIT license.
-    *
-    * cross browser function to dynamically load an external css file.
-    * see: [github page](http://intesso.github.com/jquery-getCSS/)
-    *
-    */
-
-    /*
-    arguments: attributes
-    attributes can be a string: then it goes directly inside the href attribute.
-    e.g.: $.getCSS("fresh.css")
-
-    attributes can also be an objcet.
-    e.g.: $.getCSS({href:"cool.css", media:"print"})
-    or: $.getCSS({href:"/styles/forest.css", media:"screen"})
-    */
-    $.jPhoenix.getCSS = function(attributes) {
-        // setting default attributes
-        if(typeof attributes === "string") {
-            var href = attributes;
-            attributes = {
-                href: href
-            };
-        }
-        if(!attributes.rel) {
-            attributes.rel = "stylesheet"
-        }
-        // appending the stylesheet
-        // no jQuery stuff here, just plain dom manipulations
-        var styleSheet = document.createElement("link");
-        for(var key in attributes) {
-            styleSheet.setAttribute(key, attributes[key]);
-        }
-        var head = document.getElementsByTagName("head")[0];
-            head.appendChild(styleSheet);
-    };
 
     $.jPhoenix.bindTriStateCheck = function(parentElement) {
         if($(parentElement).length === 0) return;
@@ -1001,156 +1007,6 @@ if(!Object.create) {
         return result;
     }
     
-    $.jPhoenix.dataBind = function(tableId, values, templates) {
-        var colNum = templates.length;
-        var rowNum = values.length;
-        for(var j=0; j < rowNum; j++) {
-            var row = JSON.parse(values[j]);
-            for (var i=0; i < colNum; i++) {
-                var template = templates[i];
-                var html = row[i];
-
-                if(template.content !== null && template.enabled) {
-                    html = template.content;
-                    var event = template.event;
-                    var e = event.split('#');
-                    if(e[0] === 'href') {
-                        event = 'javascript:' + e[1];
-                    } else {
-                        event = e[0] + '="' + e[1] + '"'; 
-                    }
-                    for (var m = 0; m < colNum; m++) {
-                        html = html.replace('<% ' + templates[m].name + ' %>', row[m]);
-                        event = event.replace(templates[m].name, row[m]);
-                        html = html.replace('<% &' + templates[m].name + ' %>', event);
-                    }    
-                }
-                if(template.enabled) {
-                    $(tableId + 'td' + (i + colNum * j).toString()).html(html);
-                }
-            }
-        }
-    }
-    
-    $.jPhoenix.bindTable = function(tableId, values, templates) {
-        var colNum = templates.length;
-        var rowNum = values.length;
-        for(var j=0; j < rowNum; j++) {
-            var row = JSON.parse(values[j]);
-            for (var i=0; i < colNum; i++) {
-                var template = templates[i];
-                var html = $.jPhoenix.applyTemplate(templates, colNum, row, i);
-                if(template.enabled) {
-                    $(tableId + 'td' + (i + colNum * j).toString()).html(html);
-                }
-            }
-        }
-    }
-  
-    $.jPhoenix.bindAccordion = function(accordionId, names, values, templates, elements) {
-        var templateNum = templates.length;
-        var colNum = names.length;
-        var rowNum = values.length;
-        
-        var result = '';
-        var html = '';
-        var level = 0;
-        var row = 0;
-        var index = 0;
-        var canBind = 0;
-        var bound = [false, false, false];
-
-        num = 0;
-        var oldValues = Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '!#');
-        
-        for(var k = 0; k < templateNum; k++) {
-            for(j = 0; j < colNum; j++) {
-                if(templates[k].name === names[j]) {
-                    templates[k].index = j;
-                }
-            }
-        }
-                        
-        for(var i = 0; i < rowNum; i++) {
-            
-            row = (values[i] !== null) ? JSON.parse(values[i]) : Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '&nbsp;');
-            for(var j = 0; j < templateNum; j++) {
-                 if(j === 0) {
-                    level = 0;
-                }
-                if(!templates[j].enabled) continue;
-                index = templates[j].index;
-                canBind = row[index] !== oldValues[j];
-
-                if(!canBind) {
-                    bound[level] = canBind;
-                    level++;
-                    oldValues[j] = row[index];
-                    continue;
-                }
-                //html = _applyTemplate(templates[j], columns, row, names, j);
-                //html = $.jPhoenix.applyTemplate(templates[j], colNum, row, i);
-                html = row[index];
-                
-                if(level === 0) {
-                    if(i > 0) {
-                        result += elements[2].closing + elements[0].closing;
-                        result += elements[2].closing + elements[0].closing;
-                        oldValues = Array.apply(null, Array(colNum)).map(String.prototype.valueOf, '!#');
-                    }
-                    result += str_replace('%s', 'blue', elements[0].opening);
-                    result += elements[1].opening + html + elements[1].closing;
-                    result += elements[2].opening;
-                }
-                else if(level === 1) {
-                    if(i > 0 && !bound[level - 1]) {
-                        result += elements[2].closing + elements[0].closing;
-                    } else {
-                        
-                    }
-                    result += str_replace('%s', 'odd', elements[0].opening);
-                    result += elements[1].opening + html + elements[1].closing;
-                    result += elements[2].opening;
-                }
-                else if(level === 2) {
-                    result += str_replace('%s', '', elements[2].opening) + html + elements[2].closing;
-                }                
-                bound[level] = canBind;
-                level++;
-                oldValues[j] = row[index];
-            }
-        }
-        result += elements[2].closing;
-        result += elements[0].closing;
-        result += elements[2].closing;
-        result += elements[0].closing;
-
-        $(accordionId).html("&nbsp;");
-        $(accordionId).html(result);
-    }
-    
-    $.jPhoenix.applyTemplate = function(templates, colNum, row, i) {
-        var html = row[i];
-        var template = templates[i];
-
-        if(template.content !== null && template.enabled) {
-            html = template.content;
-            var event = template.event;
-            var e = event.split('#');
-            if(e[0] === 'href') {
-                event = 'javascript:' + e[1];
-            } else {
-                event = e[0] + '="' + e[1] + '"'; 
-            }
-            for (var m = 0; m < colNum; m++) {
-                html = html.replace('<% ' + templates[m].name + ' %>', row[m]);
-                event = event.replace(templates[m].name, row[m]);
-                html = html.replace('<% &' + templates[m].name + ' %>', event);
-            }   
-        }
-        
-        return html;
-    }
 
 })(jQuery);
 

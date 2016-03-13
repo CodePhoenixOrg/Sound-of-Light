@@ -1,5 +1,5 @@
 <?php
-namespace Detroit\Controllers;
+namespace Phox\Controllers;
 
 //require_once 'phoenix/mvc/controller.php';
 //require_once 'phoenix/core/log.php';

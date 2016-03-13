@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Detroit\Models;
+namespace Phox\Models;
 //require_once 'phoenix/mvc/model.php';
 //require_once 'phoenix/auth/authentication.php';
 require_once APP_DATA . 'amarok_connection.php';
@@ -12,7 +12,7 @@ class Grid extends \Phoenix\MVC\TModel
 
     public function init()
     {
-        $this->connector = new \Detroit\Data\AmarokConnection();
+        $this->connector = new \Phox\Data\AmarokConnection();
         $this->connector->open();
         
         \Phoenix\Log\TLog::dump('OPEN AmarokConnection', $this->connector);

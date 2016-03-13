@@ -1,6 +1,6 @@
 <?php
 
-namespace Detroit\Models;
+namespace Phox\Models;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +19,7 @@ require_once APP_DATA . 'phoenix_connection.php';
 class Login extends \Phoenix\MVC\TModel {
     
     public function init() {
-        $this->connector = new \Detroit\Data\PhoenixConnection();
+        $this->connector = new \Phox\Data\PhoenixConnection();
         $this->connector->open();
         \Phoenix\Log\TLog::dump('OPEN PhoenixConnection', $this->connector);        
     }
