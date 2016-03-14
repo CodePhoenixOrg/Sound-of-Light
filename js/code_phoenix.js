@@ -101,28 +101,49 @@ TWebObject.parseUrl = function (url) {
     console.log('url : ' + url);
     var result = {};
 
-    var protocol = (url.search('http://') > -1) ? 'http' :
-        (url.search('https://') > -1) ? 'https' :
-        (url.search('ssh://') > -1) ? 'ssh' :
-        (url.search('smb://') > -1) ? 'smb' :
-        (url.search('ftp://') > -1) ? 'ftp' :
-        (url.search('sftp://') > -1) ? 'sftp' :
-        (url.search('ftps://') > -1) ? 'ftps' : null;
-
+    var protocol = (url.search('://') > -1) ? url.substring(0, url.search('://')) : null;
     var page = window.location.pathname;
+    var domain = url;
+    var port = '80';
     
     if(protocol === null) {
+        page = url;
+
         result.protocol = window.location.protocol;
         result.domain = window.location.hostname;
         result.port = window.location.port;
         //url = window.location.href.substring(0, window.location.href.search('/'));
+    } else {
+        
+        url = url.replace(protocol + '://', '');
+        var domainLimit = url.search('/');
+        
+        if(domainLimit > -1) {
+            domain = url.substring(0, domainLimit);
+            url = url.replace(domain, '');
+        }
+
+        if(domain.search(':') > -1) {
+            port = domain.substring(domain.search(':'));
+            url = url.replace(':' + port, '');
+        }
+
+        if(domain.search('localhost') > -1) {
+            domain = 'localhost';
+            url = url.replace(domain, '');
+        }
+        
         page = url;
+
+        result.protocol = protocol;
+        result.domain = domain;
+        result.port = port;
+        
     }
 
     var queryString = '';
-    if(page.search('/') > -1) {
-        queryString = page.substring(page.search('/'));
-        url = url.replace(domain, '');
+    if(page.search(/\?/) > -1) {
+        queryString = page.substring(page.search(/\?/));
     }
     
     result.page = page; //url.replace('.html', '');
@@ -519,7 +540,7 @@ TController.prototype.getView = function (pageName, callback) {
 
     $.ajax({
         type: 'POST',
-        url: (this.origin !== undefined) ? this.origin + pageName : pageName,
+        url: (this.origin !== 'undefined/' && this.origin !== undefined) ? this.origin + pageName : pageName,
         data: {"action" : 'getViewHtml', "token" : this.token},
         dataType: 'json',
         async: true,

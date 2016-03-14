@@ -1,5 +1,5 @@
 var main = TController.create()
-.setOrigin(TRegistry.item('/login').origin + '/')
+.setOrigin(TRegistry.item('/login.html').origin)
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;
