@@ -1,4 +1,5 @@
 <phx:TDataGrid id="dataGrid"  pattern="accordion" pivot="true" command="var:cmd" columns="var:cols" rowCount="var:pageCount" pageNum="var:index" >
+    <phx:TDataColumn id="cols" name="Year" enabled="true" />
     <phx:TDataColumn id="cols" name="ArtistId" enabled="false" />
     <phx:TDataColumn id="cols" name="Artist" content="@artistItem.phtml" enabled="true" event="href#showArtist(Id)" />
     <phx:TDataColumn id="cols" name="AlbumId" enabled="false" />

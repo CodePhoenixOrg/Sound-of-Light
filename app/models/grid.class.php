@@ -28,8 +28,7 @@ FROM
         INNER JOIN
     albums s ON t.album = s.id
         INNER JOIN
-    artists a ON a.id = s.artist 
-ORDER BY a.name
+    artists a ON a.id = s.artist
 SELECT;
         
         $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
@@ -49,6 +48,7 @@ SELECT;
         
         $sql = <<<SELECT
 SELECT 
+    y.name AS 'Year',
     a.id AS 'ArtistId',
     a.name AS 'Artist',
     s.id AS 'AlbumId',
@@ -60,8 +60,11 @@ FROM
         INNER JOIN
     albums s ON t.album = s.id
         INNER JOIN
+    years y ON t.year = y.id AND y.name > '0'            
+        INNER JOIN
     artists a ON a.id = s.artist $range
-ORDER BY a.name, t.year, t.id
+            
+ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 
         $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);

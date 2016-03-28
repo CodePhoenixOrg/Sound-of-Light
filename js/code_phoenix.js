@@ -134,6 +134,9 @@ TWebObject.parseUrl = function (url) {
         }
         
         page = url;
+        if(page.substring(0,1) === '/') {
+            page = page.substring(1);
+        }
 
         result.protocol = protocol;
         result.domain = domain;
@@ -169,8 +172,10 @@ TWebObject.prototype.getJSON = function(
 //        spinner.spin();
     postData.token = this.token;
     
-//    var url = TWebObject.parseUrl(url);
-//    url = (this.origin !== undefined) ? this.origin + url : url;
+    if(this.origin !== undefined) {
+        var url = TWebObject.parseUrl(url);
+        url = this.origin + '/' + url.page;
+    }
 
     $.ajax({
         type: 'POST',
@@ -254,6 +259,10 @@ TWebObject.getCSS = function(attributes) {
     // setting default attributes
     if(typeof attributes === "string") {
         var href = attributes;
+        if(this.origin !== undefined) {
+            href = this.origin + '/' + href;
+        }
+        
         attributes = {
             href: href
         };
@@ -483,18 +492,21 @@ TTable.prototype.bind = function(tableId, values, templates) {
  */
 
 
-var TController = function() {
+var TController = function(name) {
     TWebObject.call(this);
+    
+    this.setOrigin(TRegistry.item(name).origin);
     
     this.view = null;
     this.token = '';
+    this.name = name;
 };
 
 TController.prototype = new TWebObject();
 TController.prototype.constructor = TController;
 
-TController.create = function() {
-    return new TController();
+TController.create = function(name) {
+    return new TController(name);
 }
 
 TController.prototype.oninit = function (callback) {
@@ -590,7 +602,7 @@ TController.prototype.getPartialView = function (pageName, action, attach, postD
 
     $.ajax({
         type: 'POST',
-        url: (this.origin !== undefined) ? this.origin + pageName : pageName,
+        url: (this.origin !== undefined) ? this.origin + '/' + pageName : pageName,
         data: postData,
         dataType: 'json',
         async: true,
