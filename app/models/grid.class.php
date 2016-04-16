@@ -22,13 +22,13 @@ class Grid extends \Phoenix\MVC\TModel
     {
         $sql = <<<SELECT
 SELECT DISTINCT
-    a.id
-FROM
-    tracks t
-        INNER JOIN
-    albums s ON t.album = s.id
-        INNER JOIN
-    artists a ON a.id = s.artist
+         y.name as year
+    FROM
+        tracks t
+    INNER JOIN albums s ON t.album = s.id
+    INNER JOIN years y ON t.year = y.id AND y.name > '0'
+    INNER JOIN artists a ON a.id = s.artist
+    ORDER BY y.name
 SELECT;
         
         $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
@@ -43,7 +43,7 @@ SELECT;
         //$sqlConfig = new TPdoConfiguration("192.168.1.1", "wfuser", "25643152", "asphaltu");
         $range = '';
         if($artistRange != null) {
-            $range = 'AND a.id IN (' . implode(', ', $artistRange) . ')';
+            $range = 'AND y.name IN (' . implode(', ', $artistRange) . ')';
         }
         
         $sql = <<<SELECT
@@ -60,10 +60,9 @@ FROM
         INNER JOIN
     albums s ON t.album = s.id
         INNER JOIN
-    years y ON t.year = y.id AND y.name > '0'            
+    years y ON t.year = y.id 
         INNER JOIN
     artists a ON a.id = s.artist $range
-            
 ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 
@@ -110,10 +109,6 @@ SELECT;
 //        $this->cmd->getQueries()->setSelect('select * from menus');
 //
 //    }
-
-    public function preRender() {
-        //echo $this->cmd->queries->select . '<br>';
-    }
 
     public function __destruct() {
         $this->connector->close();

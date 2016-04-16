@@ -5,14 +5,14 @@ class Grid extends \Phoenix\MVC\TPartialController {
 
     protected $stmt = NULL;
     protected $cmd = NULL;
-    protected $cols = array();
-    protected $dataGrid = NULL;
+    protected $items = array();
     protected $cn = NULL;
     protected $pager = NULL;
     protected $onclick = NULL;
     protected $anchor = NULL;
     protected $pageCount = 0;
     protected $index = 1;
+    public $accordion0 = NULL;
 
     public function setPageCount($value) {
         $this->pageCount = $value;
@@ -39,12 +39,13 @@ class Grid extends \Phoenix\MVC\TPartialController {
         while($row = $stmt->fetch()) {
             array_push($range, $row[0]);
         }
+        
         $this->cmd = $this->model->getArtistAlbumTitle($range);
     }
 
     public function getData() {
         $id = $this->getViewName();
-        $this->data = \Phoenix\Data\UI\TDataGrid::getGridData($id, $this->cmd, $this->pageCount);
+        $this->data = \Phoenix\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $this->pageCount);
         $this->response->setData('grid', $this->data);
     }
     

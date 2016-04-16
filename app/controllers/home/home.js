@@ -7,6 +7,8 @@ var home = TController.create('home.html')
         .done(function( script, textStatus ) {
             $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
             home.showToken();
+            $(".draggable").draggable();
+            $(".dropper").droppable();
         })
         .fail(function( jqxhr, settings, exception ) {
             console.log(exception);

@@ -7,10 +7,7 @@
         <!--left-->
         <div class="col-sm-3">
             <div id="dataGrid" >
-                <div id="grid">
-                    <phx:Grid id="grid0" anchor="#grid" pageCount="20" />
-                </div>
-                <phx:TPager id="pager" for="grid0" caption="Albums de ma musique"  onclick="home.getData" pageCount="20" />
+                <phx:Grid id="grid0" anchor="#grid" pageCount="10" />
             </div>
         </div><!--/left-->
 
@@ -25,13 +22,16 @@
         </div><!--/center-->
 
         <!--right-->
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
             <h2>Side</h2>
 
             <div id="token" class="panel panel-default">
 
             </div>
             <hr>
+            <div class="dropper" >
+                <h1> DROP HERE </h1>
+            </div>
 
         </div><!--/right-->
         <hr>        
