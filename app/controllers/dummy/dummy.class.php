@@ -16,7 +16,7 @@ use Phoenix\MVC\TPartialController;
 class Dummy extends TPartialController {
 
 ////put your code here
-    protected $text = "Hello World!";
+    protected $text = "Player";
     
     public function load() {
         //$this->text ;
