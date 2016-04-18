@@ -1,5 +1,5 @@
-var main = TController.create('main.html')
-.setOrigin(TRegistry.item('/login.html').origin)
+var main = TController.create('phox.main')
+.setOrigin(TRegistry.item('phox.main').origin)
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;

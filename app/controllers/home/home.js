@@ -1,4 +1,4 @@
-var home = TController.create('home.html')
+var home = TController.create('phox.home')
 .onload(function() {
         var origin = this.getOrigin();
 

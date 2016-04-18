@@ -12,13 +12,19 @@ namespace Phox\Controllers;
  */
 class Main extends \Phoenix\MVC\TController {
     //put your code here
-    
-//    public function load() {
+    protected $hostname = SERVER_ROOT;
+
+    public function load() {
+        if(HTTP_HOST == 'localhost') {
+            $this->hostname = 'http://localhost:8001';
+        } else {
+            $this->hostname = 'http://www.ladmin.loc';
+        }
 //        $token = $this->request->getToken();
 //        $result = TAuthentication::getPermissionByToken($token);
 //        if(!$result) {
 //            $this->response->redirect(SERVER_ROOT);
 //        }
-//    }
+    }
        
 }
