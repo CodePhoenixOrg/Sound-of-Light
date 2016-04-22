@@ -37,24 +37,25 @@ var jsFiles = [
     , "app/controllers/main/main.js"
 ];
 
-for(var key in cssFiles) {
-    attributes = {
-          href: href
-        , rel: "stylesheet"
-    };
-    
-    var styleSheet = document.createElement("link");
-    for(var key in attributes) {
-        styleSheet.setAttribute(key, attributes[key]);
-    }
-    var head = document.getElementsByTagName("head")[0];
-    head.appendChild(styleSheet);    
-}
+//for(var key in cssFiles) {
+//    attributes = {
+//          href: cssFiles[key]
+//        , rel: "stylesheet"
+//    };
+//    
+//    var styleSheet = document.createElement("link");
+//    for(var key in attributes) {
+//        styleSheet.setAttribute(key, attributes[key]);
+//    }
+//    var head = document.getElementsByTagName("head")[0];
+//    head.appendChild(styleSheet);    
+//}
 
 for(var key in jsFiles) {
     var myInclude =  document.createElement("script");
     myInclude.src = jsFiles[key];
     myInclude.type = "text/javascript";
-    document.body.appendChild(myInclude);
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(myInclude);
 }
 
