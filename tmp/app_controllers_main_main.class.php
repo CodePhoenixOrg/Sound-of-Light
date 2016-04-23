@@ -60,12 +60,13 @@ class Main extends \Phoenix\Web\UI\TControl {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="app/phox.js"></script>
+    <script type="text/javascript" src="js/_3rdparty.js"></script>
+    <script type="text/javascript" src="js/code_phoenix.js"></script>
+    <script type="text/javascript" src="app/controllers/main/main.js"></script>
     <script type="text/javascript" src='<?php echo $this->hostname; ?>/js/ladmin.js'></script>
 
 </head>
 
 <body data-twttr-rendered="true" data-spy="scroll" >
 </body>
-</html>
-<?php	}}
+</html><?php	}}
