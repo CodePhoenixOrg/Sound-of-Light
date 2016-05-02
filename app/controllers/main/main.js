@@ -1,5 +1,4 @@
-var main = TController.create('phox.main')
-.setOrigin(TRegistry.item('phox.main').origin)
+var main = TController.create(Date.now())
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;

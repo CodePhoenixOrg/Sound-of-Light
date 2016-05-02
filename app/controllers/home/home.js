@@ -1,6 +1,7 @@
-var home = TController.create('phox.home')
+var home = TController.create(Date.now())
 .onload(function() {
         var origin = this.getOrigin();
+        TRegistry.item(this.name).token = this.getToken();
 
         TWebObject.getCSS('css/accordion.css');
         $.getScript((origin !== undefined) ? origin + '/js/accordion.js' : 'js/accordion.js')
@@ -19,11 +20,6 @@ var home = TController.create('phox.home')
                     helper: "clone",
                     cursor: "move"
                 });
-    //                ui.draggable.draggable( 'disable' );
-    //                //$(this).droppable( 'disable' );
-    //                ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-                //ui.draggable.draggable( 'option', 'revert', false );
-
             };
 
             $("#dropper").droppable({
@@ -37,8 +33,12 @@ var home = TController.create('phox.home')
     }
 ).actions({
     showToken : function() {
+        
+        console.log('home::name::' + this.name);
+        var token = TRegistry.item(this.name).token;
+        console.log('home::token::' + token);
 
-        this.getPartialView('token.html', 'showToken', '#token', null, function(data) {
+        this.getPartialView('token.html', 'showToken', '#token', {'token': token}, function(data) {
             $("#tokenLink").on("click", function() {
                 home.showToken();
             });
