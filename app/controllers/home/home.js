@@ -1,4 +1,4 @@
-var home = TController.create(Date.now())
+var home = TController.create()
 .onload(function() {
         var origin = this.getOrigin();
         TRegistry.item(this.name).token = this.getToken();
@@ -62,6 +62,7 @@ var home = TController.create(Date.now())
                 'action': "getData"
                 , 'pagecount': count
                 , 'pagenum': index
+                //, 'token'
             }
             , function (data) {
                 TAccordion.create().bind('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);

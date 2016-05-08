@@ -43,7 +43,7 @@ class Grid extends \Phoenix\MVC\TPartialController {
         $this->cmd = $this->model->getArtistAlbumTitle($range);
     }
 
-    public function getData() {
+    public function getData($pagecount, $pagenum) {
         $id = $this->getViewName();
         $this->data = \Phoenix\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $this->pageCount);
         $this->response->setData('grid', $this->data);

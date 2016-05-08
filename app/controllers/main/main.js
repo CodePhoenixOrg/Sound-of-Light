@@ -1,4 +1,4 @@
-var main = TController.create(Date.now())
+var main = TController.create()
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;
