@@ -15,7 +15,7 @@ class Main extends \Phoenix\MVC\TController {
     protected $hostname = SERVER_ROOT;
 
     public function load() {
-        if(HTTP_HOST == 'localhost') {
+        if(strstr(HTTP_HOST, 'localhost')) {
             $this->hostname = 'http://localhost:8001';
         } else {
             $this->hostname = 'http://www.ladmin.loc';
