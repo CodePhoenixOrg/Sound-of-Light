@@ -50,12 +50,18 @@ var jsFiles = [
 //    var head = document.getElementsByTagName("head")[0];
 //    head.appendChild(styleSheet);    
 //}
+//
+//for(var key in jsFiles) {
+//    var myInclude =  document.createElement("script");
+//    myInclude.src = jsFiles[key];
+//    myInclude.type = "text/javascript";
+//    var head = document.getElementsByTagName("head")[0];
+//    head.appendChild(myInclude);
+//}
 
-for(var key in jsFiles) {
-    var myInclude =  document.createElement("script");
-    myInclude.src = jsFiles[key];
-    myInclude.type = "text/javascript";
-    var head = document.getElementsByTagName("head")[0];
-    head.appendChild(myInclude);
-}
+var phox = null;
 
+domReady(function() {
+    phox = TWebApplication.create('www.phox.loc');
+    phox.main = phox.includeView('main');
+})

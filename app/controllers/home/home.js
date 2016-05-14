@@ -1,4 +1,4 @@
-var home = TController.create()
+var home = phox.createController(phox.main, 'phox.home')
 .onload(function() {
         var origin = this.getOrigin();
         TRegistry.item(this.name).token = this.getToken();

@@ -1,12 +1,13 @@
-var main = TController.create()
+//phox = TWebApplication.create('www.phox.loc');
+//phox.main = phox.createView('main');
+
+phox.createController(phox.main, 'phox.main')
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;
         the.getView('master.html', function(data) {
-            TRegistry.item('master').view = data.view;
             $(document.body).html(data.view);
             the.getView('home.html', function(data) {
-                TRegistry.item('home').view = data.view;
                 $('#homeContent').html(data.view);
             })
         });
