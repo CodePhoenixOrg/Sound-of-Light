@@ -17,7 +17,7 @@ use Phoenix\Crypto\TCrypto;
  class Token extends TPartialController {
    //put your code here
     
-    protected $label = '';
+    protected $label = 'Token';
     protected $token = '';
     
     

@@ -21,7 +21,6 @@ class Login extends \Phoenix\MVC\TModel {
     public function init() {
         $this->connector = new \Phox\Data\PhoenixConnection();
         $this->connector->open();
-        \Phoenix\Log\TLog::dump('OPEN PhoenixConnection', $this->connector);        
     }
 
     public function getPermission($login, $password) {
@@ -40,8 +39,6 @@ class Login extends \Phoenix\MVC\TModel {
                 $result = \Phoenix\Auth\TAuthentication::setUserToken($row[0], $login);
             }
         }
-        
-        \Phoenix\Log\TLog::debug('getPermission' . ' : ' . $result);
         
         return $result;
     }

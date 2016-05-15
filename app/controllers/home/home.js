@@ -34,9 +34,7 @@ var home = phox.createController(phox.main, 'phox.home')
 ).actions({
     showToken : function() {
         
-        console.log('home::name::' + this.name);
         var token = TRegistry.item(this.name).token;
-        console.log('home::token::' + token);
 
         this.getPartialView('token.html', 'showToken', '#token', {'token': token}, function(data) {
             $("#tokenLink").on("click", function() {

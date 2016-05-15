@@ -67,7 +67,7 @@ class User extends TModel {
             }
         }
         
-        TLog::debug(__METHOD__ . ':' . $result);
+        //TLog::debug(__METHOD__ . ':' . $result);
         
         return $result;
     }

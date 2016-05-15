@@ -9,8 +9,6 @@ class Home extends \Phoenix\MVC\TModel {
     {
         $this->connector = new \Phox\Data\AmarokConnection();
         $this->connector->open();
-        
-        \Phoenix\Log\TLog::dump('OPEN AmarokConnection', $this->connector);
     }
 
     public function getArtistRange()
