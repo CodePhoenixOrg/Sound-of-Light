@@ -4,8 +4,8 @@ var home = phox.createController(phox.main, 'phox.home')
         TRegistry.item(this.name).token = this.getToken();
 
         TWebObject.getCSS('css/accordion.css');
-        $.getScript((origin !== undefined) ? origin + '/js/accordion.js' : 'js/accordion.js')
-        .done(function( script, textStatus ) {
+        this.getScript('js/accordion.js', function() {
+        
             $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
             home.showToken();
             home.dragAndDrop(gridData);
@@ -26,9 +26,6 @@ var home = phox.createController(phox.main, 'phox.home')
                 accept: '#grid div'
                 , drop: handleDrop
             });
-        })
-        .fail(function( jqxhr, settings, exception ) {
-            console.log(exception);
         });
     }
 ).actions({
