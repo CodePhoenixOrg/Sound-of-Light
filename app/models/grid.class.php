@@ -52,9 +52,13 @@ SELECT
     s.id AS 'AlbumId',
     s.name AS 'Album',
     t.id AS 'TitleId',
-    t.title AS 'Title'
+    t.title AS 'Title',
+    u.rpath AS 'TrackPath'
+    
 FROM
     tracks t
+        INNER JOIN
+    urls u ON t.url = u.id
         INNER JOIN
     albums s ON t.album = s.id
         INNER JOIN

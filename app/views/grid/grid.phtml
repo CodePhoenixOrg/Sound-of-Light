@@ -7,6 +7,7 @@
         <phx:TPluginChild id="items" name="Album" content="@albumItem.phtml" enabled="true" event="href#home.showAlbum(Artist)" />
         <phx:TPluginChild id="items" name="TitleId" enabled="false" />
         <phx:TPluginChild id="items" name="Title" content="@titleItem.phtml" dragHelper="@titleDragged.phtml" enabled="true" event="href#home.showTitle(TitleId)" />
+        <phx:TPluginChild id="items" name="TrackPath" enabled="false" />
     </phx:TPlugin>
 </div>
 <phx:TPager id="pager" for="accordion0" caption="Albums de ma musique"  onclick="home.getData"  />

@@ -92,6 +92,13 @@ var home = phox.createController(phox.main, 'phox.home')
               return dragTemplate;
            }               
 
+
+           $(this).on('click', function() {
+              var path = $(this).data('trackpath');
+              path = path.replace('./Users/David/Music', 'media/music');
+              $('#player').html(path);
+              $('#audio').attr('src', path);
+           });
            $(this).draggable({
                 cursor: 'move'
                 , containment: 'document'
