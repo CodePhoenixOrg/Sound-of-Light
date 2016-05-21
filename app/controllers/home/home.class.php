@@ -36,6 +36,7 @@ namespace Phox\Controllers;
             $this->response->setData('view', $view);
             $this->response->setReturn(200);
         } catch (\Exception $ex) {
+            $this->response->setData('view', print_r($ex, true));
             $this->response->setReturn(202);
         }
             
@@ -44,4 +45,3 @@ namespace Phox\Controllers;
 
 
 }
-

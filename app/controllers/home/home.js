@@ -45,11 +45,18 @@ var home = phox.createController(phox.main, 'phox.home')
         $('#wikipedia').attr('src', 'https://en.wikipedia.org/wiki/' + name);
     }
     , showAlbum : function(name) {
-        //$('#wikipedia').attr('src', 'https://en.wikipedia.org/wiki/' + name);
-        this.getJSON('home.html', {'action': 'wikiArtist', 'artist': name}, function(data) {
-            TUtils.html64('#wikipedia', data.view);
-        });
-    }
+        try {
+            this.getJSON('home.html', {'action': 'wikiArtist', 'artist': name}, function(data) {
+                if(data.return == 200) {
+                    TUtils.html64('#wikipedia', data.view);
+                } else {
+            	        debugLog(base64_decode(data.view));
+                }
+            });
+        } catch (e) {
+            debugLog(e);
+        }
+     }
     , showTitle : function(id) {
         $("#vikipedia").html("Title #" + id);
     }
@@ -95,4 +102,3 @@ var home = phox.createController(phox.main, 'phox.home')
         
     }
 });
-
