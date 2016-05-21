@@ -60,9 +60,9 @@ var jsFiles = [
 //}
 
 var phox = null;
-var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.phox.loc';
 
 domReady(function() {
+    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.phox.loc';
     phox = TWebApplication.create(host);
     phox.main = phox.includeView('main');
 })
