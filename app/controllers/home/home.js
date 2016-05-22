@@ -8,6 +8,7 @@ var home = phox.createController(phox.main, 'phox.home')
         
             $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
             home.showToken();
+            home.bindPlayables();
             home.dragAndDrop(gridData);
 
             var handleDrop = function(e, ui) {
@@ -92,13 +93,6 @@ var home = phox.createController(phox.main, 'phox.home')
               return dragTemplate;
            }               
 
-
-           $(this).on('click', function() {
-              var path = $(this).data('trackpath');
-              path = path.replace('./Users/David/Music', 'media/music');
-              $('#player').html(path);
-              $('#audio').attr('src', path);
-           });
            $(this).draggable({
                 cursor: 'move'
                 , containment: 'document'
@@ -107,5 +101,16 @@ var home = phox.createController(phox.main, 'phox.home')
             });
         });
         
+    }
+    , bindPlayables : function() {
+        $("a[name='playable']").each(function() {
+            $(this).on('click', function() {
+                var path = $(this).data('trackpath');
+                path = path.replace('./Users/David/Music', 'media/music');
+                $('#player').html(path);
+                $('#audio').attr('src', path);
+            });
+        });
+
     }
 });
