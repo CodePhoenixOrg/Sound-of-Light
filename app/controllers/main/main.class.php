@@ -10,7 +10,7 @@ namespace Phox\Controllers;
  *
  * @author david
  */
-class Main extends \Phoenix\MVC\TController {
+class Main extends \Phink\MVC\TController {
     //put your code here
     protected $hostname = SERVER_ROOT;
 

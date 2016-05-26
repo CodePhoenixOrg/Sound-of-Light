@@ -5,7 +5,7 @@
  *
  * @author David
  */
-include 'phoenix/core/application.php';
+include 'phink/core/application.php';
 
 class Parser {
     //put your code here
@@ -19,18 +19,18 @@ class Parser {
         $this->parse($contents);
         $contents = file_get_contents('grid.phtml');
         $this->parse($contents);
-        $contents = file_get_contents('phoenix/web/ui/grid.pattern.phtml', FILE_USE_INCLUDE_PATH);
+        $contents = file_get_contents('phink/web/ui/grid.pattern.phtml', FILE_USE_INCLUDE_PATH);
         $this->parse($contents);
         
 
     }
     
     public function parse($contents) {
-        $doc = new \Phoenix\Xml\TXmlDocument($contents);
+        $doc = new \Phink\Xml\TXmlDocument($contents);
         $doc->matchAll();
         $elements = $doc->getList();
                 
-        Phoenix\Log\TLog::dump('ELEMENTS', $elements);
+        Phink\Log\TLog::dump('ELEMENTS', $elements);
         
     }
 }

@@ -7,15 +7,15 @@ namespace Phox\Models;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//require_once 'phoenix/mvc/model.php';
-//require_once 'phoenix/auth/authentication.php';
+//require_once 'phink/mvc/model.php';
+//require_once 'phink/auth/authentication.php';
 require_once DOCUMENT_ROOT . 'data/connection.php';
 
 
-use Phoenix\Log\TLog;
-use Phoenix\MVC\TModel;
-use Phoenix\Auth\TAuthentication;
-use Phoenix\Data\Client\PDO\TPdoCommand;
+use Phink\Log\TLog;
+use Phink\MVC\TModel;
+use Phink\Auth\TAuthentication;
+use Phink\Data\Client\PDO\TPdoCommand;
 
 use Phox\Data\Connection;
 /**

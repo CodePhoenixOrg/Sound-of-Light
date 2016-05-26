@@ -4,9 +4,9 @@ define('CUSTOM_NAMESPACE', 'Pnox');
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include 'phoenix/web/static_application.php';
+include 'phink/web/static_application.php';
 
-//use Phoenix\Web\TWebApplication;
+//use Phink\Web\TWebApplication;
 /**
  * Description of application
  *
@@ -26,5 +26,5 @@ class Index extends TWebApplication {
     }
 }
 */
-Phoenix\Web\TWebApplication::create();
+Phink\Web\TWebApplication::create();
 

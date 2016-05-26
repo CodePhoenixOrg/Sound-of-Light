@@ -3,7 +3,7 @@ namespace Phox\Models;
 
 require_once APP_DATA . 'amarok_connection.php';
 
-class Home extends \Phoenix\MVC\TModel {
+class Home extends \Phink\MVC\TModel {
 
     public function init()
     {
@@ -25,7 +25,7 @@ SELECT DISTINCT
 
 SELECT;
         
-        $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
         
         return $cmd;
@@ -60,12 +60,12 @@ FROM
 ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 
-        $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phoenix\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }    

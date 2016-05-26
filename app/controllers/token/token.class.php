@@ -1,12 +1,12 @@
 <?php
 namespace Phox\Controllers;
 
-//require_once 'phoenix/mvc/controller.php';
-//require_once 'phoenix/core/log.php';
-//require_once 'phoenix/crypto/crypto.php';
+//require_once 'phink/mvc/controller.php';
+//require_once 'phink/core/log.php';
+//require_once 'phink/crypto/crypto.php';
 
-use Phoenix\MVC\TPartialController;
-use Phoenix\Crypto\TCrypto;
+use Phink\MVC\TPartialController;
+use Phink\Crypto\TCrypto;
 
 /**
  * Description of logme

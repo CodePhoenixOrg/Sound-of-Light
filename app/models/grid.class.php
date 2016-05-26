@@ -2,12 +2,12 @@
 
 
 namespace Phox\Models;
-//require_once 'phoenix/mvc/model.php';
-//require_once 'phoenix/auth/authentication.php';
+//require_once 'phink/mvc/model.php';
+//require_once 'phink/auth/authentication.php';
 require_once APP_DATA . 'amarok_connection.php';
 
 
-class Grid extends \Phoenix\MVC\TModel
+class Grid extends \Phink\MVC\TModel
 {
 
     public function init()
@@ -29,7 +29,7 @@ SELECT DISTINCT
     ORDER BY y.name
 SELECT;
         
-        $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
         
         return $cmd;
@@ -68,12 +68,12 @@ FROM
 ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 
-        $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phoenix\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }

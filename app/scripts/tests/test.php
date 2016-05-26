@@ -12,8 +12,8 @@
  */
 
 
-//require_once 'phoenix/core/console.php';
-//require_once 'phoenix/mails.php';
+//require_once 'phink/core/console.php';
+//require_once 'phink/mails.php';
 
 class Program extends TConsole {
     

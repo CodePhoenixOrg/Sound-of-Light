@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-//require_once 'phoenix/core/console.php';
+//require_once 'phink/core/console.php';
 
 class Program extends TConsole {
     

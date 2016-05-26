@@ -1,7 +1,7 @@
 <?php
 namespace Phox\Controllers;
 
-class Grid extends \Phoenix\MVC\TPartialController {
+class Grid extends \Phink\MVC\TPartialController {
 
     protected $stmt = NULL;
     protected $cmd = NULL;
@@ -27,7 +27,7 @@ class Grid extends \Phoenix\MVC\TPartialController {
     }
     
     public function init() {
-//        \Phoenix\Log\TLog::debug('Je passe par la !');
+//        \Phink\Log\TLog::debug('Je passe par la !');
         $this->index = $this->request->getQueryArguments('pagenum');
         $this->pageCount = ($this->pageCount) ? $this->pageCount :  $this->request->getQueryArguments('pagecount');
         $cmd = $this->model->getArtistRange();
@@ -45,7 +45,7 @@ class Grid extends \Phoenix\MVC\TPartialController {
 
     public function getData($pagecount, $pagenum) {
         $id = $this->getViewName();
-        $this->data = \Phoenix\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $pagecount);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $pagecount);
         $this->response->setData('grid', $this->data);
     }
     

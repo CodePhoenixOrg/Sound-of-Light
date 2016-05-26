@@ -1,6 +1,6 @@
 <?php
 
-require_once 'phoenix/core/application.php';
+require_once 'phink/core/application.php';
 
 //namespace Phox\App\Webservices;
 /*

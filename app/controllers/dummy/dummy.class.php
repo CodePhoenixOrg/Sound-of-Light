@@ -2,9 +2,9 @@
 
 namespace Something;
 
-//require_once 'phoenix/mvc/partial_controller.php';
+//require_once 'phink/mvc/partial_controller.php';
 
-use Phoenix\MVC\TPartialController;
+use Phink\MVC\TPartialController;
 
 /**
  * Description of dummy

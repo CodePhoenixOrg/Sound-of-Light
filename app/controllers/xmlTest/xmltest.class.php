@@ -7,7 +7,7 @@ namespace Phox\Controllers;
  *
  * @author david
  */
-class XmlTest extends \Phoenix\MVC\TPartialController {
+class XmlTest extends \Phink\MVC\TPartialController {
 
 }
 

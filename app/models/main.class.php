@@ -8,17 +8,17 @@ namespace Phox\Models;
  * and open the template in the editor.
  */
 
-require_once APP_DATA . 'phoenix_connection.php';
+require_once APP_DATA . 'phink_connection.php';
 
 /**
  * Description of login
  *
  * @author davidbl
  */
-class Main extends \Phoenix\MVC\TModel {
+class Main extends \Phink\MVC\TModel {
     
     public function init() {
-        $this->connector = new \Phox\Data\PhoenixConnection();
+        $this->connector = new \Phox\Data\PhinkConnection();
         $this->connector->open();
     }
 
@@ -26,7 +26,7 @@ class Main extends \Phoenix\MVC\TModel {
         
         $result = FALSE;
         if($login != '' && $password != '') {
-            $cmd = new \Phoenix\Data\Client\PDO\TPdoCommand($this->connector);
+            $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
             //"SELECT usr_id FROM Alphas.dbo.t_user with (nolock) WHERE usr_login=:login and usr_password=:password"
             //"SELECT User FROM user WHERE User=:login and Password=PASSWORD(:password)"
             $stmt = $cmd->query(
@@ -35,11 +35,11 @@ class Main extends \Phoenix\MVC\TModel {
             );
             if ($row = $stmt->fetch()) {
                 $cmd->closeCursor();
-                $result = \Phoenix\Auth\TAuthentication::setUserToken($row[0], $login);
+                $result = \Phink\Auth\TAuthentication::setUserToken($row[0], $login);
             }
         }
         
-//        \Phoenix\Log\TLog::debug(__METHOD__ . ':' . $result, __FILE__, __LINE__);
+//        \Phink\Log\TLog::debug(__METHOD__ . ':' . $result, __FILE__, __LINE__);
         
         return $result;
     }

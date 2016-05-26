@@ -8,8 +8,8 @@
 
 //namespace Something;
 
-use Phoenix\MVC\TModel;
-use Phoenix\Data\Client\PDO\TPdoCommand;
+use Phink\MVC\TModel;
+use Phink\Data\Client\PDO\TPdoCommand;
 
 require_once APP_DATA . 'connection.php';
 
