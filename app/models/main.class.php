@@ -8,7 +8,7 @@ namespace Phox\Models;
  * and open the template in the editor.
  */
 
-require_once APP_DATA . 'phink_connection.php';
+require_once APP_DATA . 'ladmin_connection.php';
 
 /**
  * Description of login
