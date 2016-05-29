@@ -1,0 +1,9 @@
+
+2016-05-29 07:18:56: : Phink\Auth\TAuthentication::renewToken::TOKEN::2016-05-29 07:18:57: : Phink\Auth\TAuthentication::renewToken::TOKEN::2016-05-29 07:18:57: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTI2Mjk2OTYyNDU3NGIyNDgxOGQ1NTM=2016-05-29 07:18:57: : start::1; count::10; LIMITED_SELECT:: : SELECT DISTINCT
+         y.name as year
+    FROM
+        tracks t
+    INNER JOIN albums s ON t.album = s.id
+    INNER JOIN years y ON t.year = y.id AND y.name > '0'
+    INNER JOIN artists a ON a.id = s.artist
+    ORDER BY y.name LIMIT 0, 102016-05-29 07:18:58: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTg5NjkzMTc1MTU3NGIyNDgxOWM2Y2Q=

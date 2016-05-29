@@ -1,7 +1,7 @@
-//phox = TWebApplication.create('www.phox.loc');
-//phox.main = phox.createView('main');
+//SoL = TWebApplication.create('www.SoL.loc');
+//SoL.main = SoL.createView('main');
 
-phox.createController(phox.main, 'phox.main')
+SoL.createController(SoL.main, 'SoL.main')
 .onload(function () {
         //this.origin = TRegistry.item('main').origin + '/';
         var the = this;

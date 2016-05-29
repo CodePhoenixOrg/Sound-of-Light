@@ -1,6 +1,6 @@
 <?php
 
-namespace Phox\Models;
+namespace SoL\Models;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +18,7 @@ require_once APP_DATA . 'ladmin_connection.php';
 class Main extends \Phink\MVC\TModel {
     
     public function init() {
-        $this->connector = new \Phox\Data\PhinkConnection();
+        $this->connector = new \SoL\Data\LAdminConnection();
         $this->connector->open();
     }
 

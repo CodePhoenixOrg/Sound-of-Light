@@ -1,6 +1,6 @@
 <?php
 
-namespace Phox\Controllers;
+namespace SoL\Controllers;
 
 /**
  * Description of xmlTest

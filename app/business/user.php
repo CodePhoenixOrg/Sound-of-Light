@@ -13,7 +13,7 @@ use Phink\Data\Client\PDO\TPdoCommand;
 
 require_once APP_DATA . 'connection.php';
 
-use Phox\Data\Connection;
+use SoL\Data\Connection;
 
 /**
  * Description of user

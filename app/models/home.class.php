@@ -1,5 +1,5 @@
 <?php
-namespace Phox\Models;
+namespace SoL\Models;
 
 require_once APP_DATA . 'amarok_connection.php';
 
@@ -7,7 +7,7 @@ class Home extends \Phink\MVC\TModel {
 
     public function init()
     {
-        $this->connector = new \Phox\Data\AmarokConnection();
+        $this->connector = new \SoL\Data\AmarokConnection();
         $this->connector->open();
     }
 

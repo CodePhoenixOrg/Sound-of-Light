@@ -1,6 +1,6 @@
 <?php
 
-namespace Phox\Models;
+namespace SoL\Models;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,7 +17,7 @@ use Phink\MVC\TModel;
 use Phink\Auth\TAuthentication;
 use Phink\Data\Client\PDO\TPdoCommand;
 
-use Phox\Data\Connection;
+use SoL\Data\Connection;
 /**
  * Description of login
  *

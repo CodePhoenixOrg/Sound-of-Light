@@ -1,6 +1,6 @@
 <?php
 
-namespace Phox\Data;
+namespace SoL\Data;
 
 //require_once 'phink/data/client/pdo/pdo_connection.php';
 

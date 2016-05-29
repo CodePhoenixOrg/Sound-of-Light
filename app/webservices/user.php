@@ -2,7 +2,7 @@
 
 require_once 'phink/core/application.php';
 
-//namespace Phox\App\Webservices;
+//namespace SoL\App\Webservices;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +16,7 @@ include APP_BUSINESS . 'user.php';
  *
  * @author david
  */
-$options = ['uri' => 'http://www,Phox.loc'];
+$options = ['uri' => 'http://www,SoL.loc'];
 $server = new \SoapServer(null, $options);
 $server->setClass('User');
 $server->handle();

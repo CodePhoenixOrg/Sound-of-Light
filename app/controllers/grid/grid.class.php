@@ -1,5 +1,5 @@
 <?php
-namespace Phox\Controllers;
+namespace SoL\Controllers;
 
 class Grid extends \Phink\MVC\TPartialController {
 

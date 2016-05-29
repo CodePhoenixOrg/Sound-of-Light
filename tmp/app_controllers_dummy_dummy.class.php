@@ -4,7 +4,7 @@ namespace Something;
 
 //require_once 'phink/mvc/partial_controller.php';
 
-use Phink\MVC\TPartialController;
+use Phink\Web\UI\TControl;
 
 /**
  * Description of dummy
@@ -13,7 +13,7 @@ use Phink\MVC\TPartialController;
  */
 
 
-class Dummy extends TPartialController {
+class Dummy extends TControl {
 
 ////put your code here
     protected $text = "Player";
@@ -46,6 +46,8 @@ class Dummy extends TPartialController {
         } catch (\SoapFault $ex) {
             $this->text = var_dump($ex, TRUE);
         }
-    }
-}
-
+    }	public function createObjects() {	}	public function declareObjects() {	}	public function afterBindingObjects() {	}	public function displayHtml() {?><div>
+    <h1><?php echo $this->text; ?></h1>
+    <h2 id="player">Choose your favorite song !</h2>
+    <audio id="audio" src="" controls>
+</div><?php	}}

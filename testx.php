@@ -6,5 +6,5 @@
  * and open the template in the editor.
  */
 
-//header('Location: http://www.Phox.loc/login.html?action=authenticate&login=david&password=1MF14m2p97&token=&ajax=1');
-header('Location: http://www.Phox.loc/token.html?action=showToken&partial=1&ajax=1');
+//header('Location: http://www.SoL.loc/login.html?action=authenticate&login=david&password=1MF14m2p97&token=&ajax=1');
+header('Location: http://www.SoL.loc/token.html?action=showToken&partial=1&ajax=1');
