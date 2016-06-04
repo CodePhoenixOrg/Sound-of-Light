@@ -1,5 +1,5 @@
 <?php
-namespace Phox\Controllers;
+namespace SoL\Controllers;
 
 //require_once 'phink/mvc/controller.php';
 //require_once 'phink/core/log.php';

@@ -32,7 +32,7 @@ class Dummy extends TPartialController {
     
     public function getUserByName($userName) {
         
-        //$options = ['location' => 'http://www.Phox.loc/app/webservices/user.php', 'uri' => 'http://www.Phox.loc'];
+        //$options = ['location' => 'http://www.SoL.loc/app/webservices/user.php', 'uri' => 'http://www.SoL.loc'];
         $options = ['location' => 'http://localhost/webservice/user/soap-server.php', 'uri' => 'http://localhost'];
         
         try {

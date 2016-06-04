@@ -59,10 +59,10 @@ var jsFiles = [
 //    head.appendChild(myInclude);
 //}
 
-var phox = null;
+var sol = null;
 
 domReady(function() {
-    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.phox.loc';
-    phox = TWebApplication.create(host);
-    phox.main = phox.includeView('main');
+    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc';
+    sol = TWebApplication.create(host);
+    sol.main = sol.includeView('main');
 })
