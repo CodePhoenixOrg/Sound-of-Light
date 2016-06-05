@@ -62,7 +62,7 @@ var jsFiles = [
 var sol = null;
 
 domReady(function() {
-    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc';
-    sol = TWebApplication.create(host);
+    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sound-of-light.loc';
+    sol = TWebApplication.create(host, true);
     sol.main = sol.includeView('main');
 })
