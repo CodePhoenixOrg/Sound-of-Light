@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 août 2016, 21: 31: 34
+    Author     : David
+*/
+html {
+    color: white;
+    background-color: #444444;
+}
+
+.tile li {
+  float: left;
+  position: relative;
+  list-style-type: none;
+}
+
+.tile ul {
+  padding: 0;
+  text-align: center;
+  overflow: auto;
+}
+.tile ul > li {
+  margin-bottom: 15px;
+}
+.tile li div {
+  display: block;
+  background-image: linear-gradient(300deg, #444444, black);
+  padding: 15px 0;
+}
+.tile ul  li {
+  float: left;
+  position: relative;
+  width: 90px;
+  margin: 15px 15px 0 0;
+}
+.tile a {
+  color: white;
+  text-align: center;
+  display: block;
+  width: 150px;
+  padding: 15px 0;
+}
+
+
+.tileClear li {
+    clear: both;
+}
