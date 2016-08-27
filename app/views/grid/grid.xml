@@ -23,7 +23,7 @@
             <name>Artist</name>
             <content>@artistItem.phtml</content>
             <enabled>false</enabled>
-            <event>href#home.showArtist(Artist)</event>
+            <event>href#solPlayer.showArtist(Artist)</event>
         </TPluginChild>
         <TPluginChild>
             <id>items</id>
@@ -35,7 +35,7 @@
             <name>Album</name>
             <enabled>true</enabled>
             <content>@albumItem.phtml</content>
-            <event>href#home.showAlbum(Artist)</event>
+            <event>href#solPlayer.showAlbum(Artist)</event>
         </TPluginChild>
         <TPluginChild>
             <id>items</id>
@@ -48,7 +48,7 @@
             <enabled>true</enabled>
             <content>@titleItem.phtml</content>
             <dragHelper>@titleDragged.phtml</dragHelper>
-            <event>href#home.showTitle(TitleId)</event>
+            <event>href#solPlayer.showTitle(TitleId)</event>
         </TPluginChild>
         <TPluginChild>
             <id>items</id>
@@ -60,7 +60,7 @@
         <TPager id="pager" >
             <for>accordion0</for>
             <caption>Albums de ma musique</caption>
-            <onclick>home.getData</onclick>
+            <onclick>solPlayer.getData</onclick>
         </TPager>
     </pager>
 </TPlugin>

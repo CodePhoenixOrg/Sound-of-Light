@@ -3,7 +3,7 @@ namespace SoL\Models;
 
 require_once APP_DATA . 'amarok_connection.php';
 
-class Home extends \Phink\MVC\TModel {
+class Abc extends \Phink\MVC\TModel {
 
     public function init()
     {
