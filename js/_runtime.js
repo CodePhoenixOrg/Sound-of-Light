@@ -1,0 +1,1 @@
+var APP_NAME = "";

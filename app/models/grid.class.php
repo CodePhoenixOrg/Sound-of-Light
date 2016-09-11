@@ -78,39 +78,119 @@ SELECT;
         return $cmd;
     }
 
-//    function connectSQLServer() {
-//        $sqlConfig = new TSqlServerConfiguration('192.168.1.3', 'david', '25643152', 'Asphaltu');
-//        $this->cn = new TSqlServerConnection($sqlConfig);
-//
-//        $this->cn->open();
-//        $this->cmd = new TSqlServerCommand($this->cn);
-//        $this->cmd->queries->setSelect("SELECT [EmployeeID]
-//          ,[NationalIDNumber]
-//          ,[ContactID]
-//          ,[LoginID]
-//          ,[ManagerID]
-//          ,[Title]
-//          ,[BirthDate] 
-//          ,[MaritalStatus]
-//          ,[Gender]
-//          ,[HireDate]
-//          ,[SalariedFlag]
-//          ,[VacationHours]
-//          ,[SickLeaveHours]
-//          ,[CurrentFlag]
-//          ,[ModifiedDate]
-//        FROM [AdventureWorks].[HumanResources].[Employee]");
-//    }
-//
-//    function connectSQLite() {
-//        $sqlConfig = new TSqliteConfiguration(DOCUMENT_ROOT . 'asphaltu.db');
-//        $this->cn = new TSqliteConnection($sqlConfig);
-//
-//        $this->cn->open();
-//        $this->cmd = new TSqliteCommand($this->cn);
-//        $this->cmd->getQueries()->setSelect('select * from menus');
-//
-//    }
+    public function getArtistAlbumTitleByLetter($letter)
+    {
+      
+        $sql = <<<SELECT
+SELECT 
+    y.name AS 'Year',
+    a.id AS 'ArtistId',
+    a.name AS 'Artist',
+    s.id AS 'AlbumId',
+    s.name AS 'Album',
+    t.id AS 'TitleId',
+    t.title AS 'Title',
+    u.rpath AS 'TrackPath'
+    
+FROM
+    tracks t
+        INNER JOIN
+    urls u ON t.url = u.id
+        INNER JOIN
+    albums s ON t.album = s.id
+        INNER JOIN
+    years y ON t.year = y.id 
+        INNER JOIN
+    artists a ON t.artist = a.id
+WHERE SUBSTRING(a.name, 1, 1) = '$letter' AND y.name > '0'
+ORDER BY y.name, a.name, t.year, t.id
+SELECT;
+
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd->setSelectQuery($sql);
+//        $cmd->setSelectQuery($sql);
+//        $cmd->setCommandText($cmd->getSelectQuery());
+            
+//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+                
+        return $cmd;
+    }
+
+    public function getAlbumTitleByLetter($letter)
+    {
+      
+        $sql = <<<SELECT
+SELECT 
+    y.name AS 'Year',
+    a.id AS 'ArtistId',
+    a.name AS 'Artist',
+    s.id AS 'AlbumId',
+    s.name AS 'Album',
+    t.id AS 'TitleId',
+    t.title AS 'Title',
+    u.rpath AS 'TrackPath'
+    
+FROM
+    tracks t
+        INNER JOIN
+    urls u ON t.url = u.id
+        INNER JOIN
+    albums s ON t.album = s.id
+        INNER JOIN
+    years y ON t.year = y.id 
+        INNER JOIN
+    artists a ON t.artist = a.id
+WHERE SUBSTRING(s.name, 1, 1) = '$letter' AND y.name > '0'
+ORDER BY y.name, a.name, t.year, t.id
+SELECT;
+
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd->setSelectQuery($sql);
+//        $cmd->setSelectQuery($sql);
+//        $cmd->setCommandText($cmd->getSelectQuery());
+            
+//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+                
+        return $cmd;
+    }
+
+    public function getAlbumTitleByYear($year)
+    {
+      
+        $sql = <<<SELECT
+SELECT 
+    y.name AS 'Year',
+    a.id AS 'ArtistId',
+    a.name AS 'Artist',
+    s.id AS 'AlbumId',
+    s.name AS 'Album',
+    t.id AS 'TitleId',
+    t.title AS 'Title',
+    u.rpath AS 'TrackPath'
+    
+FROM
+    tracks t
+        INNER JOIN
+    urls u ON t.url = u.id
+        INNER JOIN
+    albums s ON t.album = s.id
+        INNER JOIN
+    years y ON t.year = y.id 
+        INNER JOIN
+    artists a ON t.artist = a.id
+WHERE y.name = $year
+ORDER BY y.name, a.name, t.year, t.id
+SELECT;
+
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd->setSelectQuery($sql);
+//        $cmd->setSelectQuery($sql);
+//        $cmd->setCommandText($cmd->getSelectQuery());
+            
+//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+                
+        return $cmd;
+    }
 
     public function __destruct() {
         $this->connector->close();

@@ -1,10 +1,10 @@
-var solHome = sol.createController(sol.main, 'sol.home')
+var solArtists = sol.createController(sol.main, 'sol.artists')
 .onload(function() {
     
 }
 ).actions({
-    showPlayerByLetter : function (letter) {
-        this.getView('player.html', function(data) {
+    showPlayerByArtist : function (letter) {
+        this.getView('player.html', 'showPlayerByArtist', {'letter' : letter}, function(data) {
             $('#homeContent').html(data.view);
         })
     }

@@ -1,10 +1,6 @@
 <?php
 namespace SoL\Controllers;
 
-//require_once 'phink/mvc/controller.php';
-//require_once 'phink/core/log.php';
-//require_once 'phink/crypto/crypto.php';
-
 use Phink\MVC\TPartialController;
 use Phink\Crypto\TCrypto;
 
@@ -14,22 +10,25 @@ use Phink\Crypto\TCrypto;
  * @author david
  */
 
- class Token extends TPartialController {
+ class Token extends TPartialController 
+{
    //put your code here
     
     protected $label = 'Token';
     protected $token = '';
     
-    
-    public function setLabel($value) {
+    public function setLabel($value)
+    {
         $this->label = $value;
     }
     
-    public function getLabel() {
+    public function getLabel()
+    {
         return $this->label;
     }
     
-    public function showToken() {
+    public function showToken()
+    {
         $this->token = TCrypto::generateToken();
     }
     

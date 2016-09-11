@@ -7,12 +7,32 @@ namespace SoL\Controllers;
  * @author david
  */
 
- class Player extends \Phink\MVC\TController {
+ class Player extends \Phink\MVC\TController
+{
     //put your code here
 
-    protected $dummy;
-    protected $grid0;
+    protected $dummy = null;
+    protected $grid0 = null;
     private $_cacheFilename = '';
+
+    public function showPlayerByArtist($letter)
+    {
+        $this->grid0->showArtistsByLetter($letter);
+        \Phink\Log\TLog::debug('LETTER::' . $letter);
+    }
+    
+    public function showPlayerByAlbum($letter)
+    {
+        $this->grid0->showAlbumsByLetter($letter);
+        \Phink\Log\TLog::debug('LETTER::' . $letter);
+
+    }
+    
+    public function showPlayerByDate($year)
+    {
+        $this->grid0->showAlbumsByDate($year);
+        \Phink\Log\TLog::debug('YEAR::' . $year);
+    }
     
     public function wikiArtist($artist)
     {

@@ -16,22 +16,25 @@ use Phink\MVC\TPartialController;
 class Dummy extends TPartialController {
 
 ////put your code here
-    protected $text = "Player";
+    protected $text = "Sound of Light";
     
-    public function load() {
+    public function load()
+    {
         //$this->text ;
     }
     
-    public function setText($value) {
+    public function setText($value)
+    {
         $this->text = $value;
     }
     
-    public function getText() {
+    public function getText()
+    {
         return $this->text;
     }
     
-    public function getUserByName($userName) {
-        
+    public function getUserByName($userName)
+    {
         //$options = ['location' => 'http://www.SoL.loc/app/webservices/user.php', 'uri' => 'http://www.SoL.loc'];
         $options = ['location' => 'http://localhost/webservice/user/soap-server.php', 'uri' => 'http://localhost'];
         
