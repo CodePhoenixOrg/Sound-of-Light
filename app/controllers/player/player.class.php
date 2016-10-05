@@ -72,7 +72,7 @@ namespace SoL\Controllers;
     
     private function _getWikiCache($artist)
     {
-        $this->_cacheFilename = TMP_DIR . DIRECTORY_SEPARATOR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
+        $this->_cacheFilename = CACHE_DIR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
         if(file_exists($this->_cacheFilename)) {
             $view = file_get_contents($this->_cacheFilename);
             return [200, $view];
@@ -83,7 +83,7 @@ namespace SoL\Controllers;
     
     private function _getWiki($artist)
     {
-        $this->_cacheFilename = TMP_DIR . DIRECTORY_SEPARATOR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
+        $this->_cacheFilename = CACHE_DIR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
         $this->request->addSubRequest('wiki', 'https://en.wikipedia.org/wiki/' . $artist);
         
         try {
