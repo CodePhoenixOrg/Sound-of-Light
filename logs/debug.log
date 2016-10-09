@@ -1,95 +1,42 @@
 
-2016-09-11 10:20:03: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:03:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/main/main.class.php
+2016-10-09 01:21:20: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:03:k/mvc/custom_view.php:95 : PARSE FILE : app/views/main/main.phtml
+2016-10-09 01:21:20:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/main/main.class.php
 
-2016-09-11 10:20:04: : Phink\Auth\TAuthentication::renewToken::TOKEN::
+2016-10-09 01:21:20:k/mvc/custom_view.php:95 : PARSE FILE : app/views/main/main.phtml
 
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/master/master.phtml
+2016-10-09 01:21:21: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:04: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+2016-10-09 01:21:21:k/mvc/custom_view.php:95 : PARSE FILE : app/views/master/master.phtml
 
-2016-09-11 10:20:04: : Phink\Auth\TAuthentication::renewToken::TOKEN::NDkxNDE5NDMxNTdkNWJjNzQ3M2JmYw==
+2016-10-09 01:21:21: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/home.class.php
+2016-10-09 01:21:21: : Phink\Auth\TAuthentication::renewToken::TOKEN::ODE1MDQ5OTc4NTdmYTI4MzEzZmM0ZQ==
 
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/home/home.phtml
+2016-10-09 01:21:21:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/home.class.php
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/dummy/dummy.class.php
+2016-10-09 01:21:21:k/mvc/custom_view.php:95 : PARSE FILE : app/views/home/home.phtml
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcartists/abcartists.class.php
+2016-10-09 01:21:21:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/dummy/dummy.class.php
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcalbums/abcalbums.class.php
+2016-10-09 01:26:48: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcyears/abcyears.class.php
+2016-10-09 01:26:48: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/dummy/dummy.class.php
+2016-10-09 01:26:48: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcartists/abcartists.class.php
+2016-10-09 01:26:48: : Phink\Web\UI\TControl::getViewHtml::1::app/controllers/master/master.js
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcalbums/abcalbums.class.php
+2016-10-09 01:26:48: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTI4ODg4OTg4NTU3ZmEyOTc4YzdmY2Q=
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/abcyears/abcyears.class.php
+2016-10-09 01:31:16: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/abcartists.class.php
+2016-10-09 01:31:17: : Phink\Auth\TAuthentication::renewToken::TOKEN::
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/abcalbums.class.php
+2016-10-09 01:31:17: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
 
-2016-09-11 10:20:04:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/abcyears.class.php
+2016-10-09 01:31:17: : Phink\Web\UI\TControl::getViewHtml::1::app/controllers/master/master.js
 
-2016-09-11 10:20:04: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/dummy/dummy.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/abcArtists/abcArtists.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/abcAlbums/abcAlbums.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : app/views/abcYears/abcYears.phtml
-
-2016-09-11 10:20:04:k/mvc/custom_view.php:95 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
-
-2016-09-11 10:20:07: : Phink\Auth\TAuthentication::renewToken::TOKEN::MjA1MDM2NzEyMzU3ZDViYzc0OGZmZDM=
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/player.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/player/player.class.php
-
-2016-09-11 10:20:07:k/mvc/custom_view.php:95 : PARSE FILE : app/views/player/player.phtml
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/dummy/dummy.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/grid/grid.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:299 : INCLUDE CACHED CONTROL: tmp/app_controllers_dummy_dummy.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::tmp/app_controllers_dummy_dummy.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/grid/grid.class.php
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/models/grid.class.php
-
-2016-09-11 10:20:07: : Phink\Core\TObject::invoke::INVOKE_ACTION::showPlayerByArtist("H")
-
-2016-09-11 10:20:07: : LETTER::H
-
-2016-09-11 10:20:07:k/mvc/custom_view.php:95 : PARSE FILE : app/views/dummy/dummy.phtml
-
-2016-09-11 10:20:07:k/mvc/custom_view.php:95 : PARSE FILE : app/views/grid/grid.phtml
-
-2016-09-11 10:20:07:k/mvc/custom_view.php:95 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
-
-2016-09-11 10:20:07: : Phink\Auth\TAuthentication::renewToken::TOKEN::OTUyMzkzMzA1NTdkNWJjNzczMTRhNw==
-
-2016-09-11 10:20:07:k/autoloader.php:188 : Phink\TAutoloader::includeClass::app/controllers/token/token.class.php
-
-2016-09-11 10:20:07:k/mvc/custom_view.php:95 : PARSE FILE : app/views/token/token.phtml
-
-2016-09-11 10:20:07: : Phink\Core\TObject::invoke::INVOKE_ACTION::showToken()
+2016-10-09 01:31:17: : Phink\Auth\TAuthentication::renewToken::TOKEN::MzU2MzgyMzU3ZmEyYTg1NGIwZTA=
 
