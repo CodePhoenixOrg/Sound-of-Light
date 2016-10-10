@@ -1,5 +1,5 @@
 <?php
-include 'lib/core.php';
+include 'phink/rest/rest_application.php';
 
 \Phink\Rest\TRestApplication::create();
 
