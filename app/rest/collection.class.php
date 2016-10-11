@@ -13,7 +13,7 @@ namespace SoL\Rest;
  *
  * @author David
  */
-class Collection extends \Phink\Rest\RestController
+class Collection extends \Phink\Rest\TRestController
 {
     //put your code here    
     public function get()

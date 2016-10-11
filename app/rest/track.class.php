@@ -13,12 +13,13 @@ namespace SoL\Rest;
  *
  * @author David
  */
-class Track extends \Phink\Rest\RestController
+class Track extends \Phink\Rest\TRestController
 {
     //put your code here    
     public function get($trackId)
     {
         $track = \SoL\Models\Track::getTrackById($trackId);
+        \Phink\Log\TLog::dump('TRACK', $track);
         $this->response->setData($track);
     }
 }

@@ -13,7 +13,7 @@ namespace SoL\Rest;
  *
  * @author David
  */
-class User extends \Phink\Rest\RestController
+class User extends \Phink\Rest\TRestController
 {
     //put your code here
     public function get($userId)

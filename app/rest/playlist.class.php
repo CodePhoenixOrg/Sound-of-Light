@@ -13,7 +13,7 @@ namespace SoL\Rest;
  *
  * @author David
  */
-class Playlist extends \Phink\Rest\RestController
+class Playlist extends \Phink\Rest\TRestController
 {
     //put your code here
     public function get($userId)
