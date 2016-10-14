@@ -1,35 +1,42 @@
 var solPlayer = sol.createController(sol.main, 'sol.player')
 .onload(function() {
-        var origin = this.getOrigin();
-        TRegistry.item(this.name).token = this.getToken();
+    this.currentUser = 1
+//    this.usr = new SoundLight.User(this.currentUser)
+    this.pl = new SoundLight.Playlist(this.currentUser)
+    this.coll = new SoundLight.Collection()
+    var the = this
+    TRegistry.item(this.name).token = this.getToken();
 
-        TWebObject.getCSS('css/accordion.css');
-        this.getScript('js/accordion.js', function() {
-        
-            $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-            solPlayer.showToken();
-            solPlayer.bindPlayables();
-            solPlayer.dragAndDrop(gridData);
+    TWebObject.getCSS('css/accordion.css');
+    this.getScript('js/accordion.js', function() {
 
-            var handleDrop = function(e, ui) {
+        $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
+        solPlayer.showToken();
+        solPlayer.bindPlayables();
+        solPlayer.dragAndDrop(gridData);
 
-                var element = ui.draggable.clone().appendTo($(this));
-                element.draggable({
-                    cancel: "a.ui-icon", 
-                    revert: "invalid", 
-                    containment: "#dropper", 
-                    helper: "clone",
-                    cursor: "move"
-                });
-            };
+        var handleDrop = function(e, ui) {
 
-            $("#dropper").droppable({
-                accept: '#grid div'
-                , drop: handleDrop
+            var element = ui.draggable.clone().appendTo($(this));
+            element.draggable({
+                cancel: "a.ui-icon", 
+                revert: "invalid", 
+                containment: "#dropper", 
+                helper: "clone",
+                cursor: "move"
             });
+        };
+
+        $("#dropper").droppable({
+            accept: '#grid div'
+            , drop: handleDrop
         });
-    }
-).actions({
+        the.pl.afterAddTrack = the.getUserFavorites
+        the.pl.afterRemoveTrack = the.getUserFavorites
+        the.pl.getFavorites()
+    });
+    
+}).actions({
     showToken : function() {
         
         var token = TRegistry.item(this.name).token;
@@ -81,6 +88,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         return false;
     }
     , dragAndDrop : function(data) {
+        var the = this
         $("div[name='draggable']").each(function() {
            var id = $(this).data('draghelperid');
            var index = data.names.indexOf('TitleId');
@@ -88,6 +96,10 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
 
            var dragIndex = $(this).data('draghelperindex');
            var dragTemplate = TPlugin.applyDragHelper(data.templates, dragValues, dragIndex);
+           
+           $(this).on('click', function() {
+               the.pl.addTrack(id)
+           })
 
            var dragHelper = function(e) {
               return dragTemplate;
@@ -112,5 +124,27 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
             });
         });
 
+    }   
+    , getUserFavorites : function() {
+        solPlayer.pl.getFavorites(function(data) {
+            var result = '<ol>'
+            data = data.playlist
+            if(data[0].artist === null && data[0].title === null) {
+                result = 'La playlist est vide'
+            } else {
+                for(var i = 0; i < data.length; i++) {
+                    var duration = TUtils.secondsToString(data[i].duration)
+                    
+                    result += '<li><a href="javascript:solPlayer.pl.removeTrack(' + data[i].id + ')" ><img src="/css/images/delete.png" /></a>&nbsp;' + data[i].artist + ' - ' + data[i].title + ' (' + duration + ')'  + '</li>'
+                }
+                result += '</ol>'
+            }
+
+            var div = document.getElementById('playlist')
+            if(div !== undefined) {
+                div.innerHTML = result
+            }
+        })
+    
     }
-});
+})

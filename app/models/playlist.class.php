@@ -51,7 +51,7 @@ SELECT;
     {
         //\SoundLib\Lib\Log::debug('GOING TO ADD : ' . print_r(['playlist' => $playlist, 'trackId' => $trackId], true));
 
-        $cnn = new Connection();
+        $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
         
         $sql = <<<INSERT
@@ -68,7 +68,7 @@ INSERT;
     
     public static function removeTrack($trackId)
     {
-        $cnn = new Connection();
+        $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
         
         $sql = <<<DELETE
