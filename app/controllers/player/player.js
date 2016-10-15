@@ -1,7 +1,6 @@
 var solPlayer = sol.createController(sol.main, 'sol.player')
 .onload(function() {
     this.currentUser = 1
-//    this.usr = new SoundLight.User(this.currentUser)
     this.pl = new SoundLight.Playlist(this.currentUser)
     this.coll = new SoundLight.Collection()
     var the = this
@@ -33,7 +32,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         });
         the.pl.afterAddTrack = the.getUserFavorites
         the.pl.afterRemoveTrack = the.getUserFavorites
-        the.pl.getFavorites()
+        the.getUserFavorites()
     });
     
 }).actions({
@@ -117,8 +116,8 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     , bindPlayables : function() {
         $("a[name='playable']").each(function() {
             $(this).on('click', function() {
-                var path = $(this).data('trackpath');
-                path = path.replace('./Users/David/Music', 'media/music');
+                var path = 'http://media.loc/Music/iTunes/iTunes%20Media/Music' + $(this).data('trackpath');
+//                path = path.replace('./Users/David/Music', 'media/music');
                 $('#player').html(path);
                 $('#audio').attr('src', path);
             });

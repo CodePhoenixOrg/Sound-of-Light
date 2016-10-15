@@ -1,68 +1,100 @@
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+var SoundLight = function() {}
 
+SoundLight.User = function(userId) {
+    this.currentUser = userId
+}
+
+SoundLight.Collection = function() {}
+
+SoundLight.Playlist = function(userId) {
+    this.currentUser = userId
+    this.currentPlaylist = 0
+}
+
+/**
+ * Performs a get request on User object and retrieves its properties giving its Id
+ * 
+ * @returns JSON stream
+ */
+SoundLight.User.prototype.getInfo = function() {
+    TRest.get('/api/user/' + this.currentUser, function(data) {
+        var user = data.info[0]
+        document.getElementById('name').innerHTML = user.name
+        document.getElementById('email').innerHTML = user.email
+    })
+}
+
+/**
+ * Performs a get request on collection object and retrieves all the tracks
+ * 
+ * @returns JSON stream
+ */
+SoundLight.Collection.prototype.fetch = function(callback) {
+    TRest.get('/api/collection', function(data) {
+        if(typeof callback === 'function') {
+            callback.call(this, data)
+        }
+    })
     
-var cssFiles = [
-    "css/bootstrap.css"
-    , "css/jquery-ui.css"
-    , "css/jquery-ui.structure.css"
-    , "css/jquery-ui.theme.css"
-//    , "css/jquerysctipttop.css"
-//    , "css/multiaccordion.jquery.css"
-    , "css/docs.css"
-//    , "css/prettify.css"
-//    , "css/jumbotron.css"
-    , "css/full-slider.css"    
-];
+}
 
-var jsFiles = [
-      "js/widgets.js"
-    , "js/jquery.js"
-    , "js/jquery-ui.js"
-//    , "js/multiaccordion.jquery.js"
-    , "js/bootstrap.js"
-    , "js/holder.js"
-//    , "js/prettify.js"
-    , "js/application.js"
-//    , "js/spin.min.js"
-    , "js/php.default.min.js"
-//    , "js/jphink.js"
-    , "js/code_phink.js"
-    , "js/configuration.js"
-//    , "js/drag-and-drop.js"
-    , "app/controllers/main/main.js"
-];
+/**
+ * Performs a get request on user's playlist and retrieves all its tracks giving the userId
+ * 
+ * @returns JSON stream
+ */
+SoundLight.Playlist.prototype.getFavorites = function(callback) {
+    var the = this
+    TRest.get('/api/playlist/' + this.currentUser, function(data) {
+        if(typeof callback === 'function') {
+            the.currentPlaylist = data.pid
+            callback.call(this, data)
+        }
+    })
+    
+}
 
-//for(var key in cssFiles) {
-//    attributes = {
-//          href: cssFiles[key]
-//        , rel: "stylesheet"
-//    };
-//    
-//    var styleSheet = document.createElement("link");
-//    for(var key in attributes) {
-//        styleSheet.setAttribute(key, attributes[key]);
-//    }
-//    var head = document.getElementsByTagName("head")[0];
-//    head.appendChild(styleSheet);    
-//}
-//
-//for(var key in jsFiles) {
-//    var myInclude =  document.createElement("script");
-//    myInclude.src = jsFiles[key];
-//    myInclude.type = "text/javascript";
-//    var head = document.getElementsByTagName("head")[0];
-//    head.appendChild(myInclude);
-//}
+/**
+ * Performs a put request on user's playlist to add title chosen in the collection by its Id collection
+ * 
+ * @returns JSON stream
+ */
+SoundLight.Playlist.prototype.addTrack = function(trackId) {
+    var the = this
+    TRest.put('/api/playlist/' + '1', {'track' : trackId}, function(data) {
+        if(data.inserted == 1) {
+            the.afterAddTrack()
+        }
+    })
+}
 
-var sol = null;
+SoundLight.Playlist.prototype.afterAddTrack = function() {}
+/**
+ * Performs a delete request on user's playlist to remove a title giving its Id in playlist
+ * 
+ * @returns JSON stream
+ */
+SoundLight.Playlist.prototype.removeTrack = function(trackId) {
+    var the = this
+    TRest.delete('/api/playlist/' + trackId, function(data) {
+        if(data.deleted == 1) {
+            the.afterRemoveTrack()
+        }
+    })
+}
 
-domReady(function() {
-    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc';
-    sol = TWebApplication.create(host, true);
-    sol.main = sol.includeView('main');
+SoundLight.Playlist.prototype.afterRemoveTrack = function() {}
+
+var sol = null
+Phink.DOM.ready(function() {
+    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc'
+    sol = TWebApplication.create(host, true)
+    sol.main = sol.includeView('main')
 })

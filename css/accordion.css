@@ -6,29 +6,29 @@
 
 .ui-accordion-header {
   border: 0;
-  background: #ee514c;
+  background: transparent;
   color: #fff!important
 }
 
 .blue .ui-accordion-header,
-.blue.ui-accordion-header { background: #2980b9 }
+.blue.ui-accordion-header { background: transparent }
 
 .blue .ui-accordion-header.ui-state-hover,
-.blue.ui-accordion-header.ui-state-hover { background: #3498db }
+.blue.ui-accordion-header.ui-state-hover { background: transparent }
 
 .green .ui-accordion-header,
-.green.ui-accordion-header { background: #27ae60 }
+.green.ui-accordion-header { background: transparent }
 
 .green .ui-accordion-header.ui-state-hover,
-.green.ui-accordion-header.ui-state-hover { background: #2ecc71 }
+.green.ui-accordion-header.ui-state-hover { background: transparent }
 
 .violet .ui-accordion-header,
-.violet.ui-accordion-header { background: #551d74 }
+.violet.ui-accordion-header { background: transparent }
 
 .violet .ui-accordion-header.ui-state-hover,
-.violet.ui-accordion-header.ui-state-hover { background: #9461b1 }
+.violet.ui-accordion-header.ui-state-hover { background: transparent }
 
-.ui-accordion-header.ui-state-hover { background: #ec7672 }
+.ui-accordion-header.ui-state-hover { background: transparent }
 
 .ui-widget-content {
   background: transparent;
@@ -39,15 +39,16 @@
 
 .odd .ui-accordion-header {
   border: 0;
-  background: #e8e8e8;
-  color: #000!important;
+  background: transparent;
+  color: white!important;
   text-align: left
 }
 
 .odd .ui-accordion-header.ui-state-hover { background: #dfdfdf }
 
 .odd .ui-widget-content {
-  background: #f4f4f4;
+  background: transparent;
+  color:white;
   border: 0;
   margin: 0;
   padding: 5px
