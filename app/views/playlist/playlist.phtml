@@ -1,0 +1,13 @@
+<div id="collection" style="height: 960px; overflow: scroll;" >
+    <phx:TPlugin id="list0"  pattern="list" pivot="false" command="var:cmd" children="var:items" rowCount="var:pageCount" pageNum="var:index" >
+        <phx:TPluginChild id="items" name="Year" enabled="true" />
+        <phx:TPluginChild id="items" name="ArtistId" enabled="false" />
+        <phx:TPluginChild id="items" name="Artist" content="@artistItem.phtml" enabled="false" event="href#solPlayer.showArtist(Artist)" />
+        <phx:TPluginChild id="items" name="AlbumId" enabled="false" />
+        <phx:TPluginChild id="items" name="Album" content="@albumItem.phtml" enabled="true" event="href#solPlayer.showAlbum(Artist)" />
+        <phx:TPluginChild id="items" name="TitleId" enabled="false" />
+        <phx:TPluginChild id="items" name="Title" content="@titleItem.phtml" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.showTitle(TitleId)" />
+        <phx:TPluginChild id="items" name="TrackPath" enabled="false" />
+    </phx:TPlugin>
+    <!--phx:TPager id="pager" for="accordion0" caption="Albums de ma musique"  onclick="solPlayer.getData"  /-->
+</div>

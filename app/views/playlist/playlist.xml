@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TPlugin id="accordion0" >
+    <pattern>accordion</pattern>
+    <pivot>false</pivot>
+    <command>var:cmd</command>
+    <childid>var:items</childid>
+    <rowcount>var:pageCount</rowcount>
+    <pagecount>var:index</pagecount>
+    <haspager>true</haspager>
+    <children>
+        <TPluginChild>
+            <id>items</id>
+            <name>Year</name>
+            <enabled>true</enabled>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>ArtistId</name>
+            <enabled>false</enabled>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>Artist</name>
+            <content>@artistItem.phtml</content>
+            <enabled>false</enabled>
+            <event>href#solPlayer.showArtist(Artist)</event>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>AlbumId</name>
+            <enabled>false</enabled>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>Album</name>
+            <enabled>true</enabled>
+            <content>@albumItem.phtml</content>
+            <event>href#solPlayer.showAlbum(Artist)</event>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>TitleId</name>
+            <enabled>false</enabled>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>Title</name>
+            <enabled>true</enabled>
+            <content>@titleItem.phtml</content>
+            <dragHelper>@titleDragged.phtml</dragHelper>
+            <event>href#solPlayer.showTitle(TitleId)</event>
+        </TPluginChild>
+        <TPluginChild>
+            <id>items</id>
+            <name>TrackPath</name>
+            <enabled>false</enabled>
+        </TPluginChild>
+    </children>
+    <pager>
+        <TPager id="pager" >
+            <for>accordion0</for>
+            <caption>Albums de ma musique</caption>
+            <onclick>solPlayer.getData</onclick>
+        </TPager>
+    </pager>
+</TPlugin>
