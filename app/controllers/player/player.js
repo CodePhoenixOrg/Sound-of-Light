@@ -3,13 +3,13 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     showToken : function() {
         
         var token = TRegistry.item(this.name).token;
-
         this.getPartialView('token.html', 'showToken', '#token', {'token': token}, function(data) {
             $("#tokenLink").on("click", function() {
-                solPlayer.showToken();
+                context.showToken();
             });
             
         });
+        //TRest.get('/api/token')
         return false;
     }
     , showArtist : function(name) {
@@ -51,7 +51,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         return false;
     }
     , dragAndDrop : function(data) {
-        var the = this
         $("div[name='draggable']").each(function() {
            var id = $(this).data('draghelperid');
            var index = data.names.indexOf('TitleId');
@@ -61,7 +60,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
            var dragTemplate = TPlugin.applyDragHelper(data.templates, dragValues, dragIndex);
            
            $(this).on('click', function() {
-               the.pl.addTrack(id)
+               context.pl.addTrack(id)
            })
 
            var dragHelper = function(e) {
@@ -111,6 +110,12 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     
     }
 }).onload(function() {
+    this.currentUser = 1
+    this.pl = new SoundLight.Playlist(this.currentUser)
+//    this.coll = new SoundLight.Collection()
+    this.pl.afterAddTrack = this.getUserFavorites
+    this.pl.afterRemoveTrack = this.getUserFavorites
+    this.getUserFavorites()    
 
     TWebObject.getCSS('css/accordion.css');
     this.getScript('js/accordion.js', function() {
@@ -125,26 +130,26 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     this.dragAndDrop(gridData);
 
     var handleDrop = function(e, ui) {
-
+        
         var element = ui.draggable.clone().appendTo($(this));
         element.draggable({
-            cancel: "a.ui-icon", 
-            revert: "invalid", 
-            containment: "#dropper", 
-            helper: "clone",
-            cursor: "move"
+            cancel: 'a.ui-icon', 
+            revert: 'invalid', 
+            containment: '#dropper', 
+            helper: 'clone',
+            cursor: 'move'
         });
+        
+        var id = ui.draggable.context.dataset.draghelperid;
+        context.pl.addTrack(id);
+        
     };
+
+
 
     $("#dropper").droppable({
         accept: '#grid div'
         , drop: handleDrop
     });
     
-    this.currentUser = 1
-    this.pl = new SoundLight.Playlist(this.currentUser)
-//    this.coll = new SoundLight.Collection()
-    this.pl.afterAddTrack = this.getUserFavorites
-    this.pl.afterRemoveTrack = this.getUserFavorites
-    this.getUserFavorites()    
 })
