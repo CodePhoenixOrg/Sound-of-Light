@@ -1,20 +1,20 @@
 <?php
 namespace SoL\Controllers;
 
-class Grid extends \Phink\MVC\TPartialController
+class Collection extends \Phink\MVC\TPartialController
 {
 
-    protected $stmt = NULL;
-    protected $cmd = NULL;
-    protected $items = array();
-    protected $cn = NULL;
-    protected $pager = NULL;
-    protected $onclick = NULL;
-    protected $anchor = NULL;
+    protected $stmt = null;
+    protected $cmd = null;
+    protected $items = [];
+    protected $cn = null;
+    protected $pager = null;
+    protected $onclick = null;
+    protected $anchor = null;
     protected $pageCount = 0;
     protected $index = 1;
     protected $letter = '';
-    public $accordion0 = NULL;
+    public $list0 = null;
 
     public function setPageCount($value)
     {
@@ -55,7 +55,7 @@ class Grid extends \Phink\MVC\TPartialController
     {
         $id = $this->getViewName();
         $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $pagecount);
-        $this->response->setData('grid', $this->data);
+        $this->response->setData('collection', $this->data);
     }
     
 }

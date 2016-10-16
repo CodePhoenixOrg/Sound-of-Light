@@ -33,7 +33,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     }
     , getData : function(count, index, anchor) {
 
-        this.getJSON('grid.html'
+        this.getJSON('collection.html'
             , {
                 'action': "getData"
                 , 'pagecount': count
@@ -41,7 +41,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
                 //, 'token'
             }
             , function (data) {
-                TAccordion.create().bind('#grid', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
+                TList.create().bind('#collection', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
                 $(anchor).html(index);
                 $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
                 solPlayer.dragAndDrop(data.grid);
@@ -70,7 +70,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
            $(this).draggable({
                 cursor: 'move'
                 , containment: 'document'
-                , stack: '#grid div'
+                , stack: '#collection div'
                 , helper: dragHelper
             });
         });
@@ -127,7 +127,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
 
 
     this.bindPlayables();
-    this.dragAndDrop(gridData);
+    this.dragAndDrop(collectionData);
 
     var handleDrop = function(e, ui) {
         
@@ -148,7 +148,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
 
 
     $("#dropper").droppable({
-        accept: '#grid div'
+        accept: '#collection div'
         , drop: handleDrop
     });
     

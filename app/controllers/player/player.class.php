@@ -12,25 +12,25 @@ namespace SoL\Controllers;
     //put your code here
 
     protected $dummy = null;
-    protected $grid0 = null;
+    protected $collection0 = null;
     private $_cacheFilename = '';
 
     public function showPlayerByArtist($letter)
     {
-        $this->grid0->showArtistsByLetter($letter);
+        $this->collection0->showArtistsByLetter($letter);
         \Phink\Log\TLog::debug('LETTER::' . $letter);
     }
     
     public function showPlayerByAlbum($letter)
     {
-        $this->grid0->showAlbumsByLetter($letter);
+        $this->collection0->showAlbumsByLetter($letter);
         \Phink\Log\TLog::debug('LETTER::' . $letter);
 
     }
     
     public function showPlayerByDate($year)
     {
-        $this->grid0->showAlbumsByDate($year);
+        $this->collection0->showAlbumsByDate($year);
         \Phink\Log\TLog::debug('YEAR::' . $year);
     }
     
