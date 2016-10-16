@@ -1,41 +1,5 @@
 var solPlayer = sol.createController(sol.main, 'sol.player')
-.onload(function() {
-    this.currentUser = 1
-    this.pl = new SoundLight.Playlist(this.currentUser)
-    this.coll = new SoundLight.Collection()
-    var the = this
-    TRegistry.item(this.name).token = this.getToken();
-
-    TWebObject.getCSS('css/accordion.css');
-    this.getScript('js/accordion.js', function() {
-
-        $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-        solPlayer.showToken();
-        solPlayer.bindPlayables();
-        solPlayer.dragAndDrop(gridData);
-
-        var handleDrop = function(e, ui) {
-
-            var element = ui.draggable.clone().appendTo($(this));
-            element.draggable({
-                cancel: "a.ui-icon", 
-                revert: "invalid", 
-                containment: "#dropper", 
-                helper: "clone",
-                cursor: "move"
-            });
-        };
-
-        $("#dropper").droppable({
-            accept: '#grid div'
-            , drop: handleDrop
-        });
-        the.pl.afterAddTrack = the.getUserFavorites
-        the.pl.afterRemoveTrack = the.getUserFavorites
-        the.getUserFavorites()
-    });
-    
-}).actions({
+.actions({
     showToken : function() {
         
         var token = TRegistry.item(this.name).token;
@@ -125,7 +89,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
 
     }   
     , getUserFavorites : function() {
-        solPlayer.pl.getFavorites(function(data) {
+        this.pl.getFavorites(function(data) {
             var result = '<ol>'
             data = data.playlist
             if(data[0].artist === null && data[0].title === null) {
@@ -146,4 +110,41 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         })
     
     }
+}).onload(function() {
+
+    TWebObject.getCSS('css/accordion.css');
+    this.getScript('js/accordion.js', function() {
+
+        $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
+    });
+    
+    this.showToken();
+
+
+    this.bindPlayables();
+    this.dragAndDrop(gridData);
+
+    var handleDrop = function(e, ui) {
+
+        var element = ui.draggable.clone().appendTo($(this));
+        element.draggable({
+            cancel: "a.ui-icon", 
+            revert: "invalid", 
+            containment: "#dropper", 
+            helper: "clone",
+            cursor: "move"
+        });
+    };
+
+    $("#dropper").droppable({
+        accept: '#grid div'
+        , drop: handleDrop
+    });
+    
+    this.currentUser = 1
+    this.pl = new SoundLight.Playlist(this.currentUser)
+//    this.coll = new SoundLight.Collection()
+    this.pl.afterAddTrack = this.getUserFavorites
+    this.pl.afterRemoveTrack = this.getUserFavorites
+    this.getUserFavorites()    
 })
