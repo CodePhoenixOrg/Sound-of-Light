@@ -43,10 +43,11 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
                     , data.playlist.values
                     , data.playlist.templates
                     , data.playlist.elements
+                    , function() {
+                        solPlayer.bindPlayables();
+                    }
                 );
-                //$(anchor).html(index);
-//                $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-//                solPlayer.dragAndDrop(data.grid);
+
             }
         );
 
