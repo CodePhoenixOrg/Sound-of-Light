@@ -2,12 +2,13 @@
 namespace SoL\Models;
 
 require_once APP_DATA . 'amarok_connection.php';
+require_once APP_DATA . 'soundlib_connection.php';
 
 class Player extends \Phink\MVC\TModel {
 
     public function init()
     {
-        $this->connector = new \SoL\Data\AmarokConnection();
+        $this->connector = new \SoL\Data\SoundLibConnection();
         $this->connector->open();
     }
 
@@ -42,22 +43,20 @@ SELECT;
         
         $sql = <<<SELECT
 SELECT 
-    y.name AS 'Year',
-    a.id AS 'ArtistId',
-    a.name AS 'Artist',
-    s.id AS 'AlbumId',
-    s.name AS 'Album',
-    t.id AS 'TitleId',
-    t.title AS 'Title'
+    trk_year AS 'Year',
+    a.art_id AS 'ArtistId',
+    art_name AS 'Artist',
+    s.alb_id AS 'AlbumId',
+    alb_title AS 'Album',
+    trk_id AS 'TitleId',
+    trk_title AS 'Title'
 FROM
-    tracks t
+    track t
         INNER JOIN
-    albums s ON t.album = s.id
+    album s ON t.alb_id = s.alb_id
         INNER JOIN
-    years y ON t.year = y.id 
-        INNER JOIN
-    artists a ON a.id = s.artist $range
-ORDER BY y.name, a.name, t.year, t.id
+    artists a ON a.art_id = s.art_id $range
+ORDER BY trk_year, art_name, trk_id
 SELECT;
 
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);

@@ -1,15 +1,14 @@
+var table0 = null;
 var solPlayer = sol.createController(sol.main, 'sol.player')
 .actions({
     showToken : function() {
         
-        var token = TRegistry.item(this.name).token;
-        this.getPartialView('token.html', 'showToken', '#token', {'token': token}, function(data) {
+        solPlayer.getPartialView('token.html', 'showToken', '#token', {}, function(data) {
             $("#tokenLink").on("click", function() {
-                context.showToken();
+                solPlayer.showToken();
             });
             
         });
-        //TRest.get('/api/token')
         return false;
     }
     , showArtist : function(name) {
@@ -31,20 +30,23 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     , showTitle : function(id) {
         $("#vikipedia").html("Title #" + id);
     }
-    , getData : function(count, index, anchor) {
+    , refresh : function(user) {
 
-        this.getJSON('collection.html'
+        solPlayer.getJSON('playlist.html'
             , {
                 'action': "getData"
-                , 'pagecount': count
-                , 'pagenum': index
-                //, 'token'
             }
             , function (data) {
-                TList.create().bind('#collection', data.grid.names, data.grid.values, data.grid.templates, data.grid.elements);
-                $(anchor).html(index);
-                $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-                solPlayer.dragAndDrop(data.grid);
+                table0 = data;
+                TList.create().bind('#playlist'
+                    , data.playlist.names
+                    , data.playlist.values
+                    , data.playlist.templates
+                    , data.playlist.elements
+                );
+                //$(anchor).html(index);
+//                $(".accordion").multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
+//                solPlayer.dragAndDrop(data.grid);
             }
         );
 
@@ -59,9 +61,9 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
            var dragIndex = $(this).data('draghelperindex');
            var dragTemplate = TPlugin.applyDragHelper(data.templates, dragValues, dragIndex);
            
-           $(this).on('click', function() {
-               context.pl.addTrack(id)
-           })
+//           $(this).on('click', function() {
+//               solPlayer.pl.addTrack(id)
+//           })
 
            var dragHelper = function(e) {
               return dragTemplate;
@@ -88,7 +90,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
 
     }   
     , getUserFavorites : function() {
-        this.pl.getFavorites(function(data) {
+        solPlayer.pl.getFavorites(function(data) {
             var result = '<ol>'
             data = data.playlist
             if(data[0].artist === null && data[0].title === null) {
@@ -110,22 +112,13 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     
     }
 }).onload(function() {
+    solPlayer = this;
     this.currentUser = 1
     this.pl = new SoundLight.Playlist(this.currentUser)
-//    this.coll = new SoundLight.Collection()
-    this.pl.afterAddTrack = this.getUserFavorites
-    this.pl.afterRemoveTrack = this.getUserFavorites
-    this.getUserFavorites()    
-
-    TWebObject.getCSS('css/accordion.css');
-    this.getScript('js/accordion.js', function() {
-
-        $('.accordion').multiaccordion({defaultIcon: "ui-icon-plusthick", activeIcon: "ui-icon-minusthick"});
-    });
+    this.pl.afterAddTrack = this.refresh
+    this.pl.afterRemoveTrack = this.refresh
     
     this.showToken();
-
-
     this.bindPlayables();
     this.dragAndDrop(collectionData);
 
@@ -141,11 +134,9 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         });
         
         var id = ui.draggable.context.dataset.draghelperid;
-        context.pl.addTrack(id);
+        solPlayer.pl.addTrack(id);
         
     };
-
-
 
     $("#dropper").droppable({
         accept: '#collection div'

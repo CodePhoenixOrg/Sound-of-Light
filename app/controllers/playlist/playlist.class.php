@@ -14,7 +14,14 @@ class PlayList extends \Phink\MVC\TPartialController
     protected $pageCount = 0;
     protected $index = 1;
     protected $letter = '';
-    public $list0 = null;
+    protected $list0 = null;
+    protected $user = 1;
+
+    public function init()
+    {
+        $this->user = $this->getAuthentication()->getUserId();
+        $this->cmd = $this->model->getPlaylist(1);
+    }
 
     public function setPageCount($value)
     {
@@ -36,10 +43,14 @@ class PlayList extends \Phink\MVC\TPartialController
         $this->onclick = $value;
     }
     
-    public function getData($pagecount, $pagenum)
+    public function showPlaylist($user) 
+    {
+    }
+
+    public function getData()
     {
         $id = $this->getViewName();
-        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $pagecount);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, 1);
         $this->response->setData('playlist', $this->data);
     }
     

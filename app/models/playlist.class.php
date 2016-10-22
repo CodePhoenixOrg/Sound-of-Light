@@ -14,10 +14,46 @@ require_once APP_DATA . 'soundlib_connection.php';
  *
  * @author David
  */
-class Playlist
+class Playlist extends \Phink\MVC\TModel
 {
     //put your code here
-    public static function getUserFavorites($userId)
+    public function init()
+    {
+        $this->connector = new \SoL\Data\SoundLibConnection();
+        $this->connector->open();
+    }
+
+    public function getPlaylist($userId = 1)
+    {
+        $result = [];
+        $result['playlist'] = [];
+        $result['pid'] = 0;
+        
+        $sql = <<<SELECT
+select p.pls_id as pid
+    , plc_id as id
+    , a.art_id as ArtistId
+    , art_name as Artist
+    , t.trk_id as TitleId
+    , trk_title as Title
+    , trk_duration as Duration
+    , trk_path as TrackPath
+from user u
+left join playlist p on p.usr_id = u.usr_id
+left join playlist_content c on c.pls_id = p.pls_id
+left join track t on c.trk_id = t.trk_id
+left join artist a on t.art_id = a.art_id
+where u.usr_id = $userId
+SELECT;
+         
+        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
+        $cmd->setSelectQuery($sql);
+        
+        return $cmd;
+    }
+    
+
+    public static function getUserFavorites($userId = 1)
     {
         $result = [];
         $result['playlist'] = [];

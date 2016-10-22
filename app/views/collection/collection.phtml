@@ -6,7 +6,7 @@
         <phx:TPluginChild id="items" name="AlbumId" enabled="false" />
         <phx:TPluginChild id="items" name="Album" content="@albumItem.phtml" enabled="true" event="href#solPlayer.showAlbum(Artist)" />
         <phx:TPluginChild id="items" name="TitleId" enabled="false" />
-        <phx:TPluginChild id="items" name="Title" content="@titleItem.phtml" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.showTitle(TitleId)" />
+        <phx:TPluginChild id="items" name="Title" content="@titleItem.phtml" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.pl.addTrack(TitleId)" />
         <phx:TPluginChild id="items" name="TrackPath" enabled="false" />
     </phx:TPlugin>
     <!--phx:TPager id="pager" for="accordion0" caption="Albums de ma musique"  onclick="solPlayer.getData"  /-->

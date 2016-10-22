@@ -31,7 +31,7 @@ html {
   background-image: linear-gradient(300deg, #444444, black);
   padding: 15px 0;
 }
-.tile ul  li {
+.tile ul li {
   float: left;
   position: relative;
   width: 90px;
@@ -45,7 +45,11 @@ html {
   padding: 15px 0;
 }
 
-
 .tileClear li {
     clear: both;
+}
+
+#playlist ul > li {
+    list-style-type: none;
+  
 }

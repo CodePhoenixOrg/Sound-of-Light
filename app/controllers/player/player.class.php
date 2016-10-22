@@ -13,18 +13,25 @@ namespace SoL\Controllers;
 
     protected $dummy = null;
     protected $collection0 = null;
+    protected $playlist0 = null;
     private $_cacheFilename = '';
+
+    public function init()
+    {
+    }
 
     public function showPlayerByArtist($letter)
     {
         $this->collection0->showArtistsByLetter($letter);
         \Phink\Log\TLog::debug('LETTER::' . $letter);
+        $this->playlist0->showPlaylist(1);
     }
     
     public function showPlayerByAlbum($letter)
     {
         $this->collection0->showAlbumsByLetter($letter);
         \Phink\Log\TLog::debug('LETTER::' . $letter);
+        $this->playlist0->showPlaylist(1);
 
     }
     
@@ -32,6 +39,7 @@ namespace SoL\Controllers;
     {
         $this->collection0->showAlbumsByDate($year);
         \Phink\Log\TLog::debug('YEAR::' . $year);
+        $this->playlist0->showPlaylist(1);
     }
     
     public function wikiArtist($artist)

@@ -13,27 +13,27 @@ namespace SoL\Data;
  *
  * @author david
  */
-class SoundLibConnection
-{
-    //put your code here
-    private $connection = null;
-    
-    public function open()
-    {
-        $this->connection = new \PDO(
-            'mysql:host=localhost;dbname=soundlib',
-            'djay',
-            'demo',
-            [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]
-        );
-        
-        return $this->connection;
+//class SoundLibConnection
+//{
+//    //put your code here
+//    private $connection = null;
+//    
+//    public function open()
+//    {
+//        $this->connection = new \PDO(
+//            'mysql:host=localhost;dbname=soundlib',
+//            'djay',
+//            'demo',
+//            [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]
+//        );
+//        
+//        return $this->connection;
+//    }
+//
+//}
+class SoundLibConnection extends \Phink\Data\Client\PDO\TPdoConnection {
+    public function __construct() {
+        $config = new \Phink\Data\Client\PDO\TPdoConfiguration(\Phink\Data\TServerType::MYSQL, 'soundlib', 'localhost', 'djay', 'demo');
+        parent::__construct($config);
     }
 }
-//class SoundLibConnection extends \Phink\Data\Client\PDO\TPdoConnection {
-//    public function __construct() {
-//        $config = new \Phink\Data\Client\PDO\TPdoConfiguration(\Phink\Data\TServerType::MYSQL, 'soundlib', 'localhost', 'djay', 'demo');
-//        //$config = new TPdoConfiguration(TServerType::SQLSERVER, 'Alphas', 'DELPHI', 'sa', '1p2+ar');
-//        parent::__construct($config);
-//    }
-//}
