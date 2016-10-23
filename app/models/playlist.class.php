@@ -23,7 +23,7 @@ class Playlist extends \Phink\MVC\TModel
         $this->connector->open();
     }
 
-    public function getPlaylist($userId = 1)
+    public function getPlaylist($id = 1)
     {
         $result = [];
         $result['playlist'] = [];
@@ -43,7 +43,7 @@ left join playlist p on p.usr_id = u.usr_id
 left join playlist_content c on c.pls_id = p.pls_id
 left join track t on c.trk_id = t.trk_id
 left join artist a on t.art_id = a.art_id
-where u.usr_id = $userId
+where p.pls_id = $id
 SELECT;
          
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);

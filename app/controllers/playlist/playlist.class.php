@@ -1,7 +1,7 @@
 <?php
 namespace SoL\Controllers;
 
-class PlayList extends \Phink\MVC\TPartialController
+class Playlist extends \Phink\MVC\TPartialController
 {
 
     protected $stmt = null;
@@ -20,7 +20,7 @@ class PlayList extends \Phink\MVC\TPartialController
     public function init()
     {
         $this->user = $this->getAuthentication()->getUserId();
-        $this->cmd = $this->model->getPlaylist(1);
+        $this->cmd = $this->model->getPlaylist();
     }
 
     public function setPageCount($value)

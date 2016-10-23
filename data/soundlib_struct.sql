@@ -1,4 +1,14 @@
-CREATE DATABASE  IF NOT EXISTS `soundlib` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+-- CREATE DATABASE  IF NOT EXISTS `soundlib` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+DROP DATABASE IF EXISTS `soundlib`;
+CREATE DATABASE `soundlib` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `soundlib`;
+
+-- DROP USER 'djay'@'localhost';
+CREATE USER 'djay'@'localhost' IDENTIFIED WITH mysql_native_password;
+GRANT USAGE ON *.* TO 'djay'@'localhost' REQUIRE NONE;
+SET PASSWORD FOR 'djay'@'localhost' = PASSWORD('demo');
+GRANT ALL PRIVILEGES ON `soundlib`.* TO 'djay'@'localhost' WITH GRANT OPTION;
+
 USE `soundlib`;
 -- MySQL dump 10.13  Distrib 5.6.24, for osx10.8 (x86_64)
 --

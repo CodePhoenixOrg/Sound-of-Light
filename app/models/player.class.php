@@ -4,7 +4,8 @@ namespace SoL\Models;
 require_once APP_DATA . 'amarok_connection.php';
 require_once APP_DATA . 'soundlib_connection.php';
 
-class Player extends \Phink\MVC\TModel {
+class Player extends \Phink\MVC\TModel
+{
 
     public function init()
     {
