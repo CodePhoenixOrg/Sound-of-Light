@@ -6,25 +6,25 @@
     </div>
 
     <!--center-->
-    <div style="overflow: scroll;">
+    <div id="abcTiles" style="overflow: hidden;">
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#artists">Artists</a></li>
           <li><a data-toggle="tab" href="#albums">Albums</a></li>
           <li><a data-toggle="tab" href="#years">Years</a></li>
         </ul>
 
-        <div class="tab-content">
-          <div id="artists" class="tab-pane fade in active">
+        <div class="tab-content scroll_container" data-mcs-theme="dark">
+          <div id="artists" class="tab-pane active">
             <p>
             <phx:AbcArtists id="abcArtists" anchor="#abcArtists" />
             </p>
           </div>
-          <div id="albums" class="tab-pane fade">
+          <div id="albums" class="tab-pane">
             <p>
             <phx:AbcAlbums id="abcAlbums" anchor="#abcAlbums" />
             </p>
           </div>
-          <div id="years" class="tab-pane fade">
+          <div id="years" class="tab-pane">
             <p>
             <phx:AbcYears id="abcYears" anchor="#abcYears" />
             </p>

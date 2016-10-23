@@ -59,10 +59,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
            var dragIndex = $(this).data('draghelperindex');
            var dragTemplate = TPlugin.applyDragHelper(data.templates, dragValues, dragIndex);
            
-//           $(this).on('click', function() {
-//               solPlayer.pl.addTrack(id)
-//           })
-
            var dragHelper = function(e) {
               return dragTemplate;
            }               
@@ -87,28 +83,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         });
 
     }   
-    , getUserFavorites : function() {
-        solPlayer.pl.getFavorites(function(data) {
-            var result = '<ol>'
-            data = data.playlist
-            if(data[0].artist === null && data[0].title === null) {
-                result = 'La playlist est vide'
-            } else {
-                for(var i = 0; i < data.length; i++) {
-                    var duration = TUtils.secondsToString(data[i].duration)
-                    
-                    result += '<li><a href="javascript:solPlayer.pl.removeTrack(' + data[i].id + ')" ><img src="/css/images/delete.png" /></a>&nbsp;' + data[i].artist + ' - ' + data[i].title + ' (' + duration + ')'  + '</li>'
-                }
-                result += '</ol>'
-            }
-
-            var div = document.getElementById('playlist')
-            if(div !== undefined) {
-                div.innerHTML = result
-            }
-        })
-    
-    }
 }).onload(function() {
     solPlayer = this;
     this.currentUser = 1
@@ -140,5 +114,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         accept: '#collection div'
         , drop: handleDrop
     });
+    
+    $(".scroll_container").mCustomScrollbar();
     
 })
