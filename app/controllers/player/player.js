@@ -39,10 +39,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
             , function (data) {
                 table0 = data;
                 TList.create().bind('#playlist'
-                    , data.playlist.names
-                    , data.playlist.values
-                    , data.playlist.templates
-                    , data.playlist.elements
+                    , data.playlist
                     , function() {
                         solPlayer.bindPlayables();
                     }
