@@ -37,7 +37,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
                 'action': "getData"
             }
             , function (data) {
-                table0 = data;
                 TList.create().bind('#playlist'
                     , data.playlist
                     , function() {
@@ -115,6 +114,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         , drop: handleDrop
     });
     
-    $(".scroll_container").mCustomScrollbar();
+//    $(".scroll_container").mCustomScrollbar();
     
 })

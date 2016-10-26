@@ -53,3 +53,13 @@ html {
     list-style-type: none;
   
 }
+
+.scroll_container {
+    overflow: hidden;
+    height: 100%;
+}
+
+.scroll_content {
+    overflow-y: scroll;
+    height: 960px;
+}
