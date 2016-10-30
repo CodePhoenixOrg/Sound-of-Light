@@ -27,5 +27,6 @@ var solMain = sol.createController(sol.main, 'sol.main')
 //        });
     solMain = this;
     this.goHome2();
+    ladminIndex.bindEvents();
 });
 
