@@ -11,10 +11,10 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         });
         return false;
     }
-    , showArtist : function(name) {
-        $('#wikipedia').attr('src', 'https://en.wikipedia.org/wiki/' + name);
-    }
     , showAlbum : function(name) {
+        $('#wikipedia').attr('src', 'http://media.loc/main.html?artist=' + name);
+    }
+    , showAlbumOld : function(name) {
         try {
             this.getJSON('player.html', {'action': 'wikiArtist', 'artist': name}, function(data) {
                 if(data.return == 200) {
@@ -26,7 +26,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         } catch (e) {
             debugLog(e);
         }
-     }
+    }
     , showTitle : function(id) {
         $("#vikipedia").html("Title #" + id);
     }

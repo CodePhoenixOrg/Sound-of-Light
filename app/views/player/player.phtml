@@ -1,25 +1,26 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="page-header">
+        <div class="page-header player">
             <phx:Dummy id="dummy" />
         </div>
     </div>
     <!--left-->
-    <div class="col-sm-3 scroll_container" >
+    <div class="col-sm-3 scroll_container collection" >
         <phx:Collection id="collection0" anchor="#collection" />
     </div><!--/left-->
 
     <!--center-->
-    <div class="col-sm-6 scroll_container" >
-        <div id="wikipedia" class="scroll_content mCustomScrollbar" data-mcs-theme="dark">
-        </div>
+    <div class="col-sm-6 mediaspace" data-mcs-theme="dark">
+        <iframe id="wikipedia" width="100%" height="100%" frameborder="0" class="mCustomScrollbar"
+                    style="overflow: hidden; height: 960px; width: 100%; position: relative;">
+        </iframe>
         <!--onload="TUtils.resizeIframe(this)"-->
     </div><!--/center-->
 
     <!--right-->
-    <div class="col-sm-3" >
-        <h2>Playlist</h2>
-        <div id="dropper" class="scroll_container" >
+    <div class="col-sm-3 playlist" >
+        <span>Playlist</span>
+        <div id="dropper" class="scroll_container " >
             <phx:Playlist id="playlist0" anchor="#playlist" />
         </div>
         <hr>
