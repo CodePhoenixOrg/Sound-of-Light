@@ -33,7 +33,7 @@ class Login extends \Phink\MVC\TController {
     
     public function authenticate($login, $password, $container)
     {
-        $result = FALSE;
+        $result = false;
         
         $this->_login = $login;
         $this->_password = $password;
@@ -44,32 +44,32 @@ class Login extends \Phink\MVC\TController {
         }
         $result = ($token) ? 1 : 0;
             
-        if($result) {
-            
-            $this->request->addViewSubRequest('master', SERVER_ROOT . MASTER_PAGE, ['token' => $token]);
-            $this->request->addViewSubRequest('page', SERVER_ROOT . HOME_PAGE, ['token' => $token]);
-            
-            try {
-                $result = $this->request->execSubRequests();
-                $master = $result['master'];
-                $page = $result['page'];        
-
-                $masterHtml = ($container && $master['html']) ? $master['html'] : '';
-                $pageHtml = ($page['html']) ? $page['html'] : '';
-
-                $this->response->setData('master', $masterHtml);
-                $this->response->setData('container', $container);
-                $this->response->setData('page', $pageHtml);
-                $this->response->setToken($token);
-                $this->response->setReturn(200);
-            } catch (\Exception $ex) {
-                $this->response->setToken($token);
-                $this->response->setReturn(202);
-            }
-            
-        } else {
-            $this->response->setToken($token);
+        if($result === 0) {
             $this->response->setReturn(403);
+            return false;
         }
+            
+        $this->request->addViewSubRequest('master', SERVER_ROOT . MASTER_PAGE, ['token' => $token]);
+        $this->request->addViewSubRequest('page', SERVER_ROOT . HOME_PAGE, ['token' => $token]);
+
+        try {
+            $result = $this->request->execSubRequests();
+            $master = $result['master'];
+            $page = $result['page'];        
+
+            $masterHtml = ($container && $master['html']) ? $master['html'] : '';
+            $pageHtml = ($page['html']) ? $page['html'] : '';
+
+            $this->response->setData('master', $masterHtml);
+            $this->response->setData('container', $container);
+            $this->response->setData('page', $pageHtml);
+            $this->response->setReturn(200);
+        } catch (\Exception $ex) {
+
+            $this->response->setReturn(202);
+        }
+            
+        $this->response->setToken($token);
+
     }
 }

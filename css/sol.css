@@ -60,6 +60,6 @@ html {
 }
 
 .scroll_content {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 960px;
 }

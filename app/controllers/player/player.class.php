@@ -7,7 +7,7 @@ namespace SoL\Controllers;
  * @author david
  */
 
- class Player extends \Phink\MVC\TController
+class Player extends \Phink\MVC\TController
 {
     //put your code here
 

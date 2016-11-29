@@ -1,0 +1,12 @@
+{
+    "license": "GPL-3.0+",
+    "name": "vendor/sound-of-light",
+    "description": "A lightweight personal web audio player",
+    "authors": [
+        {
+            "name": "David Blanchard",
+            "email": "dblanchard@bbox.fr"
+        }
+    ],
+    "require": {}
+}
