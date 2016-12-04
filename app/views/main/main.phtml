@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" debug="true" >
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>Sound Of Light</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Sound Of Light</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Le styles -->
-    <link href="css/_3rdparty.css" rel="stylesheet">
-    <link href="css/full-slider.css" rel="stylesheet">
-    <link href="css/wikipedia.css" rel="stylesheet">
-<!--    <link href="css/youtube_theme.css" rel="stylesheet">
-    <link href="css/youtube_core_webp.css" rel="stylesheet">
-    <link href="css/youtube_guide_webp.css" rel="stylesheet">
-    <link href="css/youtube_pageframe_webp.css" rel="stylesheet">
-    <link href="css/youtube_player_webp.css" rel="stylesheet">
-    <link href="css/youtube.css" rel="stylesheet">-->
-    <link href="css/sol.css" rel="stylesheet">
-    <!--link href="css/wikipedia_002.css" rel="stylesheet"-->
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/_3rdparty.js"></script>
-    <script type="text/javascript" src="js/code_phoenix.js"></script>
-    <!--script type="text/javascript" src="app/controllers/main/main.js"></script-->
-    <script type="text/javascript" src="js/sol_runtime.js"></script>
-    <script type="text/javascript" src='<phx:echo var="hostname" />/js/ladmin.js'></script>
+        <!-- Le styles -->
+        <link href="css/_3rdparty.css" rel="stylesheet">
+        <link href="css/full-slider.css" rel="stylesheet">
+        <link href="css/wikipedia.css" rel="stylesheet">
+        <!--    <link href="css/youtube_theme.css" rel="stylesheet">
+            <link href="css/youtube_core_webp.css" rel="stylesheet">
+            <link href="css/youtube_guide_webp.css" rel="stylesheet">
+            <link href="css/youtube_pageframe_webp.css" rel="stylesheet">
+            <link href="css/youtube_player_webp.css" rel="stylesheet">
+            <link href="css/youtube.css" rel="stylesheet">-->
+        <link href="css/sol.css" rel="stylesheet">
+        <!--link href="css/wikipedia_002.css" rel="stylesheet"-->
 
-</head>
-<body data-twttr-rendered="true" data-spy="scroll" >
-    <div id='body'></div>
-    <script type="text/javascript" src="js/debug.js"></script>
-</body>
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="js/_3rdparty.js"></script>
+        <script type="text/javascript" src="js/code_phoenix.js"></script>
+        <!--script type="text/javascript" src="app/controllers/main/main.js"></script-->
+        <script type="text/javascript" src="js/sol_runtime.js"></script>
+        <script type="text/javascript" src='<phx:echo var="hostname" />/js/ladmin.js'></script>
+
+    </head>
+    <body data-twttr-rendered="true" data-spy="scroll" >
+        <div id='body'></div>
+        <script type="text/javascript" src="js/debug.js"></script>
+        <script type="text/javascript" >
+            var APP_NAME = "sol";
+            var sol = null;
+            Phink.DOM.ready(function () {
+
+                sol = TWebApplication.create('sol.loc');
+                sol.main = sol.createView('main');
+
+                var solMain = sol.createController(sol.main, 'sol.main')
+                .actions({
+                    goHome: function () {
+                        solMain.getSimpleView('home.html', function (data) {
+                            $(document.body).html(data.view);
+                        });
+                    }
+                    , goHome2: function () {
+                        solMain.getSimpleView('master.html', function (data) {
+                            $(document.body).html(data.view);
+                            solMain.getSimpleView('home.html', function (data) {
+                                $('#homeContent').html(data.view);
+                            });
+                        });
+                    }
+                })
+                .onload(function () {
+                    solMain = this;
+                    this.goHome2();
+                    //ladminIndex.bindEvents();
+                });
+            });
+
+        </script>
+
+    </body>
 </html>

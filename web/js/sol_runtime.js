@@ -1,4 +1,3 @@
-var APP_NAME = "sol";
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -92,12 +91,3 @@ SoundLight.Playlist.prototype.removeTrack = function(trackId) {
 }
 
 SoundLight.Playlist.prototype.afterRemoveTrack = function() {}
-
-
-var sol = null
-Phink.DOM.ready(function() {
-    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc'
-    sol = TWebApplication.create(host, true)
-    sol.main = sol.includeView('main')
-})
-
