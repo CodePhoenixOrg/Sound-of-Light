@@ -54,7 +54,6 @@ class Player extends \Phink\MVC\TController
             $this->response->setData('view', $res[1]);
             $this->response->setReturn(200);
         } elseif($res[0] === 202) {
-            $resFilename = 'res_wikipedia_' . str_replace(' ', '_', $artist);
             $res = $this->_getWiki($artist . '_(band)');
             //$res = $this->_getYoutube($artist);
             

@@ -11,8 +11,8 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         });
         return false;
     }
-    , showArtist : function(name) {
-        $('#wikipedia').attr('src', 'https://en.wikipedia.org/wiki/' + name);
+    , showAlbumNew : function(name) {
+        $('#wikipedia').attr('src', 'http://media.loc/main.html?artist=' + name);
     }
     , showAlbum : function(name) {
         try {
@@ -26,7 +26,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         } catch (e) {
             debugLog(e);
         }
-     }
+    }
     , showTitle : function(id) {
         $("#vikipedia").html("Title #" + id);
     }
