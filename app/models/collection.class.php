@@ -106,7 +106,7 @@ SELECT;
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        self::$logger->dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }
@@ -144,7 +144,7 @@ SELECT;
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        self::$logger->dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }
@@ -182,7 +182,7 @@ SELECT;
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        self::$logger->dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }
@@ -220,7 +220,7 @@ SELECT;
 //        $cmd->setSelectQuery($sql);
 //        $cmd->setCommandText($cmd->getSelectQuery());
             
-//        \Phink\Log\TLog::dump('getArtistAlbumTitle', $cmd);
+//        self::$logger->dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }

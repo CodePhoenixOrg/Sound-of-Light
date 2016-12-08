@@ -23,14 +23,14 @@ class Player extends \Phink\MVC\TController
     public function showPlayerByArtist($letter)
     {
         $this->collection0->showArtistsByLetter($letter);
-        \Phink\Log\TLog::debug('LETTER::' . $letter);
+        self::$logger->debug('LETTER::' . $letter);
         $this->playlist0->showPlaylist(1);
     }
     
     public function showPlayerByAlbum($letter)
     {
         $this->collection0->showAlbumsByLetter($letter);
-        \Phink\Log\TLog::debug('LETTER::' . $letter);
+        self::$logger->debug('LETTER::' . $letter);
         $this->playlist0->showPlaylist(1);
 
     }
@@ -38,7 +38,7 @@ class Player extends \Phink\MVC\TController
     public function showPlayerByDate($year)
     {
         $this->collection0->showAlbumsByDate($year);
-        \Phink\Log\TLog::debug('YEAR::' . $year);
+        self::$logger->debug('YEAR::' . $year);
         $this->playlist0->showPlaylist(1);
     }
     

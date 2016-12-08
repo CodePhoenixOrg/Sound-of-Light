@@ -22,6 +22,6 @@ try {
 
 } catch (\PDOException $ex) {
 	var_dump($ex);
-        \Phink\Log\TLog::exception($ex, __FILE__, __LINE__);
+        self::$logger->exception($ex, __FILE__, __LINE__);
 }
 

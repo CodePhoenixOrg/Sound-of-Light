@@ -21,7 +21,7 @@ class Login extends \Phink\MVC\TModel {
     public function init() {
         $this->connector = new \SoL\Data\LAdminConnection();
         $this->connector->open();
-        //\Phink\Log\TLog::dump('OPEN LAdminConnection', $this->connector);        
+        //self::$logger->dump('OPEN LAdminConnection', $this->connector);        
     }
 
     public function getPermission($login, $password) {
@@ -42,9 +42,9 @@ class Login extends \Phink\MVC\TModel {
                 }
             }
 
-            //\Phink\Log\TLog::debug('getPermission' . ' : ' . $result);
+            //self::$logger->debug('getPermission' . ' : ' . $result);
         } catch(\Exception $ex) {
-            \Phink\Log\TLog::exception($ex);
+            self::$logger->exception($ex);
         }
         
         return $result;

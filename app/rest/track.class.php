@@ -19,7 +19,7 @@ class Track extends \Phink\Rest\TRestController
     public function get($trackId)
     {
         $track = \SoL\Models\Track::getTrackById($trackId);
-        \Phink\Log\TLog::dump('TRACK', $track);
+        self::$logger->dump('TRACK', $track);
         $this->response->setData($track);
     }
 }
