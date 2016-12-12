@@ -1,17 +1,7 @@
 var table0 = null;
 var solPlayer = sol.createController(sol.main, 'sol.player')
 .actions({
-    showToken : function() {
-        
-        solPlayer.getPartialView('token.html', 'showToken', '#token', {}, function(data) {
-            $("#tokenLink").on("click", function() {
-                solPlayer.showToken();
-            });
-            
-        });
-        return false;
-    }
-    , showAlbumNew : function(name) {
+    showAlbumNew : function(name) {
         $('#wikipedia').attr('src', 'http://media.loc/main.html?artist=' + name);
     }
     , showAlbum : function(name) {
@@ -26,9 +16,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         } catch (e) {
             debugLog(e);
         }
-    }
-    , showTitle : function(id) {
-        $("#vikipedia").html("Title #" + id);
     }
     , refresh : function(user) {
 
@@ -89,7 +76,6 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     this.pl.afterAddTrack = this.refresh
     this.pl.afterRemoveTrack = this.refresh
     
-    this.showToken();
     this.bindPlayables();
     this.dragAndDrop(collectionData);
 
