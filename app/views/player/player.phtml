@@ -1,27 +1,29 @@
-<div class="container-fluid">
-    <div class="row-fluid">
+<div class="playerspace container-fluid">
+    <header class="playerheader row-fluid">
         <div class=" player">
             <phx:Dummy id="dummy" />
         </div>
-    </div>
+    </header>
     <!--left-->
-    <div class="col-sm-3 scroll_container collection" >
-        <phx:Collection id="collection0" anchor="#collection" />
-    </div><!--/left-->
+    <main class="playermain row-fluid">
+        <div class="col-sm-3 scroll_container collection" >
+            <phx:Collection id="collection0" anchor="#collection" />
+        </div><!--/left-->
 
-    <!--center-->
-    <div class="col-sm-6 scroll_container mediaspace">
-        <div id="wikipedia" frameborder="0" class="scroll_mediaspace">
-        </div>
-    </div><!--/center-->
+        <!--center-->
+        <div class="col-sm-6 scroll_container mediaspace">
+            <div id="wikipedia" frameborder="0" class="scroll_mediaspace">
+            </div>
+        </div><!--/center-->
 
-    <!--right-->
-    <div class="col-sm-3 playlist" >
-        <span>Playlist</span>
-        <div id="dropper" class="scroll_container " >
-            <phx:Playlist id="playlist0" anchor="#playlist" />
-        </div>
-    </div><!--/right-->
-    <div id="token" class="panel panel-default">
-    </div>
+        <!--right-->
+        <div class="col-sm-3 playlist scroll_container" >
+            <span>&nbsp;&nbsp;&nbsp;Playlist</span>
+            <div id="dropper" >
+                <phx:Playlist id="playlist0" anchor="#playlist" />
+            </div>
+        </div><!--/right-->
+    </main>
+    <footer id="token" class="playerfooter row-fluid">
+    </footer>
 </div>

@@ -9,12 +9,12 @@ and open the template in the editor.
 */
 html {
     color: white;
-    background-image: linear-gradient(300deg, #004466, black);
+    background-image: linear-gradient(300deg, #444444, black);
 }
 
 body {
     color: white;
-    background-image: linear-gradient(300deg, #004466, black);
+    background-image: linear-gradient(300deg, #444444, black);
 }
 
 
@@ -107,6 +107,27 @@ body.loading .modal {
     clear: both;
 }
 
+.playerspace {
+    height: 100%;
+}
+
+.playerheader {
+    width: 100%;
+    height: 20%;
+    padding: 10px 10px 10px 10px;
+}
+
+.playermain {
+    width: 100%;
+    height: 75%;
+    padding: 10px 10px 10px 10px;
+}
+
+.playerfooter {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
 #playlist ul {
     margin-left: -15px;
 }
@@ -122,21 +143,32 @@ body.loading .modal {
 
 .scroll_content {
     overflow-y: scroll;
-    height:660px;
+    height:100%;
+}
+
+#logo {
+    float: left;
+    position: relative;
+    width: 75%;
+} 
+
+#audio {
+    float: left;
+    position: relative;
+    width: 75%;
 }
 
 .player {
     float: left;
     position: relative;
     width: 100%;
-    height: 175px;
+    height: 100%;
     border-style: none;
     border-radius: 12px;
     border-color: #006688;
-    padding: 10px 10px 10px 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    background-image: linear-gradient(300deg, #004466, black);
+    padding: 0px;
+    margin: 0px;
+    background-image: linear-gradient(300deg, #444444, black);
     clear: both;
     
 }
@@ -144,52 +176,52 @@ body.loading .modal {
 .collection {
     float: left;
     position: relative;
-    height:660px;
+    height:100%;
     width: 25%;
     border-style: none;
     border-radius: 12px;
     border-color: #006688;
-    padding: 10px 10px 10px 10px;
-    margin-left: 10px;
-    background-image: linear-gradient(300deg, #004466, black);
+    padding: 0px;
+    margin-left: 0px;
+    background-image: linear-gradient(300deg, #444444, black);
 }
 
 .scroll_collection {
     overflow-y: scroll;
     width: calc(100% + 28px);
-    height:660px;
+    height:100%;
 }
 
 .mediaspace {
     float: left;
     position: relative;
-    height: 660px;
-    width: 47%;
+    height: 100%;
+    width: 50%;
     border-style: none;
     border-radius: 12px;
     border-color: #006688;
-/*    padding: 10px 10px 10px 0px;*/
-    margin-left: 10px;
-    background-image: linear-gradient(300deg, #004466, black);
+    padding: 0px;
+    margin-left: Opx;
+    background-image: linear-gradient(300deg, #444444, black);
 }
 
 .scroll_mediaspace {
     overflow-y: scroll;
     width: calc(100% + 28px);
-    height:660px;
+    height:100%;
 }
 
 .playlist {
     float: left;
     position: relative;
-    height: 660px;
+    height: 100%;
     width: 25%;
     border-style: none;
     border-radius: 12px;
     border-color: #006688;
-    padding: 10px 10px 10px 0px;
-    margin-left: 10px;
-    background-image: linear-gradient(300deg, #004466, black);
+    padding: 0px;
+    margin-left: 0px;
+    background-image: linear-gradient(300deg, #444444, black);
     /*clear: both;*/
 }
 
