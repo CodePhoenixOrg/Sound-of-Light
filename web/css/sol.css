@@ -71,36 +71,36 @@ body.loading .modal {
 
 
 .tile li {
-  float: left;
-  position: relative;
-  list-style-type: none;
+    float: left;
+    position: relative;
+    list-style-type: none;
 }
 
 .tile ul {
-  padding: 0;
-  text-align: center;
-  overflow: auto;
+    padding: 0;
+    text-align: center;
+    overflow: auto;
 }
 .tile ul > li {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 .tile li div {
-  display: block;
-  background-image: linear-gradient(300deg, #444444, black);
-  padding: 15px 0;
+    display: block;
+    background-image: linear-gradient(300deg, #444444, black);
+    padding: 15px 0;
 }
 .tile ul li {
-  float: left;
-  position: relative;
-  width: 90px;
-  margin: 15px 15px 0 0;
+    float: left;
+    position: relative;
+    width: 90px;
+    margin: 15px 15px 0 0;
 }
 .tile a {
-  color: white;
-  text-align: center;
-  display: block;
-  width: 150px;
-  padding: 15px 0;
+    color: white;
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 15px 0;
 }
 
 .tileClear li {
@@ -161,29 +161,38 @@ body.loading .modal {
 .player {
     float: left;
     position: relative;
-    width: 100%;
+    width: calc(100% - 1em);
     height: 100%;
-    border-style: none;
+    border-style: solid;
     border-radius: 12px;
-    border-color: #006688;
+    border-color: #343434;
     padding: 0px;
-    margin: 0px;
+    margin: 0.5em;
     background-image: linear-gradient(300deg, #444444, black);
     clear: both;
-    
+    -moz-box-shadow: 0px 0px 20px 5px #343434;
+    -webkit-box-shadow: 0px 0px 20px 5px #343434;
+    -o-box-shadow: 0px 0px 20px 5px #343434;
+    box-shadow: 0px 0px 20px 5px #343434;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=20);
 }
 
 .collection {
     float: left;
     position: relative;
     height:100%;
-    width: 25%;
-    border-style: none;
+    width: calc(25% - 1em);
+    border-style: solid;
     border-radius: 12px;
-    border-color: #006688;
+    border-color: #343434;
     padding: 0px;
-    margin-left: 0px;
+    margin: 0.5em;
     background-image: linear-gradient(300deg, #444444, black);
+    -moz-box-shadow: 0px 0px 20px 5px #343434;
+    -webkit-box-shadow: 0px 0px 20px 5px #343434;
+    -o-box-shadow: 0px 0px 20px 5px #343434;
+    box-shadow: 0px 0px 20px 5px #343434;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=20);
 }
 
 .scroll_collection {
@@ -196,13 +205,18 @@ body.loading .modal {
     float: left;
     position: relative;
     height: 100%;
-    width: 50%;
-    border-style: none;
+    width: calc(50% - 1em);
+    border-style: solid;
     border-radius: 12px;
-    border-color: #006688;
+    border-color: #343434;
     padding: 0px;
-    margin-left: Opx;
+    margin: 0.5em;
     background-image: linear-gradient(300deg, #444444, black);
+    -moz-box-shadow: 0px 0px 20px 5px #343434;
+    -webkit-box-shadow: 0px 0px 20px 5px #343434;
+    -o-box-shadow: 0px 0px 20px 5px #343434;
+    box-shadow: 0px 0px 20px 5px #343434;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=20);   
 }
 
 .scroll_mediaspace {
@@ -215,14 +229,18 @@ body.loading .modal {
     float: left;
     position: relative;
     height: 100%;
-    width: 25%;
-    border-style: none;
+    width: calc(25% - 1em);
+    border-style: solid;
     border-radius: 12px;
-    border-color: #006688;
+    border-color: #343434;
     padding: 0px;
-    margin-left: 0px;
+    margin: 0.5em;
     background-image: linear-gradient(300deg, #444444, black);
-    /*clear: both;*/
+    -moz-box-shadow: 0px 0px 20px 5px #343434;
+    -webkit-box-shadow: 0px 0px 20px 5px #343434;
+    -o-box-shadow: 0px 0px 20px 5px #343434;
+    box-shadow: 0px 0px 20px 5px #343434;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=20);   
 }
 
 .scroll_playlist {
