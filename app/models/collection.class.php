@@ -21,7 +21,7 @@ class Collection extends \Phink\MVC\TModel
     //put your code here
     public function init()
     {
-        $this->connector = new \SoL\Data\AmarokConnection();
+        $this->connector = new \SoL\Data\SoundLibConnection();
         $this->connector->open();
     }
 
@@ -116,27 +116,23 @@ SELECT;
       
         $sql = <<<SELECT
 SELECT 
-    y.name AS 'Year',
-    a.id AS 'ArtistId',
-    a.name AS 'Artist',
-    s.id AS 'AlbumId',
-    s.name AS 'Album',
-    t.id AS 'TitleId',
-    t.title AS 'Title',
-    u.rpath AS 'TrackPath'
+    trk_year AS 'Year',
+    a.art_id AS 'ArtistId',
+    art_name AS 'Artist',
+    s.alb_id AS 'AlbumId',
+    alb_name AS 'Album',
+    t.trk_id AS 'TitleId',
+    trk_title AS 'Title',
+    trk_path AS 'TrackPath'
     
 FROM
-    tracks t
+    track t
         INNER JOIN
-    urls u ON t.url = u.id
+    album s ON t.alb_id = s.alb_id
         INNER JOIN
-    albums s ON t.album = s.id
-        INNER JOIN
-    years y ON t.year = y.id 
-        INNER JOIN
-    artists a ON t.artist = a.id
-WHERE SUBSTRING(a.name, 1, 1) = '$letter' AND y.name > '0'
-ORDER BY y.name, a.name, t.year, t.id
+    artist a ON t.art_id = a.art_id
+WHERE SUBSTRING(art_name, 1, 1) = '$letter' AND trk_year > '0'
+ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
@@ -154,27 +150,23 @@ SELECT;
       
         $sql = <<<SELECT
 SELECT 
-    y.name AS 'Year',
-    a.id AS 'ArtistId',
-    a.name AS 'Artist',
-    s.id AS 'AlbumId',
-    s.name AS 'Album',
-    t.id AS 'TitleId',
-    t.title AS 'Title',
-    u.rpath AS 'TrackPath'
+    trk_year AS 'Year',
+    a.art_id AS 'ArtistId',
+    art_name AS 'Artist',
+    s.alb_id AS 'AlbumId',
+    alb_name AS 'Album',
+    t.trk_id AS 'TitleId',
+    trk_title AS 'Title',
+    trk_path AS 'TrackPath'
     
 FROM
-    tracks t
+    track t
         INNER JOIN
-    urls u ON t.url = u.id
+    album s ON t.alb_id = s.alb_id
         INNER JOIN
-    albums s ON t.album = s.id
-        INNER JOIN
-    years y ON t.year = y.id 
-        INNER JOIN
-    artists a ON t.artist = a.id
-WHERE SUBSTRING(s.name, 1, 1) = '$letter' AND y.name > '0'
-ORDER BY y.name, a.name, t.year, t.id
+    artist a ON t.art_id = a.art_id
+WHERE SUBSTRING(alb_name, 1, 1) = '$letter' AND trk_year > '0'
+ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
@@ -192,27 +184,23 @@ SELECT;
       
         $sql = <<<SELECT
 SELECT 
-    y.name AS 'Year',
-    a.id AS 'ArtistId',
-    a.name AS 'Artist',
-    s.id AS 'AlbumId',
-    s.name AS 'Album',
-    t.id AS 'TitleId',
-    t.title AS 'Title',
-    u.rpath AS 'TrackPath'
+    trk_year AS 'Year',
+    a.art_id AS 'ArtistId',
+    art_name AS 'Artist',
+    s.alb_id AS 'AlbumId',
+    alb_name AS 'Album',
+    t.trk_id AS 'TitleId',
+    trk_title AS 'Title',
+    trk_path AS 'TrackPath'
     
 FROM
-    tracks t
+    track t
         INNER JOIN
-    urls u ON t.url = u.id
+    album s ON t.alb_id = s.alb_id
         INNER JOIN
-    albums s ON t.album = s.id
-        INNER JOIN
-    years y ON t.year = y.id 
-        INNER JOIN
-    artists a ON t.artist = a.id
-WHERE y.name = $year
-ORDER BY y.name, a.name, t.year, t.id
+    artist a ON t.art_id = a.art_id
+WHERE trk_year = '$year'
+ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
