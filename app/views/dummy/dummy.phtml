@@ -1,12 +1,31 @@
-<div>
+<div class="center-height">
     <div id="logo">
-        <h1>
-            <a href="javascript:solDummy.goHome();">
-                <img src="/media/images/COBE_cmb_fluctuations.png" height="100px" width="200px"/>
-            </a>
-        </h1>
+        <a href="javascript:solDummy.goHome();">
+            <img src="/media/images/wmap.png" height="100%" width="100%"/>
+        </a>
     </div>
     <div id="audioControl" >
-        <audio id="audio" src="" controls />
+        <audio id="audio" src="" controls ontimeupdate="solDummy.update(this)" />
+        <a class="audio-control" href="#" onclick="solDummy.play(this)">
+            <span class="fa-stack fa-4x center-height">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        <a class="audio-control" href="#" onclick="solDummy.resume()">
+            <span class="fa-stack fa-4x center-height">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-forward fa-stack-1x fa-inverse"></i>
+            </span>           
+        </a>
+        <div class="audio-control">
+            <div id="progressBarControl">
+                <div id="progressBar">Pas de lecture</div>
+            </div>
+        </div>
+        <div class="audio-control">
+            <span id="progressTime">00:00</span>
+        </div>
     </div>
 </div>
+<div  class="clearBlock"></div>

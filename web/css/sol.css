@@ -149,7 +149,8 @@ body.loading .modal {
 #logo {
     float: left;
     position: relative;
-    width: 75%;
+    width: 20%;
+
 } 
 
 .decoration {
@@ -174,7 +175,20 @@ body.loading .modal {
 #audio {
     float: left;
     position: relative;
-    width: 75%;
+    visibility: hidden;
+    display: none;
+}
+
+.center-height {
+    height: 100px;
+    line-height: 100px;
+}
+
+.audio-control {
+    float: left;
+    position: relative;
+    visibility: visible;
+    display: block;
 }
 
 .player {

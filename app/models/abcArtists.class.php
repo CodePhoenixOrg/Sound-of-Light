@@ -1,14 +1,14 @@
 <?php
 namespace SoL\Models;
 
-require_once APP_DATA . 'amarok_connection.php';
+require_once APP_DATA . 'soundlib_connection.php';
 
 class AbcArtists extends \Phink\MVC\TModel
 {
 
     public function init()
     {
-        $this->connector = new \SoL\Data\AmarokConnection();
+        $this->connector = new \SoL\Data\SoundLibConnection();
         $this->connector->open();
     }
 
@@ -16,14 +16,16 @@ class AbcArtists extends \Phink\MVC\TModel
     {
         $sql = <<<SELECT
 SELECT DISTINCT
-         SUBSTRING(a.name, 1, 1) as Lettrine
-    FROM
-        tracks t
-    INNER JOIN albums s ON t.album = s.id
-    INNER JOIN years y ON t.year = y.id AND y.name > '0'
-    INNER JOIN artists a ON a.id = s.artist
-    ORDER BY Lettrine
-
+    IF(ASCII(SUBSTRING(art_name, 1, 1)) < 48,
+        '#',
+        SUBSTRING(art_name, 1, 1)) AS Lettrine
+FROM
+    track t
+        INNER JOIN
+    album s ON t.alb_id = s.alb_id
+        INNER JOIN
+    artist a ON a.art_id = s.art_id
+ORDER BY Lettrine
 SELECT;
         
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);

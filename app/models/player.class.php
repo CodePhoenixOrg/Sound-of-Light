@@ -1,7 +1,6 @@
 <?php
 namespace SoL\Models;
 
-require_once APP_DATA . 'amarok_connection.php';
 require_once APP_DATA . 'soundlib_connection.php';
 
 class Player extends \Phink\MVC\TModel
@@ -13,35 +12,8 @@ class Player extends \Phink\MVC\TModel
         $this->connector->open();
     }
 
-    public function getArtistRange()
-    {
-        $sql = <<<SELECT
-SELECT DISTINCT
-         y.name as year
-    FROM
-        tracks t
-    INNER JOIN albums s ON t.album = s.id
-    INNER JOIN years y ON t.year = y.id AND y.name > '0'
-    INNER JOIN artists a ON a.id = s.artist
-    ORDER BY y.name
-
-SELECT;
-        
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-        
-        return $cmd;
-    }
-    
     public function getArtistAlbumTitle(array $artistRange = null)
     {
-        //$sqlConfig = new TPdoConfiguration("pf8-mysql.online.net", "asphaltu", "1p2+ar", "asphaltu");
-        //$sqlConfig = new TPdoConfiguration("192.168.1.1", "wfuser", "25643152", "asphaltu");
-        $range = '';
-        if($artistRange != null) {
-            $range = 'AND y.name IN (' . implode(', ', $artistRange) . ')';
-        }
-        
         $sql = <<<SELECT
 SELECT 
     trk_year AS 'Year',
@@ -62,10 +34,6 @@ SELECT;
 
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
-//        $cmd->setSelectQuery($sql);
-//        $cmd->setCommandText($cmd->getSelectQuery());
-            
-//        self::$logger->dump('getArtistAlbumTitle', $cmd);
                 
         return $cmd;
     }    
