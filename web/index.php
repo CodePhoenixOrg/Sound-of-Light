@@ -6,7 +6,6 @@ define('CUSTOM_NAMESPACE', 'SoL');
  */
 include 'phink/web/static_application.php';
 
-//use Phink\Web\TWebApplication;
 /**
  * Description of application
  *
