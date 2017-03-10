@@ -93,8 +93,8 @@ SoundLight.Playlist.prototype.removeTrack = function(trackId) {
 SoundLight.Playlist.prototype.afterRemoveTrack = function() {}
 
 var sol = null;
+var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc';
 Phink.DOM.ready(function() {
-    var host = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'www.sol.loc'
-    sol = TWebApplication.create(host, true);
+    sol = TWebApplication.create(solHost, true);
     sol.main = sol.includeView('main');
 });

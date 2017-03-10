@@ -10,7 +10,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
                 if(data.return == 200) {
                     TUtils.html64('#wikipedia', data.view);
                 } else {
-            	        debugLog(base64_decode(data.view));
+            	    debugLog(base64_decode(data.view));
                 }
             });
         } catch (e) {
@@ -71,10 +71,10 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     }   
 }).onload(function() {
     solPlayer = this;
-    this.currentUser = 1
-    this.pl = new SoundLight.Playlist(this.currentUser)
-    this.pl.afterAddTrack = this.refresh
-    this.pl.afterRemoveTrack = this.refresh
+    this.currentUser = 1;
+    this.pl = new SoundLight.Playlist(this.currentUser);
+    this.pl.afterAddTrack = this.refresh;
+    this.pl.afterRemoveTrack = this.refresh;
     
     this.bindPlayables();
     this.dragAndDrop(collectionData);
@@ -100,6 +100,4 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         , drop: handleDrop
     });
     
-//    $(".scroll_container").mCustomScrollbar();
-    
-})
+});
