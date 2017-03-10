@@ -63,7 +63,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
             $(this).on('click', function() {
                 var path = 'http://media.loc/Music/iTunes/iTunes%20Media/Music' + $(this).data('trackpath');
 //                path = path.replace('./Users/David/Music', 'media/music');
-                $('#player').html(path);
+//                $('#player').html(path);
                 $('#audio').attr('src', path);
             });
         });

@@ -71,7 +71,7 @@ FROM
         INNER JOIN
     years y ON t.year = y.id 
         INNER JOIN
-    artists a ON a.id = s.artist $range
+    artists a ON a.id = s.artist
 ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 

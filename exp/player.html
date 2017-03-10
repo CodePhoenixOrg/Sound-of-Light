@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Partie V - Chapitre 2 - Exemple 4</title>
+    <link rel="stylesheet" type="text/css" href="player.css" />
+  </head>
+
+  <body>
+
+    <div id="divPlayer">
+	  <h1>Lite-Player</h1>
+	
+      <audio id="audioPlayer" ontimeupdate="update(this)">
+	    <source src="hype_home.ogg"></source>
+	    <source src="hype_home.mp3"></source>
+      </audio>
+
+      <div>
+        <div id="progressBarControl">
+          <div id="progressBar">Pas de lecture</div>
+        </div>
+        <span id="progressTime">00:00</span>
+      </div>
+
+      <button class="control" onclick="play('audioPlayer', this)">Play</button>
+      <button class="control" onclick="resume('audioPlayer')">Stop</button>
+	  
+      <span class="volume">
+        <a class="stick1" onclick="volume('audioPlayer', 0)"></a>
+        <a class="stick2" onclick="volume('audioPlayer', 0.3)"></a>
+        <a class="stick3" onclick="volume('audioPlayer', 0.5)"></a>
+        <a class="stick4" onclick="volume('audioPlayer', 0.7)"></a>
+        <a class="stick5" onclick="volume('audioPlayer', 1)"></a>
+      </span>	  
+	</div>
+
+	<script>
+      
+      function play(idPlayer, control) {
+          var player = document.querySelector('#' + idPlayer);
+	
+          if (player.paused) {
+              player.play();
+              control.textContent = 'Pause';
+          } else {
+              player.pause();	
+              control.textContent = 'Play';
+          }
+      }
+
+      function resume(idPlayer) {
+          var player = document.querySelector('#' + idPlayer);
+	
+          player.currentTime = 0;
+          player.pause();
+      }
+	  
+      function volume(idPlayer, vol) {
+          var player = document.querySelector('#' + idPlayer);
+
+          player.volume = vol;	
+      }
+	  
+      function update(player) {
+          var duration = player.duration;    // Durée totale
+          var time     = player.currentTime; // Temps écoulé
+          var fraction = time / duration;
+          var percent  = Math.ceil(fraction * 100);
+
+          var progress = document.querySelector('#progressBar');
+	
+          progress.style.width = percent + '%';
+          progress.textContent = percent + '%';
+		  
+		  document.querySelector('#progressTime').textContent = formatTime(time);
+      }
+	  
+      function formatTime(time) {
+          var hours = Math.floor(time / 3600);
+          var mins  = Math.floor((time % 3600) / 60);
+          var secs  = Math.floor(time % 60);
+	
+          if (secs < 10) {
+              secs = "0" + secs;
+          }
+	
+          if (hours) {
+              if (mins < 10) {
+                  mins = "0" + mins;
+              }
+		
+              return hours + ":" + mins + ":" + secs; // hh:mm:ss
+          } else {
+              return mins + ":" + secs; // mm:ss
+          }
+      }
+
+    </script>
+	
+	<footer>Musique libre <em>Home</em> du groupe <a href="http://www.myspace.com/hypemusic">Hype</a>.</footer>
+  </body>
+</html>

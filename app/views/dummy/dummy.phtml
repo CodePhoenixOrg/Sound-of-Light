@@ -5,11 +5,11 @@
         </a>
     </div>
     <div id="audioControl" >
-        <audio id="audio" src="" controls ontimeupdate="solDummy.update(this)" />
+        <audio id="playerControl" src="" controls ontimeupdate="solDummy.update(this)" />
         <a class="audio-control" href="#" onclick="solDummy.play(this)">
             <span class="fa-stack fa-4x center-height">
                 <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+                <i id="playButton" class="fa fa-play fa-stack-1x fa-inverse"></i>
             </span>
         </a>
         <a class="audio-control" href="#" onclick="solDummy.resume()">
