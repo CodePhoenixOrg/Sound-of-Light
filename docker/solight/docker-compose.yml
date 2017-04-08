@@ -1,0 +1,11 @@
+version: "3.0"
+services:
+  solight:
+    build: .
+    image: solight:latest
+    expose:
+      - "80"
+    ports:
+      - "80"
+    privileged: true
+    tty: true
