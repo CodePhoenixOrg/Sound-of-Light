@@ -12,7 +12,7 @@ class Player extends \Phink\MVC\TModel
         $this->connector->open();
     }
 
-    public function getArtistAlbumTitle(array $artistRange = null)
+    public function getArtistAlbumTitle()
     {
         $sql = <<<SELECT
 SELECT 
@@ -28,7 +28,7 @@ FROM
         INNER JOIN
     album s ON t.alb_id = s.alb_id
         INNER JOIN
-    artists a ON a.art_id = s.art_id $range
+    artists a ON a.art_id = s.art_id
 ORDER BY trk_year, art_name, trk_id
 SELECT;
 

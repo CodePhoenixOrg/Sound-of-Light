@@ -5,25 +5,32 @@ var solDummy = sol.createController(sol.main, 'sol.dummy')
             $('#homeContent').html(data.view);
         })
     }
-    , play: function (idPlayer, control) {
-        var player = document.querySelector('#' + idPlayer);
+    , play: function (control) {
+        var player = document.querySelector('#playerControl');
+        var playButton = document.querySelector('#playButton');
 
         if (player.paused) {
             player.play();
-            control.textContent = 'Pause';
+            playButton.classList.remove('fa-play');
+            playButton.classList.add('fa-pause');
+            
+            player.paused = false;
         } else {
+            playButton.classList.remove('fa-pause');
+            playButton.classList.add('fa-play');
             player.pause();
-            control.textContent = 'Play';
+            
+            player.paused = true;
         }
     }
-    , resume: function (idPlayer) {
-        var player = document.querySelector('#' + idPlayer);
+    , resume: function () {
+        var player = document.querySelector('#playerControl');
 
         player.currentTime = 0;
         player.pause();
     }
-    , volume: function (idPlayer, vol) {
-        var player = document.querySelector('#' + idPlayer);
+    , volume: function (vol) {
+        var player = document.querySelector('#playerControl');
 
         player.volume = vol;
     }

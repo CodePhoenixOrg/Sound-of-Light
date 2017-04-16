@@ -8,7 +8,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         try {
             this.getJSON('player.html', {'action': 'wikiArtist', 'artist': name}, function(data) {
                 if(data.return == 200) {
-                    TUtils.html64('#wikipedia', data.view);
+                    Phink.Utils.html64('#wikipedia', data.view);
                 } else {
             	    debugLog(base64_decode(data.view));
                 }
@@ -24,7 +24,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
                 'action': "getData"
             }
             , function (data) {
-                TList.create().bind('#playlist'
+                Phink.Web.UI.List.create().bind('#playlist'
                     , data.playlist
                     , function() {
                         solPlayer.bindPlayables();
@@ -40,10 +40,10 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         $("div[name='draggable']").each(function() {
            var id = $(this).data('draghelperid');
            var index = data.names.indexOf('TitleId');
-           var dragValues = TUtils.find(data.values, index, id);
+           var dragValues = Phink.Utils.find(data.values, index, id);
 
            var dragIndex = $(this).data('draghelperindex');
-           var dragTemplate = TPlugin.applyDragHelper(data.templates, dragValues, dragIndex);
+           var dragTemplate = Phink.Web.UI.Plugin.applyDragHelper(data.templates, dragValues, dragIndex);
            
            var dragHelper = function(e) {
               return dragTemplate;
@@ -63,7 +63,7 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
             $(this).on('click', function() {
                 var path = 'http://media.loc/Music/iTunes/iTunes%20Media/Music' + $(this).data('trackpath');
 //                path = path.replace('./Users/David/Music', 'media/music');
-                $('#player').html(path);
+//                $('#player').html(path);
                 $('#audio').attr('src', path);
             });
         });

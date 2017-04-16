@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+            <title>Sound Of Light</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            <!-- Le styles -->
+            <link href="css/_3rdparty.css" rel="stylesheet">
+            <link href="css/full-slider.css" rel="stylesheet">
+            <link href="css/wikipedia.css" rel="stylesheet">
+            <link href="css/sol.css" rel="stylesheet">
+
+        </head>
+        <body data-twttr-rendered="true" data-spy="scroll" >
+            <div id='body'></div>
+            <script type="text/javascript" src="js/debug.js"></script>
+            <script type="text/javascript" src="js/_3rdparty.js"></script>
+            <script type="text/javascript" src="js/code_phoenix.js"></script>
+            <!--script type="text/javascript" src="app/controllers/main/main.js"></script-->
+            <script type="text/javascript" src="js/sol_runtime.js"></script>
+            <script type="text/javascript" >
+                var APP_NAME = "sol";
+                var sol = null;
+                Phink.DOM.ready(function () {
+
+                    sol = Phink.Web.Application.create('sol.loc');
+                    sol.main = sol.createView('main');
+
+                    var solMain = sol.createController(sol.main, 'sol.main')
+                    .actions({
+                        goHome : function () {
+                            solMain.getSimpleView('master.phx', function(data) {
+                                $(document.body).html(data.view);
+                                solMain.getSimpleView('home.phx', function(data) {
+                                    $('#homeContent').html(data.view);
+                                });
+                            });        
+                        }
+                    })
+                    .onload(function () {
+                        solMain = this;
+                        this.goHome();
+                        //ladminIndex.bindEvents();
+                    });
+                });
+
+            </script>
+        </body>
+    </html>

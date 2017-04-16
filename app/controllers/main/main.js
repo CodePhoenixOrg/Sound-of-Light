@@ -4,7 +4,7 @@ var solMain = null;
 var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'sol.loc';
 Phink.DOM.ready(function () {
 
-    sol = TWebApplication.create(solHost);
+    sol = Phink.Web.Application.create(solHost);
     sol.main = sol.createView('main');
     solMain = sol.createController(sol.main, 'sol.main')
     .actions({

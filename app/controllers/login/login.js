@@ -26,9 +26,9 @@ var solLogin = sol.extendsController(sol.main, 'sol.login', {
                 if(data.return === 200) {
 
                     the.parseViewResponse(data.master, function(resp) {
-                        TUtils.html64(document.body, resp.view);
+                        Phink.Utils.html64(document.body, resp.view);
                         the.parseViewResponse(data.page, function(resp) {
-                            TUtils.html64(data.container, resp.view);
+                            Phink.Utils.html64(data.container, resp.view);
 //                            solHome.render();
                         });
                     });

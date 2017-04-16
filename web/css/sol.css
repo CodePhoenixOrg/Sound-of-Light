@@ -172,7 +172,7 @@ body.loading .modal {
     filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=20);    
 }
 
-#audio {
+#playerControl {
     float: left;
     position: relative;
     visibility: hidden;
