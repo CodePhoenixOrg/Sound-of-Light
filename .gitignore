@@ -34,3 +34,5 @@ playlist_template.json
 cache
 vendor
 tests/_output/*
+/runtime
+/tests

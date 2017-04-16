@@ -24,7 +24,7 @@ SoundLight.Playlist = function(userId) {
  * @returns JSON stream
  */
 SoundLight.User.prototype.getInfo = function() {
-    TRest.get('/api/user/' + this.currentUser, function(data) {
+    Phink.Web.Rest.get('/api/user/' + this.currentUser, function(data) {
         var user = data.info[0];
         document.getElementById('name').innerHTML = user.name;
         document.getElementById('email').innerHTML = user.email;
@@ -37,7 +37,7 @@ SoundLight.User.prototype.getInfo = function() {
  * @returns JSON stream
  */
 SoundLight.Collection.prototype.fetch = function(callback) {
-    TRest.get('/api/collection', function(data) {
+    Phink.Web.Rest.get('/api/collection', function(data) {
         if(typeof callback === 'function') {
             callback.call(this, data);
         }
@@ -52,7 +52,7 @@ SoundLight.Collection.prototype.fetch = function(callback) {
  */
 SoundLight.Playlist.prototype.getFavorites = function(callback) {
     var the = this;
-    TRest.get('/api/playlist/' + this.currentUser, function(data) {
+    Phink.Web.Rest.get('/api/playlist/' + this.currentUser, function(data) {
         if(typeof callback === 'function') {
             the.currentPlaylist = data.pid;
             callback.call(this, data);
@@ -68,7 +68,7 @@ SoundLight.Playlist.prototype.getFavorites = function(callback) {
  */
 SoundLight.Playlist.prototype.addTrack = function(trackId) {
     var the = this;
-    TRest.put('/api/playlist/' + '1', {'track' : trackId}, function(data) {
+    Phink.Web.Rest.put('/api/playlist/' + '1', {'track' : trackId}, function(data) {
         if(data.inserted == 1) {
             the.afterAddTrack();
         }
@@ -83,7 +83,7 @@ SoundLight.Playlist.prototype.afterAddTrack = function() {}
  */
 SoundLight.Playlist.prototype.removeTrack = function(trackId) {
     var the = this;
-    TRest.delete('/api/playlist/' + trackId, function(data) {
+    Phink.Web.Rest.delete('/api/playlist/' + trackId, function(data) {
         if(data.deleted == 1) {
             the.afterRemoveTrack();
         }

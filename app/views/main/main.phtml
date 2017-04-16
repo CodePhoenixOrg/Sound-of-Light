@@ -34,7 +34,7 @@
         <script type="text/javascript" src="js/code_phoenix.js"></script>
         <!--script type="text/javascript" src="app/controllers/main/main.js"></script-->
         <script type="text/javascript" src="js/sol_runtime.js"></script>
-        <script type="text/javascript" src='<phx:echo var="hostname" />/js/ladmin.js'></script>
+<!--        <script type="text/javascript" src='<phx:echo var="hostname" />/js/ladmin.js'></script>-->
 
     </head>
     <body data-twttr-rendered="true" data-spy="scroll" >
@@ -46,7 +46,7 @@
             var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'sol.loc';
             Phink.DOM.ready(function () {
 
-                sol = TWebApplication.create(solHost);
+                sol = Phink.Web.Application.create(solHost);
                 sol.main = sol.createView('main');
 
                 var solMain = sol.createController(sol.main, 'sol.main')
