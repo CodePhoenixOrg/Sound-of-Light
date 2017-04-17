@@ -36,3 +36,10 @@ vendor
 tests/_output/*
 /runtime
 /tests
+/obj/Debug/SoL.njsprojResolveAssemblyReference.cache
+/obj/Debug/SoL.njsproj.FileListAbsolute.txt
+/obj/Debug/CoreCompileInputs.cache
+/obj/Debug
+/bin/Microsoft.NodejsTools.WebRole.dll
+/bin
+/.vs/SoL/v15/.suo

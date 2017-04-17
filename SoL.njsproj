@@ -1,0 +1,465 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>SoL</Name>
+    <RootNamespace>SoL</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>b5f4289b-2084-44da-8a8b-debc5cf7db08</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="app\business\user.php" />
+    <Content Include="app\controllers\abcAlbums\abcAlbums.class.php" />
+    <Content Include="app\controllers\abcArtists\abcArtists.class.php" />
+    <Content Include="app\controllers\abcYears\abcYears.class.php" />
+    <Content Include="app\controllers\collection\collection.class.php" />
+    <Content Include="app\controllers\dummy\dummy.class.php" />
+    <Content Include="app\controllers\login\login.class.php" />
+    <Content Include="app\controllers\main\main.class.php" />
+    <Content Include="app\controllers\player\player.class.php" />
+    <Content Include="app\controllers\playlist\playlist.class.php" />
+    <Content Include="app\controllers\token\token.class.php" />
+    <Content Include="app\models\abcAlbums.class.php" />
+    <Content Include="app\models\abcArtists.class.php" />
+    <Content Include="app\models\abcYears.class.php" />
+    <Content Include="app\models\collection.class.php" />
+    <Content Include="app\models\login.class.php" />
+    <Content Include="app\models\player.class.php" />
+    <Content Include="app\models\playlist.class.php" />
+    <Content Include="app\models\track.class.php" />
+    <Content Include="app\models\user.class.php" />
+    <Content Include="app\rest\collection.class.php" />
+    <Content Include="app\rest\playlist.class.php" />
+    <Content Include="app\rest\track.class.php" />
+    <Content Include="app\rest\user.class.php" />
+    <Content Include="app\scripts\tests\base64.php" />
+    <Content Include="app\scripts\tests\emails.php" />
+    <Content Include="app\scripts\tests\jemail.php" />
+    <Content Include="app\scripts\tests\test.php" />
+    <Content Include="app\templates\albumItem\albumItem.phtml" />
+    <Content Include="app\templates\artistItem\artistItem.phtml" />
+    <Content Include="app\templates\artistTitle\artistTitle.phtml" />
+    <Content Include="app\templates\lettrineItem\lettrineItem.phtml" />
+    <Content Include="app\templates\playlistTrack\playlistTrack.phtml" />
+    <Content Include="app\templates\titleDragged\titleDragged.phtml" />
+    <Content Include="app\templates\titleItem\titleItem.phtml" />
+    <Content Include="app\templates\yearItem\yearItem.phtml" />
+    <Content Include="app\views\abcAlbums\abcAlbums.phtml" />
+    <Content Include="app\views\abcArtists\abcArtists.phtml" />
+    <Content Include="app\views\abcYears\abcYears.phtml" />
+    <Content Include="app\views\collection\collection.phtml" />
+    <Content Include="app\views\collection\collection.xml" />
+    <Content Include="app\views\dummy\dummy.phtml" />
+    <Content Include="app\views\home\home.css" />
+    <Content Include="app\views\home\home.phtml" />
+    <Content Include="app\views\login\login.css" />
+    <Content Include="app\views\login\login.phtml" />
+    <Content Include="app\views\main\main.phtml" />
+    <Content Include="app\views\master\master.css" />
+    <Content Include="app\views\master\master.phtml" />
+    <Content Include="app\views\onedrive\onedrive.phtml" />
+    <Content Include="app\views\player\player.phtml" />
+    <Content Include="app\views\playlist\playlist.phtml" />
+    <Content Include="app\views\playlist\playlist.xml" />
+    <Content Include="app\views\portal\portal.phtml" />
+    <Content Include="app\views\token\token.phtml" />
+    <Content Include="app\webservices\user.php" />
+    <Content Include="build.xml" />
+    <Content Include="cert\sol.loc.csr" />
+    <Content Include="codeception.yml" />
+    <Content Include="composer.json" />
+    <Content Include="composer.lock" />
+    <Content Include="config\app.ini" />
+    <Content Include="config\colors.php" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="data\check.sql" />
+    <Content Include="data\crypto.db" />
+    <Content Include="data\data.sql" />
+    <Content Include="data\genres.csv" />
+    <Content Include="data\ladmin.sql" />
+    <Content Include="data\ladmin_connection.php" />
+    <Content Include="data\ladmin_priv.sql" />
+    <Content Include="data\soundlib_connection.php" />
+    <Content Include="data\soundlib_data.sql" />
+    <Content Include="data\soundlib_priv.sql" />
+    <Content Include="data\soundlib_struct.sql" />
+    <Content Include="docker\batiment\batiment\Dockerfile" />
+    <Content Include="docker\batiment\docker-compose.yml" />
+    <Content Include="docker\batiment\mysql\Dockerfile" />
+    <Content Include="docker\batiment\php_conf.d\logs.ini" />
+    <Content Include="docker\batiment\php_conf.d\urls.ini" />
+    <Content Include="docker\batiment\solight\Dockerfile" />
+    <Content Include="docker\batiment\vhosts\apache2-vhosts.conf" />
+    <Content Include="docker\batiment\vhosts\cpo.conf" />
+    <Content Include="docker\batiment\vhosts\ladmin.conf" />
+    <Content Include="docker\batiment\vhosts\media.conf" />
+    <Content Include="docker\batiment\vhosts\phpmyadmin.conf" />
+    <Content Include="docker\batiment\vhosts\sol.conf" />
+    <Content Include="docker\batiment\vhosts\soundlib.conf" />
+    <Content Include="docker\cabane\docker-compose.yml" />
+    <Content Include="docker\cabane\mysql\Dockerfile" />
+    <Content Include="docker\cabane\php.ini" />
+    <Content Include="docker\cabane\php7\Dockerfile" />
+    <Content Include="docker\cabane\site.conf" />
+    <Content Include="exp\bootstrap.php" />
+    <Content Include="exp\grid.phtml" />
+    <Content Include="exp\habemus.html" />
+    <Content Include="exp\home.phtml" />
+    <Content Include="exp\parser.php" />
+    <Content Include="exp\player.html" />
+    <Content Include="exp\plusplus.php" />
+    <Content Include="exp\predis.php" />
+    <Content Include="exp\tile.html" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="index.html" />
+    <Content Include="LICENSE.TXT" />
+    <Content Include="media\images\builds\ball.png" />
+    <Content Include="media\images\builds\button.png" />
+    <Content Include="media\images\builds\button_down.png" />
+    <Content Include="media\images\builds\button_down_left.png" />
+    <Content Include="media\images\builds\button_down_middle.png" />
+    <Content Include="media\images\builds\button_down_right.png" />
+    <Content Include="media\images\builds\button_up.png" />
+    <Content Include="media\images\builds\button_up_left.png" />
+    <Content Include="media\images\builds\button_up_middle.png" />
+    <Content Include="media\images\builds\button_up_right.png" />
+    <Content Include="media\images\builds\gif\ball.gif" />
+    <Content Include="media\images\builds\gif\button_down.gif" />
+    <Content Include="media\images\builds\gif\button_down_left.gif" />
+    <Content Include="media\images\builds\gif\button_down_middle.gif" />
+    <Content Include="media\images\builds\gif\button_down_right.gif" />
+    <Content Include="media\images\builds\gif\button_up.gif" />
+    <Content Include="media\images\builds\gif\button_up_left.gif" />
+    <Content Include="media\images\builds\gif\button_up_middle.gif" />
+    <Content Include="media\images\builds\gif\button_up_right.gif" />
+    <Content Include="media\images\edit.png" />
+    <Content Include="media\images\edit_bw.png" />
+    <Content Include="media\images\filter.png" />
+    <Content Include="media\images\flags\en.png" />
+    <Content Include="media\images\flags\en_light.png" />
+    <Content Include="media\images\flags\fr.png" />
+    <Content Include="media\images\flags\fr_light.png" />
+    <Content Include="media\images\flags\ru.png" />
+    <Content Include="media\images\flags\ru_light.png" />
+    <Content Include="media\images\habemus.png" />
+    <Content Include="media\images\habemus__.png" />
+    <Content Include="media\images\hotlink.png" />
+    <Content Include="media\images\scroll\bottomLimit_0.gif" />
+    <Content Include="media\images\scroll\bottom_0.gif" />
+    <Content Include="media\images\scroll\cursorX.png" />
+    <Content Include="media\images\scroll\cursorY.png" />
+    <Content Include="media\images\scroll\fastBottom_0.gif" />
+    <Content Include="media\images\scroll\fastLeft_0.gif" />
+    <Content Include="media\images\scroll\fastRight_0.gif" />
+    <Content Include="media\images\scroll\fastTop_0.gif" />
+    <Content Include="media\images\scroll\leftLimit_0.gif" />
+    <Content Include="media\images\scroll\left_0.gif" />
+    <Content Include="media\images\scroll\rightLimit_0.gif" />
+    <Content Include="media\images\scroll\right_0.gif" />
+    <Content Include="media\images\scroll\scrollerXleft.png" />
+    <Content Include="media\images\scroll\scrollerXmiddle.png" />
+    <Content Include="media\images\scroll\scrollerXright.png" />
+    <Content Include="media\images\scroll\scrollerYbottom.png" />
+    <Content Include="media\images\scroll\scrollerYmiddle.png" />
+    <Content Include="media\images\scroll\scrollerYtop.png" />
+    <Content Include="media\images\scroll\srollerY.png" />
+    <Content Include="media\images\scroll\topLimit_0.gif" />
+    <Content Include="media\images\scroll\top_0.gif" />
+    <Content Include="media\images\shadows\aa77bb_bottom.png" />
+    <Content Include="media\images\shadows\aa77bb_bottom_left.png" />
+    <Content Include="media\images\shadows\aa77bb_bottom_right.png" />
+    <Content Include="media\images\shadows\aa77bb_right.png" />
+    <Content Include="media\images\shadows\aa77bb_top_right.png" />
+    <Content Include="media\images\shadows\bottom.png" />
+    <Content Include="media\images\shadows\bottom_left.png" />
+    <Content Include="media\images\shadows\bottom_right.png" />
+    <Content Include="media\images\shadows\eeeeee_bottom.png" />
+    <Content Include="media\images\shadows\eeeeee_bottom_left.png" />
+    <Content Include="media\images\shadows\eeeeee_bottom_right.png" />
+    <Content Include="media\images\shadows\eeeeee_right.png" />
+    <Content Include="media\images\shadows\eeeeee_top_right.png" />
+    <Content Include="media\images\shadows\right.png" />
+    <Content Include="media\images\shadows\Thumbs.db" />
+    <Content Include="media\images\shadows\top_right.png" />
+    <Content Include="media\images\wmap.png" />
+    <Content Include="media\images\wmap.xcf" />
+    <Content Include="phpdox.xml" />
+    <Content Include="phpmd.xml" />
+    <Content Include="phpunit.xml" />
+    <Content Include="README" />
+    <Content Include="README.md" />
+    <Content Include="tests\acceptance.suite.yml" />
+    <Content Include="tests\acceptance\_bootstrap.php" />
+    <Content Include="tests\functional.suite.yml" />
+    <Content Include="tests\functional\_bootstrap.php" />
+    <Content Include="tests\unit.suite.yml" />
+    <Content Include="tests\unit\_bootstrap.php" />
+    <Content Include="tests\_bootstrap.php" />
+    <Content Include="tests\_data\dump.sql" />
+    <Content Include="tests\_output\.gitignore" />
+    <Content Include="tests\_support\AcceptanceTester.php" />
+    <Content Include="tests\_support\FunctionalTester.php" />
+    <Content Include="tests\_support\Helper\Acceptance.php" />
+    <Content Include="tests\_support\Helper\Functional.php" />
+    <Content Include="tests\_support\Helper\Unit.php" />
+    <Content Include="tests\_support\UnitTester.php" />
+    <Content Include="tests\_support\_generated\AcceptanceTesterActions.php" />
+    <Content Include="tests\_support\_generated\FunctionalTesterActions.php" />
+    <Content Include="tests\_support\_generated\UnitTesterActions.php" />
+    <Content Include="themes\blue\big_logo.png" />
+    <Content Include="themes\blue\big_logo_light.png" />
+    <Content Include="themes\blue\logo.css" />
+    <Content Include="themes\blue\small_logo.png" />
+    <Content Include="themes\blue\small_logo_light.png" />
+    <Content Include="themes\golden\big_logo.png" />
+    <Content Include="themes\golden\big_logo_light.png" />
+    <Content Include="themes\golden\logo.css" />
+    <Content Include="themes\golden\small_logo.png" />
+    <Content Include="themes\golden\small_logo_light.png" />
+    <Content Include="web\.htaccess" />
+    <Content Include="web\api.php" />
+    <Content Include="web\css\accordion.css" />
+    <Content Include="web\css\full-slider.css" />
+    <Content Include="web\css\images\add.png" />
+    <Content Include="web\css\images\delete.png" />
+    <Content Include="web\css\images\favorite.png" />
+    <Content Include="web\css\images\glyphicons-halflings.png" />
+    <Content Include="web\css\images\jQuery multiAccordion Plugin Examples.html" />
+    <Content Include="web\css\images\jQuery multiAccordion Plugin Examples_files\jquery-ui.css" />
+    <Content Include="web\css\images\jQuery multiAccordion Plugin Examples_files\jquerysctipttop.css" />
+    <Content Include="web\css\images\jQuery multiAccordion Plugin Examples_files\multiaccordion.jquery.min.css" />
+    <Content Include="web\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="web\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="web\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="web\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="web\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="web\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="web\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="web\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="web\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="web\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="web\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="web\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="web\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="web\css\sol.css" />
+    <Content Include="web\css\wikipedia.css" />
+    <Content Include="web\favicon.ico" />
+    <Content Include="web\fonts\fontawesome-webfont.eot" />
+    <Content Include="web\fonts\fontawesome-webfont.svg" />
+    <Content Include="web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="web\fonts\fontawesome-webfont.woff" />
+    <Content Include="web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="web\fonts\FontAwesome.otf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="web\index.html" />
+    <Content Include="web\index.php" />
+    <Content Include="web\info.php" />
+    <Content Include="web\media\images\COBE_cmb_fluctuations.png" />
+    <Content Include="web\media\images\wmap.png" />
+    <Content Include="web\media\images\wmap_.png" />
+    <Content Include="web\tests\code.php" />
+    <Content Include="web\tests\code2.php" />
+    <Content Include="web\tests\pdo.php" />
+    <Content Include="web\tests\session.php" />
+    <Content Include="web\tests\ssl.html" />
+    <Content Include="web\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\business\" />
+    <Folder Include="app\controllers\" />
+    <Folder Include="app\controllers\abcAlbums\" />
+    <Folder Include="app\controllers\abcArtists\" />
+    <Folder Include="app\controllers\abcYears\" />
+    <Folder Include="app\controllers\collection\" />
+    <Folder Include="app\controllers\dummy\" />
+    <Folder Include="app\controllers\login\" />
+    <Folder Include="app\controllers\main\" />
+    <Folder Include="app\controllers\onedrive\" />
+    <Folder Include="app\controllers\player\" />
+    <Folder Include="app\controllers\playlist\" />
+    <Folder Include="app\controllers\token\" />
+    <Folder Include="app\models\" />
+    <Folder Include="app\rest\" />
+    <Folder Include="app\scripts\" />
+    <Folder Include="app\scripts\tests\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\albumItem\" />
+    <Folder Include="app\templates\artistItem\" />
+    <Folder Include="app\templates\artistTitle\" />
+    <Folder Include="app\templates\lettrineItem\" />
+    <Folder Include="app\templates\playlistTrack\" />
+    <Folder Include="app\templates\titleDragged\" />
+    <Folder Include="app\templates\titleItem\" />
+    <Folder Include="app\templates\yearItem\" />
+    <Folder Include="app\views\" />
+    <Folder Include="app\views\abcAlbums\" />
+    <Folder Include="app\views\abcArtists\" />
+    <Folder Include="app\views\abcYears\" />
+    <Folder Include="app\views\collection\" />
+    <Folder Include="app\views\dummy\" />
+    <Folder Include="app\views\home\" />
+    <Folder Include="app\views\login\" />
+    <Folder Include="app\views\main\" />
+    <Folder Include="app\views\master\" />
+    <Folder Include="app\views\onedrive\" />
+    <Folder Include="app\views\player\" />
+    <Folder Include="app\views\playlist\" />
+    <Folder Include="app\views\portal\" />
+    <Folder Include="app\views\token\" />
+    <Folder Include="app\webservices\" />
+    <Folder Include="cert\" />
+    <Folder Include="config\" />
+    <Folder Include="css\" />
+    <Folder Include="data\" />
+    <Folder Include="docker\" />
+    <Folder Include="docker\batiment\" />
+    <Folder Include="docker\batiment\batiment\" />
+    <Folder Include="docker\batiment\mysql\" />
+    <Folder Include="docker\batiment\php_conf.d\" />
+    <Folder Include="docker\batiment\solight\" />
+    <Folder Include="docker\batiment\vhosts\" />
+    <Folder Include="docker\cabane\" />
+    <Folder Include="docker\cabane\mysql\" />
+    <Folder Include="docker\cabane\php7\" />
+    <Folder Include="doc\" />
+    <Folder Include="exp\" />
+    <Folder Include="fonts\" />
+    <Folder Include="media\" />
+    <Folder Include="media\images\" />
+    <Folder Include="media\images\builds\" />
+    <Folder Include="media\images\builds\gif\" />
+    <Folder Include="media\images\flags\" />
+    <Folder Include="media\images\scroll\" />
+    <Folder Include="media\images\shadows\" />
+    <Folder Include="tests\" />
+    <Folder Include="tests\acceptance\" />
+    <Folder Include="tests\build\" />
+    <Folder Include="tests\build\api\" />
+    <Folder Include="tests\functional\" />
+    <Folder Include="tests\unit\" />
+    <Folder Include="tests\_data\" />
+    <Folder Include="tests\_envs\" />
+    <Folder Include="tests\_output\" />
+    <Folder Include="tests\_support\" />
+    <Folder Include="tests\_support\Helper\" />
+    <Folder Include="tests\_support\_generated\" />
+    <Folder Include="themes\" />
+    <Folder Include="themes\blue\" />
+    <Folder Include="themes\golden\" />
+    <Folder Include="web\" />
+    <Folder Include="web\css\" />
+    <Folder Include="web\css\images\" />
+    <Folder Include="web\css\images\jQuery multiAccordion Plugin Examples_files\" />
+    <Folder Include="web\fonts\" />
+    <Folder Include="web\js\" />
+    <Folder Include="web\js\runtime\" />
+    <Folder Include="web\media\" />
+    <Folder Include="web\media\images\" />
+    <Folder Include="web\tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\controllers\abcAlbums\abcAlbums.js" />
+    <Compile Include="app\controllers\abcArtists\abcArtists.js" />
+    <Compile Include="app\controllers\abcYears\abcYears.js" />
+    <Compile Include="app\controllers\dummy\dummy.js" />
+    <Compile Include="app\controllers\login\login.js" />
+    <Compile Include="app\controllers\main\main.js" />
+    <Compile Include="app\controllers\onedrive\onedrive.js" />
+    <Compile Include="app\controllers\player\player.js" />
+    <Compile Include="exp\script.js" />
+    <Compile Include="web\css\images\jQuery multiAccordion Plugin Examples_files\ga.js" />
+    <Compile Include="web\css\images\jQuery multiAccordion Plugin Examples_files\jquery-ui.min.js" />
+    <Compile Include="web\css\images\jQuery multiAccordion Plugin Examples_files\jquery.min.js" />
+    <Compile Include="web\css\images\jQuery multiAccordion Plugin Examples_files\multiaccordion.jquery.min.js" />
+    <Compile Include="web\js\accordion.js" />
+    <Compile Include="web\js\application.js" />
+    <Compile Include="web\js\configuration.js" />
+    <Compile Include="web\js\console.js" />
+    <Compile Include="web\js\debug.js" />
+    <Compile Include="web\js\jphink.js" />
+    <Compile Include="web\js\runtime\app_controllers_player_player.js" />
+    <Compile Include="web\js\sol.js" />
+    <Compile Include="web\js\sol_runtime.js" />
+    <Compile Include="web\js\_3rdparty.js" />
+    <Compile Include="web\js\_runtime.js" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
