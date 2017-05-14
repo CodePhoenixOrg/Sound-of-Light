@@ -1,0 +1,39 @@
+version: "3.0"
+services:
+  mysql:
+    build: ./mysql
+    image: mysql:ladmin
+    environment:
+     - MYSQL_ROOT_PASSWORD=1p2+ar
+    ports:
+     - "3306:3306"
+    volumes:
+     - my_data:/var/lib/mysql
+     - /Users/david/Sites/CodePhoenix.net/SDK/php/SoL:/site
+
+  php:
+    build: ./php7
+    image: php:7-pdo
+    volumes:
+     - ./php.ini:/usr/local/etc/php/conf.d/customizations.ini
+     - /Users/david/Sites/CodePhoenix.net/SDK/php/SoL:/site
+     - /Users/david/Sites/CodePhoenix.net/SDK/php/Phink:/usr/local/lib/php/phink
+     - /Users/david/Sites/CodePhoenix.net/SDK/javascript:/usr/local/lib/javascript
+    links:
+     - mysql:db
+
+  web:
+    hostname: sol.loc
+    image: nginx:latest
+    ports:
+     - "80:80"
+    volumes:
+     - /Users/david/Sites/CodePhoenix.net/SDK/php/SoL:/site
+     - ./site.conf:/etc/nginx/conf.d/default.conf
+    links:
+     - php:php
+     - mysql:db
+
+volumes:
+  my_data:
+
