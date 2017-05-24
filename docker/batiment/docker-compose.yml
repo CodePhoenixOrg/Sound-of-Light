@@ -8,10 +8,10 @@ services:
      - mysql_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 1p2+ar
+      MYSQL_ROOT_PASSWORD: solight
       MYSQL_DATABASE: test
       MYSQL_USER: dummy
-      MYSQL_PASSWORD: 1p2+ar
+      MYSQL_PASSWORD: solight
 
   web:
     build: ./solight
