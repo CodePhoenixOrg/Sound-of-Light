@@ -4,7 +4,7 @@ services:
     build: ./mysql
     image: mysql:ladmin
     environment:
-     - MYSQL_ROOT_PASSWORD=1p2+ar
+     - MYSQL_ROOT_PASSWORD=ladmin
     ports:
      - "3306:3306"
     volumes:
