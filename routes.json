@@ -1,0 +1,20 @@
+{
+    "rest": {
+        "get": {
+            "/api/playlist/([0-9]+)$": "/rest/playlist?playlist=$1",
+            "/api/collection$": "/rest/collection",
+            "/api/user/([0-9]+)$": "/rest/user?user=$1"
+        },
+        "put": {
+            "/api/playlist/([0-9]+)$": "/rest/playlist?playlist=$1"
+        },
+        "delete": {
+            "/api/playlist/([0-9]+)$": "/rest/playlist?track=$1"
+        }
+    },
+    "web": {
+        "get": {
+            "/musicplayer$": "/views/index.html"
+        }
+    }
+}
