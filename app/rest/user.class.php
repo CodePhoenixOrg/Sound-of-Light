@@ -15,16 +15,18 @@ namespace SoL\Rest;
  */
 class User extends \Phink\Rest\TRestController
 {
+    public $userId;
+    
     //put your code here
-    public function get($userId)
+    public function get()
     {
-        $info = \SoL\Models\User::getInfo($userId);
+        $info = \SoL\Models\User::getInfo($this->userId);
         $this->response->setData($info);
     }    
 
-    public function head($userId)
+    public function head()
     {
-        $info = \SoL\Models\User::getInfo($userId);
+        $info = \SoL\Models\User::getInfo($this->userId);
         $this->response->setData($info);
     } 
     
