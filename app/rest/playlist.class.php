@@ -15,26 +15,28 @@ namespace SoL\Rest;
  */
 class Playlist extends \Phink\Rest\TRestController
 {
-    public $userId = 0;
-    public $trackId = 0;
-    public $playlist = 0;
+    public $user = 1;
+    public $track = 0;
+    public $playlist = 1;
     
     //put your code here
     public function get()
     {
-        $favorites = \SoL\Models\Playlist::getUserFavorites($this->userId);
+        $favorites = \SoL\Models\Playlist::getUserFavorites($this->user);
         $this->response->setData($favorites);
     }
  
     public function put()
     {
-        $return = \SoL\Models\Playlist::addTrack($this->playlist, $this->trackId);
+        $return = \SoL\Models\Playlist::addTrack($this->playlist, $this->track);
+        self::getLogger()->debug("\SoL\Models\Playlist::addTrack($this->playlist, $this->track)");
+        
         $this->response->setData($return);
     }
     
     public function delete()
     {
-        $return = \SoL\Models\Playlist::removeTrack($this->trackId);
+        $return = \SoL\Models\Playlist::removeTrack($this->track);
         $this->response->setData($return);
     }
 }

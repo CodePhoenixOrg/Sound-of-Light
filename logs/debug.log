@@ -1,1 +1,853 @@
 
+2017-06-12 03:43:24: : Phink\Auth\TAuthentication::renewToken::TOKEN::
+
+2017-06-12 03:43:24:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/main.class.php
+
+2017-06-12 03:43:24:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/main.phtml
+
+2017-06-12 03:43:25: : Phink\Auth\TAuthentication::renewToken::TOKEN::undefined
+
+2017-06-12 03:43:25:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/master.phtml
+
+2017-06-12 03:43:25: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 03:43:25: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/master.js
+
+2017-06-12 03:43:26: : Phink\Auth\TAuthentication::renewToken::TOKEN::NjM3NTY4NjU4NTkzZWI2OWRjMTVmMA==
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/home.phtml
+
+2017-06-12 03:43:26: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 03:43:26: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 03:43:26: : FQCN::Something\Dummy
+
+
+2017-06-12 03:43:26: : FULL_CLASS_PATH::app/controllers/abcArtists.class.php
+
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcArtists.class.php
+
+2017-06-12 03:43:26: : FILE::app/controllers/abcArtists.class.php
+
+
+2017-06-12 03:43:26: : FQCN::SoL\Controllers\AbcArtists
+
+
+2017-06-12 03:43:26: : FULL_CLASS_PATH::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcAlbums.class.php
+
+2017-06-12 03:43:26: : FILE::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 03:43:26: : FQCN::SoL\Controllers\AbcAlbums
+
+
+2017-06-12 03:43:26: : FULL_CLASS_PATH::app/controllers/abcYears.class.php
+
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcYears.class.php
+
+2017-06-12 03:43:26: : FILE::app/controllers/abcYears.class.php
+
+
+2017-06-12 03:43:26: : FQCN::SoL\Controllers\AbcYears
+
+
+2017-06-12 03:43:26:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 03:43:26:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 03:43:26:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 03:43:26:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcArtists.class.php
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcAlbums.class.php
+
+2017-06-12 03:43:26:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcYears.class.php
+
+2017-06-12 03:43:26: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcArtists.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcAlbums.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcYears.phtml
+
+2017-06-12 03:43:26:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 03:43:26: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/home.js
+
+2017-06-12 03:43:46: : Phink\Auth\TAuthentication::renewToken::TOKEN::MjAyMjAwMzQxNzU5M2ViNjllNTM2NDc=
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/player.class.php
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/player.class.php
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/player.phtml
+
+2017-06-12 03:43:46: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 03:43:46: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 03:43:46: : FQCN::Something\Dummy
+
+
+2017-06-12 03:43:46: : FULL_CLASS_PATH::app/controllers/collection.class.php
+
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/collection.class.php
+
+2017-06-12 03:43:46: : FILE::app/controllers/collection.class.php
+
+
+2017-06-12 03:43:46: : FQCN::SoL\Controllers\Collection
+
+
+2017-06-12 03:43:46: : FULL_CLASS_PATH::app/controllers/playlist.class.php
+
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/playlist.class.php
+
+2017-06-12 03:43:46: : FILE::app/controllers/playlist.class.php
+
+
+2017-06-12 03:43:46: : FQCN::SoL\Controllers\Playlist
+
+
+2017-06-12 03:43:46:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 03:43:46:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 03:43:46:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 03:43:46:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_collection.js
+
+2017-06-12 03:43:46:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_playlist.js
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/collection.class.php
+
+2017-06-12 03:43:46:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 03:43:46: : Phink\Core\TObject::invoke::INVOKE_ACTION::showPlayerByArtist("Ä")
+
+2017-06-12 03:43:46: : LETTER::Ä
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/collection.phtml
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/playlist.phtml
+
+2017-06-12 03:43:46:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 03:43:46: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/player.js
+
+2017-06-12 03:43:46: : Phink\MVC\TCustomController::getViewHtml::2::app/controllers/player.js
+
+2017-06-12 03:43:55:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 03:43:55: : SoL\Rest\Playlist
+
+2017-06-12 03:43:55: : 2017-06-12:15:43:55::PUT::/api/playlist/1
+
+2017-06-12 03:59:38:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 03:59:38: : SoL\Rest\Playlist
+
+2017-06-12 03:59:38: : 2017-06-12:15:59:38::PUT::/api/playlist/1
+
+2017-06-12 03:59:59:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 03:59:59: : SoL\Rest\Playlist
+
+2017-06-12 04:00:00: : 2017-06-12:16:00:00::PUT::/api/playlist/1
+
+2017-06-12 04:01:39: : Phink\Auth\TAuthentication::renewToken::TOKEN::MzQ3OTg3NDM5NTkzZWI2YjIyMTIzMg==
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/home.phtml
+
+2017-06-12 04:01:39: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:01:39: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:01:39: : FQCN::Something\Dummy
+
+
+2017-06-12 04:01:39: : FULL_CLASS_PATH::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcArtists.class.php
+
+2017-06-12 04:01:39: : FILE::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:01:39: : FQCN::SoL\Controllers\AbcArtists
+
+
+2017-06-12 04:01:39: : FULL_CLASS_PATH::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcAlbums.class.php
+
+2017-06-12 04:01:39: : FILE::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:01:39: : FQCN::SoL\Controllers\AbcAlbums
+
+
+2017-06-12 04:01:39: : FULL_CLASS_PATH::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcYears.class.php
+
+2017-06-12 04:01:39: : FILE::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:01:39: : FQCN::SoL\Controllers\AbcYears
+
+
+2017-06-12 04:01:39:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcartists.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcalbums.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:01:39:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcyears.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcArtists.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcAlbums.class.php
+
+2017-06-12 04:01:39:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcYears.class.php
+
+2017-06-12 04:01:39: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcArtists.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcAlbums.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcYears.phtml
+
+2017-06-12 04:01:39:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:01:40: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/home.js
+
+2017-06-12 04:01:42: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTA3OTE3NjYwOTU5M2ViYWUzN2VhZmI=
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/player.class.php
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/player.class.php
+
+2017-06-12 04:01:42:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/player.phtml
+
+2017-06-12 04:01:42: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:01:42: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:01:42: : FQCN::Something\Dummy
+
+
+2017-06-12 04:01:42: : FULL_CLASS_PATH::app/controllers/collection.class.php
+
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/collection.class.php
+
+2017-06-12 04:01:42: : FILE::app/controllers/collection.class.php
+
+
+2017-06-12 04:01:42: : FQCN::SoL\Controllers\Collection
+
+
+2017-06-12 04:01:42: : FULL_CLASS_PATH::app/controllers/playlist.class.php
+
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/playlist.class.php
+
+2017-06-12 04:01:42: : FILE::app/controllers/playlist.class.php
+
+
+2017-06-12 04:01:42: : FQCN::SoL\Controllers\Playlist
+
+
+2017-06-12 04:01:42:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:01:42:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:01:42:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:01:42:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_collection.js
+
+2017-06-12 04:01:42:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_collection.class.php
+
+2017-06-12 04:01:42:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_playlist.js
+
+2017-06-12 04:01:42:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_playlist.class.php
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/collection.class.php
+
+2017-06-12 04:01:42:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 04:01:42: : Phink\Core\TObject::invoke::INVOKE_ACTION::showPlayerByArtist("Ä")
+
+2017-06-12 04:01:42: : LETTER::Ä
+
+2017-06-12 04:01:42:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:01:42:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/collection.phtml
+
+2017-06-12 04:01:43:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:01:43:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/playlist.phtml
+
+2017-06-12 04:01:43:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:01:43: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/player.js
+
+2017-06-12 04:01:43: : Phink\MVC\TCustomController::getViewHtml::2::app/controllers/player.js
+
+2017-06-12 04:02:28: : Phink\Auth\TAuthentication::renewToken::TOKEN::
+
+2017-06-12 04:02:28:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/main.class.php
+
+2017-06-12 04:02:28:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/main.phtml
+
+2017-06-12 04:02:29: : Phink\Auth\TAuthentication::renewToken::TOKEN::undefined
+
+2017-06-12 04:02:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/master.phtml
+
+2017-06-12 04:02:29: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 04:02:29: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/master.js
+
+2017-06-12 04:02:29: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTYxNzczODgyNTkzZWJiMTU5Yjc1Yg==
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/home.phtml
+
+2017-06-12 04:02:30: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:02:30: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:02:30: : FQCN::Something\Dummy
+
+
+2017-06-12 04:02:30: : FULL_CLASS_PATH::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcArtists.class.php
+
+2017-06-12 04:02:30: : FILE::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:02:30: : FQCN::SoL\Controllers\AbcArtists
+
+
+2017-06-12 04:02:30: : FULL_CLASS_PATH::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcAlbums.class.php
+
+2017-06-12 04:02:30: : FILE::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:02:30: : FQCN::SoL\Controllers\AbcAlbums
+
+
+2017-06-12 04:02:30: : FULL_CLASS_PATH::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcYears.class.php
+
+2017-06-12 04:02:30: : FILE::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:02:30: : FQCN::SoL\Controllers\AbcYears
+
+
+2017-06-12 04:02:30:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcartists.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcalbums.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:02:30:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcyears.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcArtists.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcAlbums.class.php
+
+2017-06-12 04:02:30:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcYears.class.php
+
+2017-06-12 04:02:30: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcArtists.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcAlbums.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcYears.phtml
+
+2017-06-12 04:02:30:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:02:30: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/home.js
+
+2017-06-12 04:02:44: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTE5NzU2Nzc0OTU5M2ViYjE1ZjI3Njk=
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/player.class.php
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/player.class.php
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/player.phtml
+
+2017-06-12 04:02:44: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:02:44: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:02:44: : FQCN::Something\Dummy
+
+
+2017-06-12 04:02:44: : FULL_CLASS_PATH::app/controllers/collection.class.php
+
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/collection.class.php
+
+2017-06-12 04:02:44: : FILE::app/controllers/collection.class.php
+
+
+2017-06-12 04:02:44: : FQCN::SoL\Controllers\Collection
+
+
+2017-06-12 04:02:44: : FULL_CLASS_PATH::app/controllers/playlist.class.php
+
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/playlist.class.php
+
+2017-06-12 04:02:44: : FILE::app/controllers/playlist.class.php
+
+
+2017-06-12 04:02:44: : FQCN::SoL\Controllers\Playlist
+
+
+2017-06-12 04:02:44:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:02:44:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:02:44:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:02:44:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_collection.js
+
+2017-06-12 04:02:44:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_collection.class.php
+
+2017-06-12 04:02:44:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_playlist.js
+
+2017-06-12 04:02:44:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_playlist.class.php
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/collection.class.php
+
+2017-06-12 04:02:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 04:02:44: : Phink\Core\TObject::invoke::INVOKE_ACTION::showPlayerByArtist("Ä")
+
+2017-06-12 04:02:44: : LETTER::Ä
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/collection.phtml
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/playlist.phtml
+
+2017-06-12 04:02:44:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:02:44: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/player.js
+
+2017-06-12 04:02:44: : Phink\MVC\TCustomController::getViewHtml::2::app/controllers/player.js
+
+2017-06-12 04:02:59:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:02:59: : SoL\Rest\Playlist
+
+2017-06-12 04:02:59: : 2017-06-12:16:02:59::PUT::/api/playlist/1
+
+2017-06-12 04:10:15:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:10:15: : SoL\Rest\Playlist
+
+2017-06-12 04:10:15: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:10:15: : 2017-06-12:16:10:15::PUT::/api/playlist/1
+
+2017-06-12 04:15:48:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:15:48: : SoL\Rest\Playlist
+
+2017-06-12 04:15:48: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:15:48: : 2017-06-12:16:15:48::PUT::/api/playlist/1
+
+2017-06-12 04:18:52:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:18:52: : SoL\Rest\Playlist
+
+2017-06-12 04:18:52: : Array
+
+2017-06-12 04:18:52: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:18:52: : 2017-06-12:16:18:52::PUT::/api/playlist/1
+
+2017-06-12 04:22:27: : Phink\Auth\TAuthentication::renewToken::TOKEN::
+
+2017-06-12 04:22:27:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/main.class.php
+
+2017-06-12 04:22:27:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/main.phtml
+
+2017-06-12 04:22:28: : Phink\Auth\TAuthentication::renewToken::TOKEN::undefined
+
+2017-06-12 04:22:28:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/master.phtml
+
+2017-06-12 04:22:28: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 04:22:28: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/master.js
+
+2017-06-12 04:22:29: : Phink\Auth\TAuthentication::renewToken::TOKEN::MzA2NDE2ODAxNTkzZWJmYzQ3NGI1Yw==
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/home.phtml
+
+2017-06-12 04:22:29: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:22:29: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:22:29: : FQCN::Something\Dummy
+
+
+2017-06-12 04:22:29: : FULL_CLASS_PATH::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcArtists.class.php
+
+2017-06-12 04:22:29: : FILE::app/controllers/abcArtists.class.php
+
+
+2017-06-12 04:22:29: : FQCN::SoL\Controllers\AbcArtists
+
+
+2017-06-12 04:22:29: : FULL_CLASS_PATH::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcAlbums.class.php
+
+2017-06-12 04:22:29: : FILE::app/controllers/abcAlbums.class.php
+
+
+2017-06-12 04:22:29: : FQCN::SoL\Controllers\AbcAlbums
+
+
+2017-06-12 04:22:29: : FULL_CLASS_PATH::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/abcYears.class.php
+
+2017-06-12 04:22:29: : FILE::app/controllers/abcYears.class.php
+
+
+2017-06-12 04:22:29: : FQCN::SoL\Controllers\AbcYears
+
+
+2017-06-12 04:22:29:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcartists.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcartists.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcalbums.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcalbums.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_abcyears.js
+
+2017-06-12 04:22:29:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_abcyears.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcArtists.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcAlbums.class.php
+
+2017-06-12 04:22:29:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/abcYears.class.php
+
+2017-06-12 04:22:29: : Phink\Core\TObject::invoke::INVOKE_ACTION::getViewHtml()
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcArtists.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcAlbums.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/abcYears.phtml
+
+2017-06-12 04:22:29:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:22:29: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/home.js
+
+2017-06-12 04:22:33: : Phink\Auth\TAuthentication::renewToken::TOKEN::MTYwOTA2OTg5ODU5M2ViZmM1MTEyY2Y=
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/player.class.php
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/player.class.php
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/player.phtml
+
+2017-06-12 04:22:33: : FULL_CLASS_PATH::app/controllers/dummy.class.php
+
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/dummy.class.php
+
+2017-06-12 04:22:33: : FILE::app/controllers/dummy.class.php
+
+
+2017-06-12 04:22:33: : FQCN::Something\Dummy
+
+
+2017-06-12 04:22:33: : FULL_CLASS_PATH::app/controllers/collection.class.php
+
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/collection.class.php
+
+2017-06-12 04:22:33: : FILE::app/controllers/collection.class.php
+
+
+2017-06-12 04:22:33: : FQCN::SoL\Controllers\Collection
+
+
+2017-06-12 04:22:33: : FULL_CLASS_PATH::app/controllers/playlist.class.php
+
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/playlist.class.php
+
+2017-06-12 04:22:33: : FILE::app/controllers/playlist.class.php
+
+
+2017-06-12 04:22:33: : FQCN::SoL\Controllers\Playlist
+
+
+2017-06-12 04:22:33:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:22:33:php/phink/autoloader.php:290 : INCLUDE CACHED JS CONTROL: js/runtime/app_controllers_dummy.js
+
+2017-06-12 04:22:33:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_dummy.class.php
+
+2017-06-12 04:22:33:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_collection.js
+
+2017-06-12 04:22:33:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_collection.class.php
+
+2017-06-12 04:22:33:php/phink/autoloader.php:283 : CACHED JS FILENAME: js/runtime/app_controllers_playlist.js
+
+2017-06-12 04:22:33:php/phink/autoloader.php:293 : INCLUDE CACHED CONTROL: ../runtime/app_controllers_playlist.class.php
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/collection.class.php
+
+2017-06-12 04:22:33:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 04:22:33: : Phink\Core\TObject::invoke::INVOKE_ACTION::showPlayerByArtist("Ä")
+
+2017-06-12 04:22:33: : LETTER::Ä
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/dummy.phtml
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/collection.phtml
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/playlist.phtml
+
+2017-06-12 04:22:33:php/phink/mvc/custom_view.php:111 : PARSE FILE : phink/web/ui/widget/plugin/plugin.phtml
+
+2017-06-12 04:22:33: : Phink\MVC\TCustomController::getViewHtml::1::app/controllers/player.js
+
+2017-06-12 04:22:33: : Phink\MVC\TCustomController::getViewHtml::2::app/controllers/player.js
+
+2017-06-12 04:22:44:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:22:44: : SoL\Rest\Playlist
+
+2017-06-12 04:22:44: : {"track":"406"}
+
+2017-06-12 04:22:44: : Array
+
+2017-06-12 04:22:44: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:22:44: : 2017-06-12:16:22:44::PUT::/api/playlist/1
+
+2017-06-12 04:24:49:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:24:49: : SoL\Rest\Playlist
+
+2017-06-12 04:24:49: : {"track":"406"}
+
+2017-06-12 04:24:49: : Array
+
+2017-06-12 04:24:49: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:24:49: : 2017-06-12:16:24:49::PUT::/api/playlist/1
+
+2017-06-12 04:27:59:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:27:59: : SoL\Rest\Playlist
+
+2017-06-12 04:27:59: : {"track":"406"}
+
+2017-06-12 04:27:59: : Array
+(
+    [track] => 406
+)
+
+
+2017-06-12 04:27:59: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:27:59: : 2017-06-12:16:27:59::PUT::/api/playlist/1
+
+2017-06-12 04:30:18:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:30:18: : SoL\Rest\Playlist
+
+2017-06-12 04:30:18: : {"track":"406"}
+
+2017-06-12 04:30:18: : Array
+(
+    [track] => 406
+)
+
+
+2017-06-12 04:30:18: : instance->track = 406
+
+2017-06-12 04:30:18: : \SoL\Models\Playlist::addTrack(0, 0)
+
+2017-06-12 04:30:18: : 2017-06-12:16:30:18::PUT::/api/playlist/1
+
+2017-06-12 04:35:05:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/rest/playlist.class.php
+
+2017-06-12 04:35:05: : SoL\Rest\Playlist
+
+2017-06-12 04:35:05: : {"track":"406"}
+
+2017-06-12 04:35:05: : Array
+(
+    [track] => 406
+)
+
+
+2017-06-12 04:35:05: : instance->track = 406
+
+2017-06-12 04:35:05: : \SoL\Models\Playlist::addTrack(1, 406)
+
+2017-06-12 04:35:05: : 2017-06-12:16:35:05::PUT::/api/playlist/1
+
+2017-06-12 04:35:05: : Phink\Auth\TAuthentication::renewToken::TOKEN::Mzg4NTAwMDk0NTkzZWJmYzk0NmM4Zg==
+
+2017-06-12 04:35:05:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 04:35:05:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/controllers/playlist.class.php
+
+2017-06-12 04:35:05:php/phink/autoloader.php:180 : Phink\TAutoloader::includeClass::app/models/playlist.class.php
+
+2017-06-12 04:35:05:php/phink/mvc/custom_view.php:111 : PARSE FILE : app/views/playlist.phtml
+
+2017-06-12 04:35:05: : Phink\Core\TObject::invoke::INVOKE_ACTION::getData()
+
