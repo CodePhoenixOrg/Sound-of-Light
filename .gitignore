@@ -43,3 +43,4 @@ tests/_output/*
 /bin/Microsoft.NodejsTools.WebRole.dll
 /bin
 /.vs/SoL/v15/.suo
+/data/crypto.db

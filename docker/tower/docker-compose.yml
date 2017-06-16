@@ -1,0 +1,39 @@
+version: '2.0'
+services:
+  db: 
+    build: ./mysql
+    image: solight:mysql 
+    expose:
+     - "3306"
+    ports:
+     - "3306:3306"
+    volumes:
+     - /c/Users/david/Sites/CodePhoenix.net/SDK/php:/Sites
+     - mysql_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: solight
+      MYSQL_DATABASE: test
+      MYSQL_USER: dummy
+      MYSQL_PASSWORD: solight
+
+  web:
+    build: ./solight
+    image: solight:os
+    expose:
+     - "80"
+    ports:
+     - "80:80"
+    privileged: true
+    tty: true
+    volumes:
+     - /c/Users/david/Sites/CodePhoenix.net/SDK/php/SoL/docker/tower/vhosts/sol.conf:/etc/apache2/sites-enabled/sol.conf
+     - /c/Users/david/Sites/CodePhoenix.net/SDK/php:/Sites
+     - /c/Users/david/Sites/CodePhoenix.net/SDK/php/Phink:/usr/share/php/phink
+     - /c/Users/david/Sites/CodePhoenix.net/SDK/javascript:/usr/share/javascript
+    links:
+     - db:db
+
+volumes:
+  mysql_data:
+
