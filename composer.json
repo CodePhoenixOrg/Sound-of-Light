@@ -10,12 +10,7 @@
     ],
     "require": {},
     "require-dev": {
-        "squizlabs/php_codesniffer": "1.5.*",
-        "phpmd/phpmd": "2.1.*",
-        "sebastian/phpcpd": "2.0.*",
-        "pdepend/pdepend": "2.0.*",
-        "phploc/phploc": "2.0.*",
         "phpunit/phpunit": "4.3.*",
-        "theseer/phpdox": "0.7.*"
+        "phink/phink": "0.9.3.11"
     }
 }
