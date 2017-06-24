@@ -1,6 +1,6 @@
 <?php
 
-namespace Something;
+namespace SoL\Controllers;
 
 //require_once 'phink/mvc/partial_controller.php';
 

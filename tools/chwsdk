@@ -1,0 +1,7 @@
+#!/bin/bash
+DEST=/Users/david/Sites/CodePhoenix.net/SDK/php
+find $DEST -exec chown david:david {} \;
+find $DEST -type d -exec chmod 777 {} \;
+find $DEST -type f -exec chmod 666 {} \;
+exit 0
+

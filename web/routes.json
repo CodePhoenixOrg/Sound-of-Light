@@ -18,7 +18,8 @@
             "/musicplayer$": "/views/player.phtml",
             "/master.html$": "/views/master.phtml",
             "/home.html$": "/views/home.phtml",
-            "/player.html$": "/views/player.phtml"
+            "/player.html$": "/views/player.phtml",
+            "/playlist.html$": "/views/playlist.phtml"
         }
     }
 }

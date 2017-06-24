@@ -1,0 +1,15 @@
+#!/bin/bash
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ ERROR BEGIN                        @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+cat /var/log/apache2/error_log
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ DEBUG BEGIN                        @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+cat /Users/david/Sites/CodePhoenix.net/SDK/php/Code-Phoenix.org/logs/debug.log
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ RUNTIME                            @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ls /Users/david/Sites/CodePhoenix.net/SDK/php/Code-Phoenix.org/runtime
+exit 0
+
