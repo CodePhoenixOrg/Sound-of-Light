@@ -4,9 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8ad8dba20b7d9a7d972d2e38d828837",
-    "packages": [],
-    "packages-dev": [
+    "content-hash": "66fcd8c3fbd2201cb97ae4345227ad61",
+    "packages": [
         {
             "name": "components/bootstrap",
             "version": "3.3.7",
@@ -291,6 +290,54 @@
             "time": "2016-09-16T05:47:55+00:00"
         },
         {
+            "name": "phink/phink",
+            "version": "v0.9.5.70",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpjb71/Phink.git",
+                "reference": "75bfaf87e8b2d9ea8fec279454b58f5f63731812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpjb71/Phink/zipball/75bfaf87e8b2d9ea8fec279454b58f5f63731812",
+                "reference": "75bfaf87e8b2d9ea8fec279454b58f5f63731812",
+                "shasum": ""
+            },
+            "require": {
+                "components/bootstrap": ">=3.0.0",
+                "components/bootstrap-default": ">=3.0.0",
+                "components/font-awesome": ">=4.7.0",
+                "components/jquery": ">=1.9.1",
+                "components/jqueryui": ">=1.12.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/phink/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src"
+            ],
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "David Blanchard",
+                    "email": "dblanchard1@bbox.fr",
+                    "homepage": "https://phink.org",
+                    "role": "Project owner"
+                }
+            ],
+            "description": "Think PHP different",
+            "time": "2017-07-11T17:12:44+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -343,44 +390,6 @@
                 "instantiate"
             ],
             "time": "2015-06-14T21:17:01+00:00"
-        },
-        {
-            "name": "phink/phink",
-            "version": "0.9.3.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dpjb71/Phink.git",
-                "reference": "ee3458570542ef93f7c94f8ee5c2ebb1947f7b99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dpjb71/Phink/zipball/ee3458570542ef93f7c94f8ee5c2ebb1947f7b99",
-                "reference": "ee3458570542ef93f7c94f8ee5c2ebb1947f7b99",
-                "shasum": ""
-            },
-            "require": {
-                "components/bootstrap": ">=3.0.0",
-                "components/bootstrap-default": ">=3.0.0",
-                "components/font-awesome": ">=4.7.0",
-                "components/jquery": ">=1.9.1",
-                "components/jqueryui": ">=1.12.1",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "David Blanchard",
-                    "email": "dblanchard1@bbox.fr",
-                    "homepage": "https://code-phoenix.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Think PHP different",
-            "time": "2017-06-16T12:28:51+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1081,7 +1090,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.22",
+            "version": "v2.8.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",

@@ -91,7 +91,7 @@ class Player extends \Phink\MVC\TController
     private function _getWiki($artist)
     {
         $this->_cacheFilename = CACHE_DIR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
-        $this->request->addSubRequest('wiki', 'https://en.wikipedia.org/wiki/' . $artist);
+        $this->request->addSubRequest('wiki', 'GET', 'https://en.wikipedia.org/wiki/' . $artist);
         
         try {
             $result = $this->request->execSubRequests();

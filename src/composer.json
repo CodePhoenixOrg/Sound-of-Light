@@ -8,9 +8,11 @@
             "email": "dblanchard@bbox.fr"
         }
     ],
-    "require": {},
+    "require": {
+        "phink/phink": "v0.9.*"
+    },
     "require-dev": {
         "phpunit/phpunit": "4.3.*",
-        "phink/phink": "0.9.3.11"
+        "phink/phink": "v0.9.*"
     }
 }

@@ -4,7 +4,10 @@ define('CUSTOM_NAMESPACE', 'SoL');
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include 'phink/web/static_application.php';
+
+include '../vendor/autoload.php';
+
+//include 'phink/web/static_application.php';
 
 /**
  * Description of application
@@ -25,5 +28,5 @@ class Index extends TWebApplication {
     }
 }
 */
-Phink\Web\TWebApplication::create();
+\Phink\Web\TWebApplication::create();
 
