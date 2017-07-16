@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : 10 sept. 2016, 18:43:35
+    Author     : David
+*/
+
+body {
+    color: white;
+    background-color: #002233;
+    font-family: sans-serif;
+}
+
+h1 {
+    padding-left: 30px;
+    margin-left: 30px;
+}
+
+ol li {
+    /*display: block;*/
+    height: 30px;
+    line-height: 30px;
+    list-style-type: none;
+}
+
+ol li img {
+    vertical-align: middle;
+    padding-left: -20px;
+}
+
+.user {
+    float: left;
+    position: relative;
+    width: 960px;
+    height: 75px;
+    border-style: none;
+    border-radius: 12px;
+    border-color: #006688;
+    padding: 30px 30px 30px 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(300deg, #004466, black);
+}
+
+.collection {
+    float: left;
+    position: relative;
+    width: 440px;
+    height: 600px;
+    border-style: none;
+    border-radius: 12px;
+    border-color: #006688;
+    padding: 30px 30px 30px 30px;
+    margin-left: 20px;
+    background-image: linear-gradient(300deg, #004466, black);
+    clear: both;
+}
+
+.playlist {
+    float: left;
+    position: relative;
+    width: 440px;
+    height: 600px;
+    border-style: none;
+    border-radius: 12px;
+    border-color: #006688;
+    padding: 30px 30px 30px 30px;
+    margin-left: 20px;
+    background-image: linear-gradient(300deg, #004466, black);
+}

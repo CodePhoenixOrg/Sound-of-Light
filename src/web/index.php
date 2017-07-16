@@ -5,9 +5,9 @@ define('CUSTOM_NAMESPACE', 'SoL');
  * and open the template in the editor.
  */
 
-include '../vendor/autoload.php';
-
+//include '../vendor/autoload.php';
 //include 'phink/web/static_application.php';
+include 'phink/phink_library.php';
 
 /**
  * Description of application

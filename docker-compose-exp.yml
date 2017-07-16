@@ -1,0 +1,43 @@
+version: "3.0"
+services:
+    
+  percona:
+    image: mysql:5.7
+    environment:
+     - MYSQL_ROOT_PASSWORD=solight
+    ports:
+     - "3306:3306"
+    volumes:
+     - ./docker/my_data:/var/lib/mysql
+     - .:/site
+     
+  php_redis_mongo:
+    build: ./docker/cab/php7
+    image: php_redis_mongo:solight
+    ports:
+     - "6379:6379"
+     - "9000:9000"
+     - "27017:27017"
+    volumes:
+     - ./docker/cab/php.ini:/usr/local/etc/php/conf.d/customizations.ini
+     - .:/site
+     - ../Phink:/usr/local/lib/php/phink
+    links:
+     - percona:db
+     
+  web:
+    hostname: sol.loc
+    image: nginx:latest
+    ports:
+     - "80:80"
+     - "443:443"
+    volumes:
+     - ./docker/cab/site.conf:/etc/nginx/conf.d/default.conf
+     - .:/site
+    links:
+     - percona:db
+     - php_redis_mongo:php_redis_mongo     
+
+volumes:
+  my_data:
+  

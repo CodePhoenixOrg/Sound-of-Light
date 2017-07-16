@@ -1,0 +1,45 @@
+version: '2.0'
+services:
+  db: 
+    build: ./docker/batiment/mysql
+    image: solight:mysql
+    container_name: batiment_db_1
+    volumes:
+     - .:/Sites
+     - mysql_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: solight
+      MYSQL_DATABASE: test
+      MYSQL_USER: dummy
+      MYSQL_PASSWORD: solight
+
+  web:
+    build: ./docker/batiment/solight
+    image: solight:os
+    container_name: batiment_web_1
+    expose:
+     - "80"
+    ports:
+     - "80:80"
+    privileged: true
+    tty: true
+    volumes:
+     - ./docker/batiment/vhosts/sol.conf:/etc/apache2/sites-enabled/sol.conf
+     - .:/Sites
+    links:
+     - db:db
+
+  api:
+    hostname: soundlib.loc
+    image: node:latest
+    ports:
+     - "1234:1234"
+    volumes:
+     - ./api:/site
+    links:
+     - mysql:db
+
+volumes:
+  my_data:
+  

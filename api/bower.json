@@ -1,0 +1,14 @@
+{
+    "name": "SoL API",
+    "version": "1.0.0",
+    "main": "web/index.js",
+    "ignore": [
+        ".jshintrc", "**/*.txt"
+    ],
+    "dependencies": {
+        "phinkjs": "~v0.1"
+    },
+    "devDependencies": {
+        "phinkjs": "~v0.1"
+    }
+}

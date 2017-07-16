@@ -1,0 +1,13 @@
+{
+  "name": "sound-of-light",
+  "version": "v0.1.1",
+  "description": "SoL API",
+  "main": "web/index.js",
+  "author": {
+    "name": "David Blanchard"
+  },
+  "dependencies": {
+    "promise": "^7.1.1",
+    "mysql": "^2.13.0"
+  }
+}

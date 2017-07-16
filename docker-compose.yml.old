@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   mysql:
-    build: ./docker/cabane/mysql
+    build: ./_docker_/cabane/mysql
     image: mysql:solight
     environment:
      - MYSQL_ROOT_PASSWORD=solight
@@ -9,40 +9,39 @@ services:
      - "3306:3306"
     volumes:
      - my_data:/var/lib/mysql
-     - ./src/data:/data
+     - .:/sites
 
   php:
-    build: ./docker/cabane/php7
+    build: ./_docker_/cab/php7
     image: php:7-pdo
     volumes:
-     - ./docker/cabane/php.ini:/usr/local/etc/php/conf.d/customizations.ini
-     - ./src:/site
+     - ./_docker_/cabane/php.ini:/usr/local/etc/php/conf.d/customizations.ini
      - ../Phink/src/phink:/usr/local/lib/php/phink
     links:
      - mysql:db
 
-  web:
+  sol:
     hostname: sol.loc
     image: nginx:latest
     ports:
      - "80:80"
     volumes:
-     - ./src:/site
-     - ./docker/cabane/site.conf:/etc/nginx/conf.d/default.conf
-     - ../Phink/src/phink:/usr/local/lib/php/phink
+     - ./SoL/src:/site
+     - ./SoL/nginx.conf:/etc/nginx/conf.d/default.conf
     links:
      - php:php
      - mysql:db
 
-  api:
-    hostname: soundlib.loc
-    build: ./docker/cabane/node
-    image: node:cabane
+  ladmin:
+    hostname: ladmin.loc
+    image: nginx:latest
     ports:
-     - "1234:1234"
+     - "8000:80"
     volumes:
-     - ./api:/site
+     - ./LAdmin/src:/site
+     - ./LAdmin/nginx.conf:/etc/nginx/conf.d/default.conf
     links:
+     - php:php
      - mysql:db
 
 volumes:
