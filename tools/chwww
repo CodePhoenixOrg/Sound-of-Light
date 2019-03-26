@@ -1,0 +1,17 @@
+#!/bin/bash
+function Usage() {
+	echo "Directory is missing";
+}
+
+DEST=$1
+
+if [ -z "$DEST" ];
+then
+	Usage;
+fi
+
+find $DEST -exec chown -R david:_www {} \;
+find $DEST -type d -exec chmod 777 {} \;
+find $DEST -type f -exec chmod 666 {} \;
+exit 0
+

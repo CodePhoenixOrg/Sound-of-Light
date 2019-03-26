@@ -12,45 +12,20 @@
         <link href="css/_3rdparty.css" rel="stylesheet">
         <link href="css/full-slider.css" rel="stylesheet">
         <link href="css/wikipedia.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <link href="css/sol.css" rel="stylesheet">
 
-        <script type="text/javascript" data-depends="/js/_3rdparty.js" data-sources="/js/sol_runtime.js" src="/phink.js"></script>
+        <script type="text/javascript" 
+                data-depends="js/_3rdparty.js;
+                    http://sodmin.loc/js/access.js;
+                    js/sol.js" 
+                data-sources="js/sol_runtime.js;
+                    js/debug.js" 
+                src="/phink.js">
+        </script>
     </head>
     <body data-twttr-rendered="true" data-spy="scroll" >
         <div id='body'></div>
-        <script type="text/javascript" src="js/debug.js"></script>
-        <script type="text/javascript" >
-            var APP_NAME = "sol";
-            var sol = null;
-            var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'sol.loc';
-            Phink.DOM.ready(function () {
 
-                sol = Phink.Web.Application.create(solHost);
-                sol.main = sol.createView('main');
-
-                var solMain = sol.createController(sol.main, 'sol.main')
-                .actions({
-                    goHome: function () {
-                        solMain.getSimpleView('master.html', function (data) {
-                            $(document.body).html(data.view);
-                            solMain.getSimpleView('home.html', function (data) {
-                                $('#homeContent').html(data.view);
-                            });
-                        });
-                    }
-                })
-                .onload(function () {
-                    solMain = this;
-                    this.goHome();
-                    //ladminIndex.bindEvents();
-                });
-            });
-
-        </script>
 
     </body>
 </html>

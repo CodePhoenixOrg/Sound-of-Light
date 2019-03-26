@@ -1,0 +1,7 @@
+#!/bin/bash
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ DEBUG BEGIN                        @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+tail -f web/php_error_log
+exit 0
+

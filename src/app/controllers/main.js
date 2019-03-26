@@ -1,7 +1,7 @@
 var APP_NAME = "sol";
 var sol = null;
 var solMain = null;
-var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:8000' : 'sol.loc';
+var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:80' : 'sol.loc';
 Phink.DOM.ready(function () {
 
     sol = Phink.Web.Application.create(solHost);
@@ -11,15 +11,13 @@ Phink.DOM.ready(function () {
         goHome: function () {
             solMain.getSimpleView('master.html', function (data) {
                 $(document.body).html(data.view);
-                solMain.getSimpleView('home.html', function (data) {
-                    $('#homeContent').html(data.view);
-                });
+                solMain.attachView('home.html', '#homeContent');
             });
         }
     })
     .onload(function () {
         solMain = this;
         this.goHome();
-        //ladminIndex.bindEvents();
+        //sodminIndex.bindEvents();
     });
 });

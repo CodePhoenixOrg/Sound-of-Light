@@ -37,25 +37,25 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
         return false;
     }
     , dragAndDrop : function(data) {
-        $("div[name='draggable']").each(function() {
-           var id = $(this).data('draghelperid');
-           var index = data.names.indexOf('TitleId');
-           var dragValues = Phink.Utils.find(data.values, index, id);
+        // $("div[name='draggable']").each(function() {
+        //    var id = $(this).data('draghelperid');
+        //    var index = data.names.indexOf('TitleId');
+        //    var dragValues = Phink.Utils.find(data.values, index, id);
 
-           var dragIndex = $(this).data('draghelperindex');
-           var dragTemplate = Phink.Web.UI.Plugin.applyDragHelper(data.templates, dragValues, dragIndex);
+        //    var dragIndex = $(this).data('draghelperindex');
+        //    var dragTemplate = Phink.Web.UI.Plugin.applyDragHelper(data.templates, dragValues, dragIndex);
            
-           var dragHelper = function(e) {
-              return dragTemplate;
-           }               
+        //    var dragHelper = function(e) {
+        //       return dragTemplate;
+        //    }               
 
-           $(this).draggable({
-                cursor: 'move'
-                , containment: 'document'
-                , stack: '#collection div'
-                , helper: dragHelper
-            });
-        });
+        //    $(this).draggable({
+        //         cursor: 'move'
+        //         , containment: 'document'
+        //         , stack: '#collection div'
+        //         , helper: dragHelper
+        //     });
+        // });
         
     }
     , bindPlayables : function() {
@@ -77,27 +77,27 @@ var solPlayer = sol.createController(sol.main, 'sol.player')
     this.pl.afterRemoveTrack = this.refresh;
     
     this.bindPlayables();
-    this.dragAndDrop(collectionData);
+    // this.dragAndDrop(collectionData);
 
-    var handleDrop = function(e, ui) {
+    // var handleDrop = function(e, ui) {
         
-        var element = ui.draggable.clone().appendTo($(this));
-        element.draggable({
-            cancel: 'a.ui-icon', 
-            revert: 'invalid', 
-            containment: '#dropper', 
-            helper: 'clone',
-            cursor: 'move'
-        });
+    //     var element = ui.draggable.clone().appendTo($(this));
+    //     element.draggable({
+    //         cancel: 'a.ui-icon', 
+    //         revert: 'invalid', 
+    //         containment: '#dropper', 
+    //         helper: 'clone',
+    //         cursor: 'move'
+    //     });
         
-        var id = ui.draggable.context.dataset.draghelperid;
-        solPlayer.pl.addTrack(id);
+    //     var id = ui.draggable.context.dataset.draghelperid;
+    //     solPlayer.pl.addTrack(id);
         
-    };
+    // };
 
-    $("#dropper").droppable({
-        accept: '#collection div'
-        , drop: handleDrop
-    });
+    // $("#dropper").droppable({
+    //     accept: '#collection div'
+    //     , drop: handleDrop
+    // });
     
 });

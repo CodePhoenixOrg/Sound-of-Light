@@ -15,8 +15,9 @@ services:
     build: ./docker/cabane/php7
     image: php:7-pdo
     volumes:
+     - ./src:/sites/sol
+     - ./admin:/sites/ladmin
      - ./docker/cabane/php.ini:/usr/local/etc/php/conf.d/customizations.ini
-     - ./src:/site
      - ../Phink/src/phink:/usr/local/lib/php/phink
     links:
      - mysql:db
@@ -26,9 +27,24 @@ services:
     image: nginx:latest
     ports:
      - "80:80"
+     - "443:443"
     volumes:
-     - ./src:/site
-     - ./docker/cabane/site.conf:/etc/nginx/conf.d/default.conf
+     - ./src:/sites/sol
+     - ./src/web/nginx.conf:/etc/nginx/conf.d/default.conf
+     - ../Phink/src/phink:/usr/local/lib/php/phink
+    links:
+     - php:php
+     - mysql:db
+
+  admin:
+    hostname: ladmin.loc
+    image: nginx:latest
+    ports:
+     - "8080:8080"
+     - "8443:443"
+    volumes:
+     - ./admin:/sites/ladmin
+     - ./admin/web/nginx.conf:/etc/nginx/conf.d/default.conf
      - ../Phink/src/phink:/usr/local/lib/php/phink
     links:
      - php:php
@@ -40,6 +56,8 @@ services:
     image: node:cabane
     ports:
      - "1234:1234"
+     - "4043:443"
+     - "8088:80"
     volumes:
      - ./api:/site
     links:

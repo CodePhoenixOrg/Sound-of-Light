@@ -33,7 +33,7 @@ namespace SoL\Data;
 //}
 class SoundLibConnection extends \Phink\Data\Client\PDO\TPdoConnection {
     public function __construct() {
-        $config = new \Phink\Data\Client\PDO\TPdoConfiguration(\Phink\Data\TServerType::MYSQL, 'soundlib', 'db', 'djay', 'demo');
+        $config = new \Phink\Data\Client\PDO\TPdoConfiguration(\Phink\Data\TServerType::MYSQL, 'soundlib', 'localhost', 'djay', 'demo');
         parent::__construct($config);
     }
 }

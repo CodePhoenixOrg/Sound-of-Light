@@ -24,7 +24,6 @@ FROM
         INNER JOIN
     artist a ON a.art_id = s.art_id
 ORDER BY Lettrine
-
 SELECT;
         
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);

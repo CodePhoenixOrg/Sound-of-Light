@@ -16,7 +16,7 @@ include APP_BUSINESS . 'user.php';
  *
  * @author david
  */
-$options = ['uri' => 'http://www,SoL.loc'];
+$options = ['uri' => 'http://www,sos.loc'];
 $server = new \SoapServer(null, $options);
 $server->setClass('User');
 $server->handle();

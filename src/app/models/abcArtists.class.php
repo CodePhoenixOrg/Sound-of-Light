@@ -16,18 +16,19 @@ class AbcArtists extends \Phink\MVC\TModel
     {
         $sql = <<<SELECT
 SELECT DISTINCT
-    IF(ASCII(SUBSTRING(art_name, 1, 1)) < 48,
-        '#',
-        SUBSTRING(art_name, 1, 1)) AS Lettrine
+CASE WHEN (SUBSTR(a.art_name, 1, 1)) BETWEEN 'A' AND 'Z' THEN  SUBSTR(a.art_name, 1, 1)
+ELSE '#' END
+AS Lettrine
 FROM
     track t
         INNER JOIN
     album s ON t.alb_id = s.alb_id
         INNER JOIN
     artist a ON a.art_id = s.art_id
+WHERE a.art_name IS NOT NULL
 ORDER BY Lettrine
 SELECT;
-        
+    
         $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
         $cmd->setSelectQuery($sql);
         

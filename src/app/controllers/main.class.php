@@ -20,7 +20,7 @@ class Main extends \Phink\MVC\TController
         if(strstr(HTTP_HOST, 'localhost')) {
             $this->hostname = 'http://localhost:8001';
         } else {
-            $this->hostname = 'http://www.ladmin.loc';
+            $this->hostname = 'http://www.sodmin.loc';
         }
 //        $token = $this->request->getToken();
 //        $result = TAuthentication::getPermissionByToken($token);

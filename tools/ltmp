@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "SoL tmp files" 
+ls -la /Users/david/Sites/CodePhoenix.net/SDK/php/SoL/tmp
+echo "LAdmin tmp files" 
+ls -la /Users/david/Sites/CodePhoenix.net/SDK/php/LAdmin/tmp
+exit 0
+

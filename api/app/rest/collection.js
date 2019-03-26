@@ -4,7 +4,7 @@ var coll = require(APP_MODELS + 'collection');
 var Collection = function () { };
 
 //put your code here
-Collection.get = function (callback) {
+Collection.prototype.get = function (callback) {
     coll.getAllTracks(function (data) {
         callback(data);
     });

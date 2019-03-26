@@ -2,6 +2,7 @@
 pwd
 
 echo > logs/debug.log
+echo > web/php_errors_log
 find runtime -type f -exec rm -f {} \; 
 find web/js/runtime -type f -exec rm -f {} \; 
 find cache/main_html_artist_*; 

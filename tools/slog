@@ -1,0 +1,11 @@
+#!/bin/bash
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ ERROR BEGIN                        @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+cat /var/log/apache2/error_log
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+echo @@@ DEBUG BEGIN                        @@@
+echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+cat /Users/david/Sites/CodePhoenix.net/SDK/php/SoL/logs/debug.log
+exit 0
+

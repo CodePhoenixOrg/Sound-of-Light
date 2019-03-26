@@ -1,7 +1,7 @@
 var Configuration = function() {};
 
 Configuration.parameters = {
-    host: 'db',
+    host: 'localhost',
     port: 3306,
     user: 'djay',
     password: 'demo',

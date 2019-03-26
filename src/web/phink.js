@@ -1,15 +1,15 @@
-var Phink = function() {}
+var Phink = function () { }
 Phink.DOM = Phink.DOM || {}
-Phink.DOM.ready = function (f){/in/.test(document.readyState)?setTimeout('Phink.DOM.ready('+f+')',9):f()}
+Phink.DOM.ready = function (f) { /in/.test(document.readyState) ? setTimeout('Phink.DOM.ready(' + f + ')', 9) : f() }
 
 Phink.include = function (file, callback) {
-    var tag =  document.createElement("script");
+    var tag = document.createElement("script");
     tag.src = file;
     tag.type = "text/javascript";
 
-    tag.addEventListener('load', function(e) {
-        if(typeof callback === 'function') {
-            callback.call(null, e);    
+    tag.addEventListener('load', function (e) {
+        if (typeof callback === 'function') {
+            callback.call(null, e);
         }
     })
     document.body.appendChild(tag);
@@ -21,64 +21,125 @@ var sources = (mainNode.length > 0 && mainNode[0].dataset.sources !== undefined)
 var main = (mainNode.length > 0 && mainNode[0].dataset.init !== undefined) ? mainNode[0].dataset.init : 'phink_main';
 
 Phink.DOM.ready(function () {
-  
-    var loadDepends = function(callback) {
-        if(depends.length > 0) {
-            for (var i = 0; i < depends.length; i++) {
-                Phink.include(depends[i], function(e) {
-                    if(i === depends.length) {
-                        if(typeof callback === 'function') {
-                            callback.call(null);    
+
+    var loadDepends = function (scripts, callback) {
+
+        if (scripts.length > 0) {
+            for (var i = 0; i < scripts.length; i++) {
+                Phink.include(scripts[i], function (e) {
+                    if (i === scripts.length) {
+                        if (typeof callback === 'function') {
+                            callback.call(null);
                         }
-                    
+
                     }
                 });
             }
 
         } else {
-            if(typeof callback === 'function') {
+            if (typeof callback === 'function') {
                 callback.call(this);
             }
         }
-      
+
     }
 
-    loadDepends(function () {
-      for (var i = 0; i < sources.length; i++) {
-          Phink.include(sources[i], function(e) {
-              if(typeof window[main] === 'function') {
-                  var initnow = 'phink_app_init_' + Date.now();
-                  window[initnow] = window[main];
-                  window[main] = null;
-                  window[initnow]();
-              }
-          });
-      }
+    var dependsOn = function (scripts, callback) {
+
+        var dependsOn = function (src) {
+            var xmlhttp, next;
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                try {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    return;
+                }
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    eval(xmlhttp.responseText);
+                    next = scripts.shift();
+                    if (next) {
+                        dependsOn(next);
+                    } else if (typeof callback == 'function') {
+                        callback();
+                    }
+                }
+            }
+            xmlhttp.open("GET", src, true);
+            xmlhttp.send();
+        };
+        if (scripts.length > 0) {
+            dependsOn(scripts.shift());
+        } else if (typeof callback == 'function') {
+            callback();
+        }
+    }
+    
+    var loadDeps = function (scripts, callback) {
+
+        var loadDeps = function (src) {
+            var next;
+            var tag = document.createElement("script");
+            tag.src = src;
+            tag.type = "text/javascript";
+
+            tag.addEventListener('load', function (e) {
+                next = scripts.shift();
+                if (next) {
+                    loadDeps(next);
+                } else if (typeof callback == 'function') {
+                    callback();
+                }
+            })
+            document.body.appendChild(tag);
+
+        };
+        if (scripts.length > 0) {
+            loadDeps(scripts.shift());
+        } else if (typeof callback == 'function') {
+            callback();
+        }
+    }
+
+    loadDeps(depends, function () {
+        for (var i = 0; i < sources.length; i++) {
+            Phink.include(sources[i], function (e) {
+                if (typeof window[main] === 'function') {
+                    var initnow = 'phink_app_init_' + Date.now();
+                    window[initnow] = window[main];
+                    window[main] = null;
+                    window[initnow]();
+                }
+            });
+        }
     });
-    
-    
+
+
 });
 
 var Phink = Phink || {}
 
 Phink.Utils = function () {
-    
+
 };
 
-Phink.Utils.find = function(haystack, index, needle) {
+Phink.Utils.find = function (haystack, index, needle) {
     var result = [];
 
-    if(haystack.length === 0) return result;
+    if (haystack.length === 0) return result;
     var first = JSON.parse(haystack[0]);
-    if(first.length < index - 1) return result;
+    if (first.length < index - 1) return result;
 
-    for( var k = 0; k < haystack.length; ++k ) {
+    for (var k = 0; k < haystack.length; ++k) {
         var row = JSON.parse(haystack[k]);
-        if( needle == row[index] ) {
+        if (needle == row[index]) {
             result = row;
             break;
         }
-    }        
+    }
 
     return result;
 };
@@ -90,42 +151,150 @@ Phink.Utils.find = function(haystack, index, needle) {
  * @param {type} needle
  * @returns {Array|TUtils.grep.haystack}
  */
-Phink.Utils.grep = function(haystack, key, needle) {
+Phink.Utils.grep = function (haystack, key, needle) {
     var result = [];
 
-    if(haystack.length === 0) return result;
+    if (haystack.length === 0) return result;
     var first = JSON.parse(haystack[0]);
-    if(!first.hasOwnProperty(key)) return result;
+    if (!first.hasOwnProperty(key)) return result;
 
-    for( var k = 0; k < haystack.length; ++k ) {
+    for (var k = 0; k < haystack.length; ++k) {
         var row = JSON.parse(haystack[k]);
-        if( needle == row[key] ) {
+        if (needle == row[key]) {
             result = row;
             break;
         }
-    }        
+    }
 
     return result;
 };
 
-Phink.Utils.resizeIframe = function(ui) {
+Phink.Utils.resizeIframe = function (ui) {
     ui.style.height = ui.contentWindow.document.body.scrollHeight + 'px';
 };
 
-Phink.Utils.html64 = function(container, html) {
-    $(container).html(base64_decode(html));
+Phink.Utils.html64 = function (container, html) {
+    $(container).html(Phink.Utils.base64Decode(html));
 };
 
-Phink.Utils.secondsToString = function(seconds) {
-     var minutes = Math.floor(seconds / 60)
-     var seconds = seconds - (minutes * 60)
-     
-     return minutes + ':' + ('00' + seconds).toString().slice(-2)
+Phink.Utils.secondsToString = function (seconds) {
+    var minutes = Math.floor(seconds / 60)
+    var seconds = seconds - (minutes * 60)
+
+    return minutes + ':' + ('00' + seconds).toString().slice(-2)
 }
 
 function debugLog(message) {
     alert(message);
-}var Phink = Phink || {}
+}
+
+Phink.Utils.base64Decode = function (data) {
+    if (!data) {
+        return data;
+    }
+
+    var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var o1, o2, o3, h1, h2, h3, h4, bits, i = 0, ac = 0, dec = "", tmp_arr = [];
+    data += '';
+
+    do {
+        h1 = b64.indexOf(data.charAt(i++));
+        h2 = b64.indexOf(data.charAt(i++));
+        h3 = b64.indexOf(data.charAt(i++));
+        h4 = b64.indexOf(data.charAt(i++));
+        bits = h1 << 18 | h2 << 12 | h3 << 6 | h4; o1 = bits >> 16 & 0xff;
+        o2 = bits >> 8 & 0xff; o3 = bits & 0xff;
+        if (h3 == 64) {
+            tmp_arr[ac++] = String.fromCharCode(o1);
+        }
+        else if (h4 == 64) {
+            tmp_arr[ac++] = String.fromCharCode(o1, o2);
+        }
+        else {
+            tmp_arr[ac++] = String.fromCharCode(o1, o2, o3);
+        }
+
+    }
+    while (i < data.length);
+
+    dec = tmp_arr.join('');
+    dec = Phink.Utils.utf8Decode(dec);
+
+    return dec;
+}
+
+Phink.Utils.base64Encode = function (data) {
+    if (!data) {
+        return data;
+    }
+
+    var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var o1, o2, o3, h1, h2, h3, h4, bits, i = 0, ac = 0, enc = "", tmp_arr = [];
+
+    data = Phink.Utils.utf8Encode(data + '');
+    do {
+        o1 = data.charCodeAt(i++);
+        o2 = data.charCodeAt(i++); o3 = data.charCodeAt(i++);
+        bits = o1 << 16 | o2 << 8 | o3; h1 = bits >> 18 & 0x3f;
+        h2 = bits >> 12 & 0x3f;
+        h3 = bits >> 6 & 0x3f;
+        h4 = bits & 0x3f;
+        tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+    }
+    while (i < data.length);
+
+    enc = tmp_arr.join('');
+    var r = data.length % 3;
+
+    return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3);
+}
+
+Phink.Utils.utf8Decode = function (str_data) {
+    var tmp_arr = [], i = 0, ac = 0, c1 = 0, c2 = 0, c3 = 0; str_data += '';
+    
+    while (i < str_data.length) {
+        c1 = str_data.charCodeAt(i);
+        if (c1 < 128) {
+            tmp_arr[ac++] = String.fromCharCode(c1); i++;
+        } else if (c1 > 191 && c1 < 224) {
+            c2 = str_data.charCodeAt(i + 1); tmp_arr[ac++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63)); i += 2;
+        } else {
+            c2 = str_data.charCodeAt(i + 1);
+            c3 = str_data.charCodeAt(i + 2); tmp_arr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63)); i += 3;
+        }
+    }
+    
+    return tmp_arr.join('');
+}
+
+Phink.Utils.utf8Encode = function (argString) {
+    if (argString === null || typeof argString === "undefined") {
+        return "";
+    }
+    var string = (argString + '');
+    var utftext = "", start, end, stringl = 0; start = end = 0; stringl = string.length;
+    for (var n = 0; n < stringl; n++) {
+        var c1 = string.charCodeAt(n);
+        var enc = null;
+        if (c1 < 128) {
+            end++;
+        } else if (c1 > 127 && c1 < 2048) {
+            enc = String.fromCharCode((c1 >> 6) | 192) + String.fromCharCode((c1 & 63) | 128);
+        } else {
+            enc = String.fromCharCode((c1 >> 12) | 224) + String.fromCharCode(((c1 >> 6) & 63) | 128) + String.fromCharCode((c1 & 63) | 128);
+        }
+        if (enc !== null) {
+            if (end > start) { utftext += string.slice(start, end); }
+            utftext += enc; start = end = n + 1;
+        }
+    }
+    if (end > start) {
+        utftext += string.slice(start, stringl);
+    }
+    
+    return utftext;
+}
+var Phink = Phink || {}
 
 Phink.Registry = (function () {
     
@@ -837,7 +1006,7 @@ Phink.MVC.View.prototype.requestView = function (view, action, args, callback) {
                     }
                 }
 
-                data.view = base64_decode(data.view);
+                data.view = Phink.Utils.base64Decode(data.view);
                 if(typeof callback === 'function') {
                     callback.call(this, data);
                 } else {
@@ -897,7 +1066,7 @@ Phink.MVC.View.prototype.requestPart = function (pageName, action, attach, postD
                         }
                     }
 
-                    var html = base64_decode(data.view);
+                    var html = Phink.Utils.base64Decode(data.view);
                     $(attach).html(html);
 
                     if(typeof callback === 'function') {
@@ -923,7 +1092,7 @@ Phink.MVC.View.prototype.parseResponse = function(response, callback) {
     }
     var the = this;
     
-    response = base64_decode(response);
+    response = Phink.Utils.base64Decode(response);
     
     var data = JSON.parse(response);
     if(data['view'] === undefined) {
@@ -968,7 +1137,7 @@ Phink.MVC.View.prototype.attachView = function (pageName, anchor) {
                 }
             }
 
-            var html = base64_decode(data.view);
+            var html = Phink.Utils.base64Decode(data.view);
             $(anchor).html(html);                
         }
         catch(e) {

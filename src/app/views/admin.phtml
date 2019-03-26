@@ -1,0 +1,153 @@
+<html debug="true" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Sound Of Light</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/_3rdparty.css" rel="stylesheet">
+    <link href="css/full-slider.css" rel="stylesheet">
+    <link href="css/wikipedia.css" rel="stylesheet">
+    <link href="css/sol.css" rel="stylesheet">
+
+    <script type="text/javascript" 
+        data-depends="js/_3rdparty.js"
+        data-sources="js/debug.js" 
+        src="/phink.js">
+    </script>
+    <link href="css/accordion.css" rel="stylesheet">
+</head>
+
+<body data-twttr-rendered="true" data-spy="scroll">
+    <!-- Full Page Image Background Carousel Header -->
+    <div id="myCarousel" class="carousel slide">
+            <div id="adminContent" class="item active">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="javascript:logout()">LAdmin</a>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a id="home" href="#">Accueil</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" ole="button"
+                                        aria-haspopup="true" aria-expanded="false">Administration<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header">Outils</li>
+                                        <li><a id="passwd" href="#">Générateur de mot de passe</a></li>
+                                        <li><a id="sample" href="#">Exemple de multi-accordéon</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="navbar-form navbar-right">
+                                <div class="form-group">
+                                    <input placeholder="Email" class="form-control" type="text" readonly="readonly">
+                                </div>
+                                <button id="disconnect" type="submit" class="btn btn-danger">Déconnexion</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <header class="jumbotron subhead">
+                    &nbsp;
+                </header>
+
+                <div class="container">
+
+                    <div class="row" id="core">
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="span3">
+
+
+                                </div>
+                                <div class="span9">
+                                    <!-- Modal
+            ================================================== -->
+                                    <section id="modals">
+                                        <div class="page-header">
+                                            &nbsp;
+                                        </div>
+
+                                        <div>
+                                            <div>
+                                                <h1>Hello World!</h1>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <label id="tokenLabel"></label>
+                                            <div id="token">
+                                                <h2>New token</h2>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a id="tokenLink" href="#">
+                                                                    NTk1Nzc5Mjk2NWM4MTgzMmQ4ZjNlYw== </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td width="50%">
+                                                        <div id="dataGrid">
+                                                            <!--phx:Grid id="grid0" anchor="#grid" pageCount="20" /-->
+                                                        </div>
+                                                    </td>
+                                                    <td width="50%">
+                                                        <div id="vikipedia">
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <footer class="footer">
+                    <div class="container">
+                        <p><a href="#" id="logout" target="_new">Déconnexion</a></p>
+                    </div>
+                </footer>
+
+
+
+
+
+            </div>
+    </div>
+
+</body>
+
+</html>
