@@ -5,7 +5,6 @@ class Collection extends \Phink\MVC\TPartialController
 {
 
     protected $stmt = null;
-    protected $cmd = null;
     protected $items = [];
     protected $cn = null;
     protected $pager = null;
@@ -38,23 +37,23 @@ class Collection extends \Phink\MVC\TPartialController
     
     public function showArtistsByLetter($letter) 
     {
-        $this->cmd = $this->model->getArtistAlbumTitleByLetter($letter);
+        $this->stmt = $this->model->getArtistAlbumTitleByLetter($letter);
     }
 
     public function showAlbumsByLetter($letter) 
     {
-        $this->cmd = $this->model->getAlbumTitleByLetter($letter);
+        $this->stmt = $this->model->getAlbumTitleByLetter($letter);
     }
     
     public function showAlbumsByDate($year) 
     {
-        $this->cmd = $this->model->getAlbumTitleByYear($year);
+        $this->stmt = $this->model->getAlbumTitleByYear($year);
     }
  
     public function getData($pagecount, $pagenum)
     {
         $id = $this->getViewName();
-        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, $pagecount);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, $pagecount);
         $this->response->setData('collection', $this->data);
     }
     

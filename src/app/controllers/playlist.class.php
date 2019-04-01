@@ -5,7 +5,6 @@ class Playlist extends \Phink\MVC\TPartialController
 {
 
     protected $stmt = null;
-    protected $cmd = null;
     protected $items = [];
     protected $cn = null;
     protected $pager = null;
@@ -20,7 +19,7 @@ class Playlist extends \Phink\MVC\TPartialController
     public function init()
     {
         $this->user = $this->getAuthentication()->getUserId();
-        $this->cmd = $this->model->getPlaylist();
+        $this->stmt = $this->model->getPlaylist();
     }
 
     public function setPageCount($value)
@@ -50,7 +49,7 @@ class Playlist extends \Phink\MVC\TPartialController
     public function getData()
     {
         $id = $this->getViewName();
-        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, 1);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, 1);
         $this->response->setData('playlist', $this->data);
     }
     

@@ -2,7 +2,7 @@
 <TPlugin id="accordion0" >
     <pattern>accordion</pattern>
     <pivot>false</pivot>
-    <command>var:cmd</command>
+    <statement>var:stmt</statement>
     <childid>var:items</childid>
     <rowcount>var:pageCount</rowcount>
     <pagecount>var:index</pagecount>

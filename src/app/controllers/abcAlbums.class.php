@@ -14,7 +14,7 @@ namespace SoL\Controllers;
  */
 class AbcAlbums extends \Phink\MVC\TPartialController {
 
-    protected $cmd = null;
+    protected $stmt = null;
     protected $anchor = '';
 
     /**
@@ -36,13 +36,13 @@ class AbcAlbums extends \Phink\MVC\TPartialController {
      */
     public function init()
     {
-        $this->cmd = $this->model->getLettrines();
+        $this->stmt = $this->model->getLettrines();
     }
 
     public function getData($pagecount, $pagenum)
     {
         $id = $this->getViewName();
-        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, 1);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, 1);
         $this->response->setData('abc', $this->data);
     }
     

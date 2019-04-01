@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace SoL\Models;
 
 require_once APP_DATA . 'soundlib_connection.php';
@@ -46,10 +40,9 @@ left join artist a on t.art_id = a.art_id
 where p.pls_id = $id
 SELECT;
          
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
+        $stmt = $this->connector->query($sql);
         
-        return $cmd;
+        return $stmt;
     }
     
 

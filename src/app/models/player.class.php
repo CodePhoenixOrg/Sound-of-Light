@@ -5,7 +5,6 @@ require_once APP_DATA . 'soundlib_connection.php';
 
 class Player extends \Phink\MVC\TModel
 {
-
     public function init()
     {
         $this->connector = new \SoL\Data\SoundLibConnection();
@@ -32,9 +31,8 @@ FROM
 ORDER BY trk_year, art_name, trk_id
 SELECT;
 
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-                
-        return $cmd;
-    }    
+        $stmt = $this->connector->query($sql);
+        
+        return $stmt;
+    }
 }

@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace SoL\Models;
 
 require_once APP_DATA . 'soundlib_connection.php';
@@ -15,7 +9,7 @@ require_once APP_DATA . 'soundlib_connection.php';
  *
  * @author David
  */
-class Collection extends \Phink\MVC\TModel 
+class Collection extends \Phink\MVC\TModel
 {
     //put your code here
     public function init()
@@ -50,7 +44,6 @@ SELECT;
     
     public function getArtistAlbumTitle()
     {
-    
         $sql = <<<SELECT
 SELECT 
     y.name AS 'Year',
@@ -75,15 +68,13 @@ FROM
 ORDER BY y.name, a.name, t.year, t.id
 SELECT;
 
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-                
-        return $cmd;
+        $stmt = $this->connector->query($sql);
+        
+        return $stmt;
     }
 
     public function getArtistAlbumTitleByLetter($letter)
     {
-      
         $sql = <<<SELECT
 SELECT 
     trk_year AS 'Year',
@@ -105,15 +96,13 @@ WHERE SUBSTRING(art_name, 1, 1) = '$letter' AND trk_year > '0'
 ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-                
-        return $cmd;
+        $stmt = $this->connector->query($sql);
+        
+        return $stmt;
     }
 
     public function getAlbumTitleByLetter($letter)
     {
-      
         $sql = <<<SELECT
 SELECT 
     trk_year AS 'Year',
@@ -135,15 +124,13 @@ WHERE SUBSTRING(alb_name, 1, 1) = '$letter' AND trk_year > '0'
 ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-                
-        return $cmd;
+        $stmt = $this->connector->query($sql);
+        
+        return $stmt;
     }
 
     public function getAlbumTitleByYear($year)
     {
-      
         $sql = <<<SELECT
 SELECT 
     trk_year AS 'Year',
@@ -165,14 +152,13 @@ WHERE trk_year = '$year'
 ORDER BY trk_year, art_name, t.trk_id
 SELECT;
 
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
-                
-        return $cmd;
+        $stmt = $this->connector->query($sql);
+        
+        return $stmt;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->connector->close();
-    }    
-
+    }
 }

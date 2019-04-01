@@ -3,7 +3,7 @@ namespace SoL\Controllers;
 
 class AbcYears extends \Phink\MVC\TPartialController {
 
-    protected $cmd = NULL;
+    protected $stmt = NULL;
     protected $anchor = '';
 
     public function setAnchor($value)
@@ -13,13 +13,13 @@ class AbcYears extends \Phink\MVC\TPartialController {
  
     public function init() 
     {
-        $this->cmd = $this->model->getYears();
+        $this->stmt = $this->model->getYears();
     }
 
     public function getData($pagecount, $pagenum)
     {
         $id = $this->getViewName();
-        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->cmd, 1);
+        $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, 1);
         $this->response->setData('abc', $this->data);
     }
     

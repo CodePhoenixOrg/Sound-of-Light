@@ -1,13 +1,13 @@
 #!/bin/bash
 #sudo echo > /var/log/apache2/error_log
 echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/php_error_log
-echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/php_error_log
+# echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/php_error_log
 echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/logs/debug.log
-echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/logs/debug.log
+# echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/logs/debug.log
 find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/runtime -type f -exec rm -f {} \; 
 find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/js/runtime -type f -exec rm -f {} \; 
-find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/runtime -type f -exec rm -f {} \; 
-find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/js/runtime -type f -exec rm -f {} \; 
+# find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/runtime -type f -exec rm -f {} \; 
+# find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/js/runtime -type f -exec rm -f {} \; 
 echo "All logs and temporary files cleared at "$(date) 
 exit 0
 

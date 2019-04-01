@@ -7,3 +7,5 @@ src/vendor
 src/web/php_error_log
 src/logs/debug.log
 src/data/crypto.db
+nbproject
+.vscode

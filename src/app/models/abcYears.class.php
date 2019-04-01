@@ -5,7 +5,6 @@ require_once APP_DATA . 'soundlib_connection.php';
 
 class AbcYears extends \Phink\MVC\TModel
 {
-
     public function init()
     {
         $this->connector = new \SoL\Data\SoundLibConnection();
@@ -26,10 +25,8 @@ FROM
 ORDER BY Lettrine
 SELECT;
         
-        $cmd = new \Phink\Data\Client\PDO\TPdoCommand($this->connector);
-        $cmd->setSelectQuery($sql);
+        $stmt = $this->connector->query($sql);
         
-        return $cmd;
+        return $stmt;
     }
-
 }
