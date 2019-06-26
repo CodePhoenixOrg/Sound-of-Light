@@ -6,7 +6,8 @@ namespace SoL\Data;
 
 class InfoSchemaConnection extends \Phink\Data\Client\PDO\TPdoConnection {
     public function __construct() {
-        $config = new \Phink\Data\Client\PDO\TPdoConfiguration(\Phink\Data\TServerType::MYSQL, 'information_schema', 'localhost', 'root', '1p2+ar');
+        $config = new \Phink\Data\Client\PDO\TPdoConfiguration();
+        $config->loadConfiguration(APP_DATA . 'info_schema_conf.json');
         
         parent::__construct($config);
     }

@@ -5,9 +5,8 @@ define('CUSTOM_NAMESPACE', 'SoL');
  * and open the template in the editor.
  */
 
-//include '../vendor/autoload.php';
-//include 'phink/web/static_application.php';
-include 'phink/phink_library.php';
+// require dirname(__DIR__).'/../vendor/autoload.php';
+require dirname(__DIR__).'/../reload.php';
 
 /**
  * Description of application
@@ -28,5 +27,6 @@ class Index extends TWebApplication {
     }
 }
 */
-\Phink\Web\TWebApplication::create();
+// Phink\Web\TWebApplication::create();
+\Phink\Web\TStaticApplication::create();
 

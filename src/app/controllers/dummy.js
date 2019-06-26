@@ -1,4 +1,4 @@
-var solDummy = sol.createController(sol.main, 'sol.dummy')
+var solDummy = sol.createController('main', 'dummy')
 .actions({
     goHome: function (letter) {
         this.getSimpleView('home.html', function (data) {
@@ -45,7 +45,7 @@ var solDummy = sol.createController(sol.main, 'sol.dummy')
         progress.style.width = percent + '%';
         progress.textContent = percent + '%';
 
-        document.querySelector('#progressTime').textContent = formatTime(time);
+        document.querySelector('#progressTime').textContent = solDummy.formatTime(time);
     }
     , formatTime: function (time) {
         var hours = Math.floor(time / 3600);

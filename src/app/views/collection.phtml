@@ -6,7 +6,16 @@
         <phx:TPluginChild id="items" name="AlbumId" enabled="false" />
         <phx:TPluginChild id="items" name="Album" content="@albumItem.phtml" enabled="true" event="href#solPlayer.showAlbum(Artist)" />
         <phx:TPluginChild id="items" name="TitleId" enabled="false" />
-        <phx:TPluginChild id="items" name="Title" content="@titleItem.phtml" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.pl.addTrack(TitleId)" />
+        <phx:TPluginChild id="items" name="Title" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.pl.addTrack(TitleId)" >
+        <div name="draggable" data-dragHelperId="<% TitleId %>" data-dragHelperIndex="<% Title:index %>" data-band="<% Artist %>" >
+            <a name="addable" href="#" >
+                <img src="/css/images/add.png" />
+            </a>
+            <a href="<% &TitleId %>" >
+                <% Title %>
+            </a>
+        </div>
+        </phx:TPluginChild>
         <phx:TPluginChild id="items" name="TrackPath" enabled="false" />
     </phx:TPlugin>
     <phx:TPager id="pager" for="list0" caption="Albums de ma musique"  onclick="solPlayer.getData" />

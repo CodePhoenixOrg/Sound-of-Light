@@ -1,0 +1,8 @@
+{
+    "driver": "mysql",
+    "database": "soundlib",
+    "host": "localhost",
+    "user": "djay",
+    "password": "demo",
+    "port": "3306"
+}

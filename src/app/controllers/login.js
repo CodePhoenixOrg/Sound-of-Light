@@ -1,4 +1,4 @@
-var solLogin = sol.extendsController(sol.main, 'sol.login', {
+var solLogin = sol.extendsController('main', 'login', {
     onload : function() {
         $('#authenticate').on('click', function() {
             solLogin.authenticate();

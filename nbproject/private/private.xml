@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/_htaccess2</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/routes.json</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/bower_components/phinkjs/web/js/formdata.js</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/js/sol.js</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/logs/debug.log</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/app/controllers/login.js</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/app/business/user.php</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/index.php</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/js/ladmin.js</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/app/views/main.phtml</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/routes.json</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/app/views/main.phtml</file>
-            <file>file:/Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/php_error_log</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

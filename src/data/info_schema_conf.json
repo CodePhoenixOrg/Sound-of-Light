@@ -1,0 +1,8 @@
+{
+    "driver": "mysql",
+    "database": "information_schema",
+    "host": "localhost",
+    "user": "root",
+    "password": "1p2+ar",
+    "port": "3306"
+}

@@ -1,4 +1,4 @@
-var solArtists = sol.createController(sol.main, 'sol.artists')
+var solArtists = sol.createController('main', 'artists')
 .actions({
     showPlayerByArtist : function (letter) {
         this.getView('player.html', 'showPlayerByArtist', {'letter' : letter}, function(data) {

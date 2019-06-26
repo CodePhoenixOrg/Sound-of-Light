@@ -1,13 +1,21 @@
 #!/bin/bash
-#sudo echo > /var/log/apache2/error_log
-echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/php_error_log
-# echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/php_error_log
-echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/logs/debug.log
-# echo > /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/logs/debug.log
-find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/runtime -type f -exec rm -f {} \; 
-find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/src/web/js/runtime -type f -exec rm -f {} \; 
-# find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/runtime -type f -exec rm -f {} \; 
-# find /Users/david/Sites/CodePhoenixOrg/SDK/php/SoL/admin/web/js/runtime -type f -exec rm -f {} \; 
-echo "All logs and temporary files cleared at "$(date) 
+DIR=$(pwd);
+
+echo > $DIR/src/web/php_error_log
+echo > $DIR/src/logs/debug.log
+find $DIR/src/cache -type f -exec rm -f {} \;
+find $DIR/src/cache -type d -mindepth 1 -exec rm -rf {} \;
+find $DIR/src/runtime -type f -exec rm -f {} \;
+find $DIR/src/web/js/runtime -type f -exec rm -f {} \;
+find $DIR/src/web/css/runtime -type f -exec rm -f {} \;
+rm -f $DIR/src/web/css_builder.lock;
+rm -f $DIR/src/web/js_builder.lock;
+echo "All logs and temporary files into $DIR cleared at "$(date "+%H:%M:%S") 
+echo $DIR/src/cache 
+echo $DIR/src/runtime 
+echo $DIR/src/web/js/runtime 
+echo $DIR/src/web/css/runtime 
+echo $DIR/src/web/php_error_log
+echo $DIR/src/logs/debug.log
 exit 0
 

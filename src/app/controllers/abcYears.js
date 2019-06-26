@@ -1,4 +1,4 @@
-var solDates = sol.createController(sol.main, 'sol.dates')
+var solDates = sol.createController('main', 'years')
 .actions({
     showPlayerByDate : function (year) {
         this.getView('player.html', 'showPlayerByDate', {'year' : year}, function(data) {

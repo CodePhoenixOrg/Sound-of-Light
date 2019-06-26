@@ -14,19 +14,19 @@
     },
     "web": {
         "get": {
-            "/$": "/views/main.phtml",
-            "/abc$": "/views/home.phtml",
-            "/admin.html$": "/views/admin.phtml",
-            "/login.html$": "/views/login.phtml"
+            "^/$": "/views/main.phtml",
+            "^/abc$": "/views/home.phtml",
+            "^/admin.html$": "/views/admin.phtml",
+            "^/login.html$": "/views/login.phtml"
         }
         ,"post": {
-            "/musicplayer$": "/views/player.phtml",
-            "/master.html$": "/views/master.phtml",
-            "/login.html$": "/views/login.phtml",
-            "/admin.html$": "/views/admin.phtml",
-            "/home.html$": "/views/home.phtml",
-            "/player.html$": "/views/player.phtml",
-            "/playlist.html$": "/views/playlist.phtml"
+            "^/musicplayer$": "/views/player.phtml",
+            "^/master.html$": "/views/master.phtml",
+            "^/login.html$": "/views/login.phtml",
+            "^/admin.html$": "/views/admin.phtml",
+            "^/home.html$": "/views/home.phtml",
+            "^/player.html$": "/views/player.phtml",
+            "^/playlist.html$": "/views/playlist.phtml"
         }
     }
 }

@@ -1,0 +1,32 @@
+{
+    "connections": {
+        "info_schema": {
+            "driver": "mysql",
+            "database": "information_schema",
+            "host": "localhost",
+            "user": "root",
+            "password": "1p2+ar",
+            "port": "3306"
+        },
+        "ladmin": {
+            "driver": "mysql",
+            "database": "ladmin",
+            "host": "localhost",
+            "user": "ladmin",
+            "password": "demo",
+            "port": "3306"
+        },
+        "soundlib": {
+            "driver": "mysql",
+            "database": "soundlib",
+            "host": "localhost",
+            "user": "djay",
+            "password": "demo",
+            "port": "3306"
+        },
+        "soundlite": {
+            "driver": "sqlite",
+            "database": "soundlib.db"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+for i in $(git status |grep "modified:"|cut -c14-);
+do 
+	git add $i;
+done;
+
+for i in $(git status |grep "deleted:"|cut -c14-);
+do 
+	git add $i;
+done;
+
+exit 0;
+

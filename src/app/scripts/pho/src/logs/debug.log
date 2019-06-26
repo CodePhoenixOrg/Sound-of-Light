@@ -1,53 +1,311 @@
-2018-11-27 08:15:40: : STATEMENT::PDOStatement Object
+2019-05-01 12:53:26: : INI_DATA:::Array
 (
-    [queryString] => SELECT DISTINCT
-CASE WHEN (SUBSTR(s.alb_name, 1, 1)) BETWEEN 'A' AND 'Z' THEN SUBSTR(s.alb_name, 1, 1)
-ELSE '#' END
-AS Lettrine	
-FROM
-    track t
-        INNER JOIN
-    album s ON t.alb_id = s.alb_id
-        INNER JOIN
-    artist a ON a.art_id = s.art_id
-WHERE s.alb_name IS NOT NULL
-ORDER BY Lettrine
+    [name] => sol
+    [config] => src/data/data.json
 )
 
 
 
-2018-11-27 10:31:36: : STATEMENT::PDOStatement Object
+2019-05-01 12:54:02: : INI_DATA:::Array
 (
-    [queryString] => SELECT DISTINCT
-CASE WHEN (SUBSTR(s.alb_name, 1, 1)) BETWEEN 'A' AND 'Z' THEN SUBSTR(s.alb_name, 1, 1)
-ELSE '#' END
-AS Lettrine	
-FROM
-    track t
-        INNER JOIN
-    album s ON t.alb_id = s.alb_id
-        INNER JOIN
-    artist a ON a.art_id = s.art_id
-WHERE s.alb_name IS NOT NULL
-ORDER BY Lettrine
+    [name] => sol
+    [config] => src/data/data.json
 )
 
 
 
-2018-12-01 11:34:55: : STATEMENT::PDOStatement Object
+2019-05-02 08:24:18: : INI_DATA:::Array
 (
-    [queryString] => SELECT DISTINCT
-CASE WHEN (SUBSTR(s.alb_name, 1, 1)) BETWEEN 'A' AND 'Z' THEN SUBSTR(s.alb_name, 1, 1)
-ELSE '#' END
-AS Lettrine	
-FROM
-    track t
-        INNER JOIN
-    album s ON t.alb_id = s.alb_id
-        INNER JOIN
-    artist a ON a.art_id = s.art_id
-WHERE s.alb_name IS NOT NULL
-ORDER BY Lettrine
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:15:02: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:17:53: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:19:13: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:19:54: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:20:11: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:20:36: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:20:48: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:21:05: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:21:19: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:21:38: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:21:49: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:22:15: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 12:38:15: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:06:11: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:08:29: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:09:17: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:10:59: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:12:21: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 05:12:48: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-02 10:36:14: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:12:28: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:15:10: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:15:54: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:16:37: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:19:17: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:20:36: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:22:07: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:23:15: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:23:48: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-09 09:24:48: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-24 05:07:37: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-24 05:07:43: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-24 05:09:36: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-24 05:55:35: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-25 10:10:43: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
+)
+
+
+
+2019-05-25 10:11:54: : INI_DATA:::Array
+(
+    [name] => sol
+    [config] => src/data/data.json
 )
 
 

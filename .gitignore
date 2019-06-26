@@ -3,7 +3,7 @@ master
 api/node_modules
 api/bower_components
 src/web/bower_components
-src/vendor
+vendor
 src/web/php_error_log
 src/logs/debug.log
 src/data/crypto.db

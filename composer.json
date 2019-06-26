@@ -1,0 +1,25 @@
+{
+    "license": "GPL-3.0+",
+    "name": "vendor/sound-of-light",
+    "description": "A lightweight personal web audio player",
+    "authors": [
+        {
+            "name": "David Blanchard",
+            "email": "dblanchard@bbox.fr"
+        }
+    ],
+    "require": {
+        "phink/phink": "v0.9.*",
+        "phpunit/phpunit": "4.3.5",
+        "components/jquery": ">=1.9.1",
+        "components/jqueryui": ">=1.12.1",
+        "components/font-awesome": "=4.7.0",
+        "components/bootstrap": "=3.3.5",
+        "components/bootstrap-default": "=3.3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoL\\": "src/"
+        }
+    }
+}
