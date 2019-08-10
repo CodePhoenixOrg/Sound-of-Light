@@ -16,18 +16,18 @@ class Player extends \Phink\MVC\TController
     protected $playlist0 = null;
     private $_cacheFilename = '';
 
-    public function init()
+    public function init() : void
     {
     }
 
-    public function showPlayerByArtist($letter)
+    public function showPlayerByArtist(string $letter): void
     {
         $this->collection0->showArtistsByLetter($letter);
         self::$logger->debug('LETTER::' . $letter);
         $this->playlist0->showPlaylist(1);
     }
     
-    public function showPlayerByAlbum($letter)
+    public function showPlayerByAlbum(string $letter) : void
     {
         $this->collection0->showAlbumsByLetter($letter);
         self::$logger->debug('LETTER::' . $letter);
@@ -35,14 +35,14 @@ class Player extends \Phink\MVC\TController
 
     }
     
-    public function showPlayerByDate($year)
+    public function showPlayerByDate(string $year) : void
     {
         $this->collection0->showAlbumsByDate($year);
         self::$logger->debug('YEAR::' . $year);
         $this->playlist0->showPlaylist(1);
     }
     
-    public function wikiArtist($artist)
+    public function wikiArtist(string $artist) : void
     {
         
         $res = $this->_getWikiCache($artist . '_(band)');
@@ -77,7 +77,7 @@ class Player extends \Phink\MVC\TController
         
     }
     
-    private function _getWikiCache($artist)
+    private function _getWikiCache(string $artist) : ?array
     {
         $this->_cacheFilename = CACHE_DIR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
         if(file_exists($this->_cacheFilename)) {
@@ -88,7 +88,7 @@ class Player extends \Phink\MVC\TController
         }
     }
     
-    private function _getWiki($artist)
+    private function _getWiki(string $artist) : ?array
     {
         $this->_cacheFilename = CACHE_DIR . 'wikipedia_' . str_replace(' ', '_', $artist) . '.html';
         $this->request->addSubRequest('wiki', 'GET', 'https://en.wikipedia.org/wiki/' . $artist);

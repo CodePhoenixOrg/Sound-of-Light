@@ -19,11 +19,11 @@ class User
         $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
         
-        $sql = <<<SELECT
-select usr_id as id, usr_name as name, usr_email as email
-from user 
-where usr_id = :userId
-SELECT;
+        $sql = <<<SQL
+            select usr_id as id, usr_name as name, usr_email as email
+            from user 
+            where usr_id = :userId
+            SQL;
         
         $res = $stmt->prepare($sql);
         $res->execute([':userId' => $userId]);

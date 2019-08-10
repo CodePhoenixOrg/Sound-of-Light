@@ -1,5 +1,5 @@
 var sol = null;
-var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:80' : 'www.sol.loc';
+var solHost = (window.location.href.indexOf('localhost') > -1) ? 'localhost:80' : 'sol.loc';
 Phink.DOM.ready(function () {
 
     sol = Phink.Web.Application.create(solHost, 'sol');

@@ -23,22 +23,22 @@ class Playlist extends \Phink\MVC\TModel
         $result['playlist'] = [];
         $result['pid'] = 0;
         
-        $sql = <<<SELECT
-select p.pls_id as pid
-    , plc_id as id
-    , a.art_id as ArtistId
-    , art_name as Artist
-    , t.trk_id as TitleId
-    , trk_title as Title
-    , trk_duration as Duration
-    , trk_path as TrackPath
-from user u
-left join playlist p on p.usr_id = u.usr_id
-left join playlist_content c on c.pls_id = p.pls_id
-left join track t on c.trk_id = t.trk_id
-left join artist a on t.art_id = a.art_id
-where p.pls_id = $id
-SELECT;
+        $sql = <<<SQL
+            select p.pls_id as pid
+                , plc_id as id
+                , a.art_id as ArtistId
+                , art_name as Artist
+                , t.trk_id as TitleId
+                , trk_title as Title
+                , trk_duration as Duration
+                , trk_path as TrackPath
+            from user u
+            left join playlist p on p.usr_id = u.usr_id
+            left join playlist_content c on c.pls_id = p.pls_id
+            left join track t on c.trk_id = t.trk_id
+            left join artist a on t.art_id = a.art_id
+            where p.pls_id = $id
+            SQL;
          
         $stmt = $this->connector->query($sql);
         
@@ -55,15 +55,15 @@ SELECT;
         $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
         
-        $sql = <<<SELECT
-select p.pls_id as pid, plc_id as id, art_name as artist, trk_title as title, trk_duration as duration
-from user u
-left join playlist p on p.usr_id = u.usr_id
-left join playlist_content c on c.pls_id = p.pls_id
-left join track t on c.trk_id = t.trk_id
-left join artist a on t.art_id = a.art_id
-where u.usr_id = :userId
-SELECT;
+        $sql = <<<SQL
+            select p.pls_id as pid, plc_id as id, art_name as artist, trk_title as title, trk_duration as duration
+            from user u
+            left join playlist p on p.usr_id = u.usr_id
+            left join playlist_content c on c.pls_id = p.pls_id
+            left join track t on c.trk_id = t.trk_id
+            left join artist a on t.art_id = a.art_id
+            where u.usr_id = :userId
+            SQL;
          
         $res = $stmt->prepare($sql);
         $res->execute([':userId' => $userId]);

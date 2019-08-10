@@ -34,12 +34,12 @@ class AbcAlbums extends \Phink\MVC\TPartialController {
      * 
      * @return void
      */
-    public function init()
+    public function init() : void
     {
         $this->stmt = $this->model->getLettrines();
     }
 
-    public function getData($pagecount, $pagenum)
+    public function getData(int $pagecount, ?int $pagenum) : void
     {
         $id = $this->getViewName();
         $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, 1);

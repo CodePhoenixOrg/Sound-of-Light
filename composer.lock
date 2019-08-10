@@ -347,16 +347,16 @@
         },
         {
             "name": "phink/phink",
-            "version": "v0.9.6.11",
+            "version": "0.9.6.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodePhoenixOrg/Phink.git",
-                "reference": "2368e4b6b7f9a32b1e1f93cf6e55290e55683c5c"
+                "reference": "e88793d0443242aa1c778dea87beb81a2e94bc24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodePhoenixOrg/Phink/zipball/2368e4b6b7f9a32b1e1f93cf6e55290e55683c5c",
-                "reference": "2368e4b6b7f9a32b1e1f93cf6e55290e55683c5c",
+                "url": "https://api.github.com/repos/CodePhoenixOrg/Phink/zipball/e88793d0443242aa1c778dea87beb81a2e94bc24",
+                "reference": "e88793d0443242aa1c778dea87beb81a2e94bc24",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +365,7 @@
                 "components/font-awesome": "=4.7.0",
                 "components/jquery": ">=1.9.1",
                 "components/jqueryui": ">=1.12.1",
-                "phink/phinkjs": ">=v0.2.2",
+                "phink/phinkjs": "v0.2.*",
                 "php": ">=7.0.0",
                 "twig/twig": "^2.0"
             },
@@ -380,8 +380,13 @@
                     "src/phink/"
                 ],
                 "exclude-from-classmap": [
-                    "src/phink/phink_library.php",
-                    "src/phink/web/ui/widget/console/consolew.class.php"
+                    "src/phink/phink_library.php"
+                ],
+                "psr-4": {
+                    "Phink\\": ""
+                },
+                "files": [
+                    "src/phink/core/constants.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -396,25 +401,25 @@
                     "name": "David Blanchard",
                     "email": "dblanchard1@bbox.fr",
                     "homepage": "https://code-phoenix.org",
-                    "role": "Developer"
+                    "role": "Creator"
                 }
             ],
             "description": "Think ${PHP} Different",
             "homepage": "https://phink.org",
-            "time": "2019-06-19T05:26:39+00:00"
+            "time": "2019-07-14T23:31:46+00:00"
         },
         {
             "name": "phink/phinkjs",
-            "version": "v0.2.2",
+            "version": "0.2.500",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodePhoenixOrg/PhinkJS.git",
-                "reference": "1b7266690a72f624c762c637d3b785a63213af89"
+                "reference": "f881ec62eb2b3d827529b0043c8d91f2f7684746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodePhoenixOrg/PhinkJS/zipball/1b7266690a72f624c762c637d3b785a63213af89",
-                "reference": "1b7266690a72f624c762c637d3b785a63213af89",
+                "url": "https://api.github.com/repos/CodePhoenixOrg/PhinkJS/zipball/f881ec62eb2b3d827529b0043c8d91f2f7684746",
+                "reference": "f881ec62eb2b3d827529b0043c8d91f2f7684746",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +444,7 @@
             ],
             "description": "Client and server side Javascript framework",
             "homepage": "https://phink.org",
-            "time": "2019-05-29T07:16:43+00:00"
+            "time": "2019-07-14T23:18:47+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

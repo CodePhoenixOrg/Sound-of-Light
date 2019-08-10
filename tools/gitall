@@ -6,7 +6,7 @@ done;
 
 for i in $(git status |grep "deleted:"|cut -c14-);
 do 
-	git add $i;
+	git rm $i;
 done;
 
 exit 0;

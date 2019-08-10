@@ -13,17 +13,17 @@ class AbcYears extends \Phink\MVC\TModel
 
     public function getYears()
     {
-        $sql = <<<SELECT
-SELECT DISTINCT
-    trk_year AS Lettrine
-FROM
-    track t
-        INNER JOIN
-    album s ON t.alb_id = s.alb_id AND trk_year > '0'
-        INNER JOIN
-    artist a ON a.art_id = s.art_id
-ORDER BY Lettrine
-SELECT;
+        $sql = <<<SQL
+            SELECT DISTINCT
+                trk_year AS Lettrine
+            FROM
+                track t
+                    INNER JOIN
+                album s ON t.alb_id = s.alb_id AND trk_year > '0'
+                    INNER JOIN
+                artist a ON a.art_id = s.art_id
+            ORDER BY Lettrine
+            SQL;
         
         $stmt = $this->connector->query($sql);
         

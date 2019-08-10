@@ -9,8 +9,8 @@ var solLogin = sol.extendsController('main', 'login', {
         var pageName = 'login.html';
 
         //this.origin = TRegistry.item('/login.html').origin + '/';
-        solLogin.origin = TRegistry.getOrigin();
-        this.origin = TRegistry.getOrigin();
+        solLogin.origin = TRegistry.origin();
+        this.origin = TRegistry.origin();
         //(solLogin.origin !== undefined) ? solLogin.origin + '/' + pageName : 
         var the = this;
         console.log(the);

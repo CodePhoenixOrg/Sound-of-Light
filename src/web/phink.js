@@ -22,62 +22,6 @@ var main = (mainNode.length > 0 && mainNode[0].dataset.init !== undefined) ? mai
 
 Phink.DOM.ready(function () {
 
-    var loadDepends = function (scripts, callback) {
-
-        if (scripts.length > 0) {
-            for (var i = 0; i < scripts.length; i++) {
-                Phink.include(scripts[i], function (e) {
-                    if (i === scripts.length) {
-                        if (typeof callback === 'function') {
-                            callback.call(null);
-                        }
-
-                    }
-                });
-            }
-
-        } else {
-            if (typeof callback === 'function') {
-                callback.call(this);
-            }
-        }
-
-    }
-
-    var dependsOn = function (scripts, callback) {
-
-        var dependsOn = function (src) {
-            var xmlhttp, next;
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                try {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e) {
-                    return;
-                }
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    eval(xmlhttp.responseText);
-                    next = scripts.shift();
-                    if (next) {
-                        dependsOn(next);
-                    } else if (typeof callback == 'function') {
-                        callback();
-                    }
-                }
-            }
-            xmlhttp.open("GET", src, true);
-            xmlhttp.send();
-        };
-        if (scripts.length > 0) {
-            dependsOn(scripts.shift());
-        } else if (typeof callback == 'function') {
-            callback();
-        }
-    }
-    
     var loadDeps = function (scripts, callback) {
 
         var F = function (src) {
@@ -329,18 +273,18 @@ Phink.Registry = (function () {
     
     class R {
         constructor() {
-            this.registry = {};
+            this._registry = {};
         }
         write(item, key, value) {
-            if (this.registry[item] === undefined) {
-                this.registry[item] = {};
+            if (this._registry[item] === undefined) {
+                this._registry[item] = {};
             }
-            this.registry[item][key] = value;
+            this._registry[item][key] = value;
         }
         read(item, key, defaultValue) {
             var result = null;
-            if (this.registry[item] !== undefined) {
-                result = (this.registry[item][key] !== undefined) ? this.registry[item][key] : ((defaultValue !== undefined) ? defaultValue : null);
+            if (this._registry[item] !== undefined) {
+                result = (this._registry[item][key] !== undefined) ? this._registry[item][key] : ((defaultValue !== undefined) ? defaultValue : null);
             }
             return result;
         }
@@ -353,33 +297,33 @@ Phink.Registry = (function () {
                 return null;
             }
 
-            if (this.registry[item] !== undefined && this.registry[item] !== null) {
-                return this.registry[item];
+            if (this._registry[item] !== undefined && this._registry[item] !== null) {
+                return this._registry[item];
             }
             else {
-                this.registry[item] = {};
-                return this.registry[item];
+                this._registry[item] = {};
+                return this._registry[item];
             }
         }
         items() {
-            return this.registry;
+            return this._registry;
         }
         clear() {
-            this.registry = {};
+            this._registry = {};
         }
-        setToken(value) {
-            this.registry['token'] = value;
+        set token(value) {
+            this._registry['token'] = value;
             return this;
         }
-        getToken() {
-            return this.registry['token'];
+        get token() {
+            return this._registry['token'];
         }
-        setOrigin(value) {
-            this.registry['origin'] = value;
+        set origin(value) {
+            this._registry['origin'] = value;
             return this;
         }
-        getOrigin() {
-            return this.registry['origin'];
+        get origin() {
+            return this._registry['origin'];
         }
     }
 
@@ -392,21 +336,15 @@ Phink.Object = class O {
         this._name = '';
         this._parent = parent;
     }
-    set id(value) {
-        this._id = value;
-    }
+
     get id() {
         return this._id;
     }
-    set name(value) {
-        this._name = value;
-    }
+
     get name() {
         return this._name;
     }
-    set parent(value) {
-        this._parent = value;
-    }
+
     get parent() {
         return this._parent;
     }
@@ -415,93 +353,93 @@ var Phink = Phink || {}
 
 Phink.Url = class U {
     constructor(url, domain, isSSL) {
-        this.url = url;
-        this.isParsed = false;
-        this.isSSL = isSSL;
-        this.tmpDomain = domain;
-        this.port = '80';
-        this.page = window.location.pathname;
-        this.domain = this.url;
-        this.isRelative = false;
+        this._url = url;
+        this._isParsed = false;
+        this._isSSL = isSSL;
+        this._tmpDomain = domain;
+        this._port = '80';
+        this._page = window.location.pathname;
+        this._domain = this._url;
+        this._isRelative = false;
         this.parse();
     }
     parse() {
         var result = [];
-        this.protocol = '';
-        if (this.tmpDomain !== undefined) {
-            this.protocol = (this.tmpDomain.search('://') > -1) ? this.tmpDomain.substring(0, this.tmpDomain.search('://') + 1) : '';
+        this._protocol = '';
+        if (this._tmpDomain !== undefined) {
+            this._protocol = (this._tmpDomain.search('://') > -1) ? this._tmpDomain.substring(0, this._tmpDomain.search('://') + 1) : '';
         }
         else {
-            this.protocol = (this.url.search('://') > -1) ? this.url.substring(0, this.url.search('://') + 1) : '';
+            this._protocol = (this._url.search('://') > -1) ? this._url.substring(0, this._url.search('://') + 1) : '';
         }
-        if (this.protocol === '' && this.tmpDomain === undefined) {
-            this.page = this.url;
-            this.isRelative = true;
-            this.protocol = window.location.protocol;
-            this.domain = window.location.hostname;
-            this.port = window.location.port;
-            //this.url = window.location.href.substring(0, window.location.href.search('/'));
+        if (this._protocol === '' && this._tmpDomain === undefined) {
+            this._page = this._url;
+            this._isRelative = true;
+            this._protocol = window.location.protocol;
+            this._domain = window.location.hostname;
+            this._port = window.location.port;
+            //this._url = window.location.href.substring(0, window.location.href.search('/'));
         }
         else {
-            if (this.protocol === '' && this.tmpDomain !== undefined) {
-                this.domain = this.tmpDomain;
-                this.protocol = (this.isSSL) ? 'https:' : 'http:';
+            if (this._protocol === '' && this._tmpDomain !== undefined) {
+                this._domain = this._tmpDomain;
+                this._protocol = (this._isSSL) ? 'https:' : 'http:';
             }
             else {
-                if (this.protocol === '') {
-                    this.protocol = (this.isSSL) ? 'https:' : 'http:';
+                if (this._protocol === '') {
+                    this._protocol = (this._isSSL) ? 'https:' : 'http:';
                     //throw new Error('Invalid absolute url. Protocol is missing');
                 }
-                this.url = this.url.replace(this.protocol + '//', '');
-                var domainLimit = this.url.search('/');
+                this._url = this._url.replace(this._protocol + '//', '');
+                var domainLimit = this._url.search('/');
                 if (domainLimit > 0) {
-                    this.domain = this.url.substring(0, domainLimit);
-                    this.url = this.url.replace(this.domain, '');
+                    this._domain = this._url.substring(0, domainLimit);
+                    this._url = this._url.replace(this._domain, '');
                 }
-                else if (this.tmpDomain !== undefined) {
-                    this.domain = this.tmpDomain;
+                else if (this._tmpDomain !== undefined) {
+                    this._domain = this._tmpDomain;
                 }
                 else {
-                    this.domain = this.url;
-                    this.url = '/';
+                    this._domain = this._url;
+                    this._url = '/';
                 }
-                if (this.domain.search(':') > -1) {
-                    this.port = this.domain.substring(this.domain.search(':'));
-                    this.url = this.url.replace(':' + this.port, '');
+                if (this._domain.search(':') > -1) {
+                    this._port = this._domain.substring(this._domain.search(':'));
+                    this._url = this._url.replace(':' + this._port, '');
                 }
-                if (this.domain.search('localhost') > -1) {
-                    this.domain = 'localhost';
-                    this.url = this.url.replace(this.domain, '');
+                if (this._domain.search('localhost') > -1) {
+                    this._domain = 'localhost';
+                    this._url = this._url.replace(this._domain, '');
                 }
             }
-            this.page = this.url;
-            if (this.page.substring(0, 1) === '/') {
-                this.page = this.page.substring(1);
+            this._page = this._url;
+            if (this._page.substring(0, 1) === '/') {
+                this._page = this._page.substring(1);
             }
-            this.port = (this.port === '') ? '80' : this.port;
-            this.protocol = ((this.domain !== '' && this.protocol === '') ? ((this.isSSL) ? 'https:' : 'http:') : this.protocol);
+            this._port = (this._port === '') ? '80' : this._port;
+            this._protocol = ((this._domain !== '' && this._protocol === '') ? ((this._isSSL) ? 'https:' : 'http:') : this._protocol);
         }
         var queryString = '';
-        if (this.page.search(/\?/) > -1) {
-            queryString = this.page.substring(this.page.search(/\?/));
+        if (this._page.search(/\?/) > -1) {
+            queryString = this._page.substring(this._page.search(/\?/));
         }
-        this.queryString = queryString;
-        result.isRelative = this.isRelative;
-        result.protocol = this.protocol;
-        result.domain = this.domain;
-        result.port = this.port;
-        result.page = this.page;
-        result.queryString = this.queryString;
-        this.url = result;
-        this.isParsed = true;
+        this._queryString = queryString;
+        result.isRelative = this._isRelative;
+        result.protocol = this._protocol;
+        result.domain = this._domain;
+        result.port = this._port;
+        result.page = this._page;
+        result.queryString = this._queryString;
+        this._url = result;
+        this._isParsed = true;
         return result;
     }
     toString() {
-        if (!this.isParsed) {
+        if (!this._isParsed) {
             this.parse();
         }
-        var fqPage = (this.queryString !== '') ? this.page + this.queryString : this.page;
-        return this.protocol + '//' + this.domain + '/' + fqPage;
+        var fqPage = (this._queryString !== '') ? this._page + this._queryString : this._page;
+        return this._protocol + '//' + this._domain + '/' + fqPage;
     }
 }
 
@@ -680,43 +618,54 @@ var Phink = Phink || {}
 Phink.Web = Phink.Web || {}
 
 Phink.Web.Object = class W extends Phink.Object {
-    constructor(domain, isSSL) {
+    constructor(domain, isSecured) {
         super();
-        this.parent = this;
-        this.isSSL = isSSL;
-        this.origin = '';
-        this.url = {};
-        this.token = '';
-        this.domain = domain;
+        this._parent = this;
+        if(isSecured === undefined) {
+            this._isSecured = (window.location.protocol === 'https:');
+        } else {
+            this._isSecured = isSecured;
+        }
+        if(domain === undefined) {
+            this._domain = window.location.hostname;
+        } else {
+            this._domain = domain;
+        }
+        this._origin = window.location.origin;
+        this._url = {};
+        this._token = '';
     }
-    getDomain() {
-        return this.domain;
+    get isSecured() {
+        return this._isSecured;
     }
-    setOrigin(value) {
-        this.origin = value;
-        return this;
+
+    get domain() {
+        return this._domain;
     }
-    getOrigin() {
-        return this.origin;
+    set origin(value) {
+        this._origin = value;
     }
-    setToken(value) {
-        this.token = value;
-        return this;
+
+    get origin() {
+        return this._origin;
     }
-    getToken() {
-        return this.token;
+    set token(value) {
+        this._token = value;
     }
-    getPath(url, domain) {
-        this.url = new Phink.Url(url, domain, this.isSSL);
-        return this.url.toString();
+    get token() {
+        return this._token;
     }
-    getUrl() {
-        return this.url;
+    fullyQualifiedURL(url, domain) {
+        this._url = new Phink.Url(url, domain, this._isSecured);
+        return this._url.toString();
+    }
+    get url() {
+        return this._url;
     }
     getJSON(url, postData, callback) {
-        postData.token = Phink.Registry.getToken();
-        this.origin = Phink.Registry.getOrigin();
-        var urls = this.getPath(url, this.domain);
+        postData.token = Phink.Registry.token;
+        this._origin = Phink.Registry.origin;
+        var urls = this.fullyQualifiedURL(url, this._domain);
         var xhr = new XMLHttpRequest();
         var params = '';
         for (var key in postData) {
@@ -737,8 +686,8 @@ Phink.Web.Object = class W extends Phink.Object {
                             debugLog('Error : ' + data.error);
                         }
                         else {
-                            Phink.Registry.setToken(data.token);
-                            Phink.Registry.setOrigin(xhr.getResponseHeader('origin'));
+                            Phink.Registry.token = data.token;
+                            Phink.Registry.origin = xhr.getResponseHeader('origin');
                             callback.call(this, data, xhr.statusText, xhr);
                         }
                     }
@@ -751,9 +700,9 @@ Phink.Web.Object = class W extends Phink.Object {
         xhr.send(params);
     }
     getJSONP(url, postData, callBack) {
-        postData.token = Phink.Registry.getToken();
-        this.origin = Phink.Registry.getOrigin();
-        var urls = this.getPath(url, this.domain);
+        postData.token = Phink.Registry.token;
+        this.origin = Phink.Registry.origin;
+        var urls = this.fullyQualifiedURL(url, this.domain);
         $.ajax({
             type: 'POST',
             url: urls + "&callback=?",
@@ -762,8 +711,8 @@ Phink.Web.Object = class W extends Phink.Object {
             async: true
         }).done(function (data, textStatus, xhr) {
             try {
-                Phink.Registry.setToken(data.token);
-                Phink.Registry.setOrigin(xhr.getResponseHeader('origin'));
+                Phink.Registry.token = data.token;
+                Phink.Registry.origin =xhr.getResponseHeader('origin');
                 if ($.isFunction(callBack)) {
                     callBack.call(this, data, textStatus, xhr);
                 }
@@ -778,7 +727,7 @@ Phink.Web.Object = class W extends Phink.Object {
         });
     }
     getScript(url, callback) {
-        var urls = this.getPath(url, this.domain);
+        var urls = this.fullyQualifiedURL(url, this.domain);
         $.getScript(urls)
             .done(function (script, textStatus) {
                 if (typeof callback === 'function') {
@@ -830,14 +779,16 @@ var Phink = Phink || {}
 Phink.Web = Phink.Web || {}
 
 Phink.Web.Application = class Z extends Phink.Web.Object {
-    constructor(domain, name, isSSL) {
-        super();
-        this.id = 'app' + Date.now();
+    constructor(domain, name, isSecured) {
+        super(domain, isSecured);
+        this._id = 'app' + Date.now();
         if (name === undefined) {
-            name = this.id;
+            name = this._id;
         }
-        this.name = name;
-        this.domain = domain;
+
+        
+        this._name = name;
+        this._domain = domain;
         this.viewCollection = [];
         this.controllerCollection = [];
     }
@@ -907,21 +858,22 @@ Phink.MVC = Phink.MVC || {}
 
 Phink.MVC.View = class V extends Phink.Web.Object {
     constructor(application, name) {
-        super();
-        this.id = 'view' + Date.now();
-        this.domain = (application !== undefined) ? application.getDomain() : '';
-        this.token = '';
-        this.name = name;
-        this.parent = application;
-        Phink.Registry.item(this.domain).view = this;
+        super(application.domain, application.isSecured);
+        this._id = 'view' + Date.now();
+        this._domain = (application !== undefined) ? application.domain : '';
+        this._isSecured = (application !== undefined) ? application.isSecured : '';
+        this._token = '';
+        this._name = name;
+        this._parent = application;
+        Phink.Registry.item(this._domain).view = this;
     }
     requestSimpleView(view, callback) {
         this.requestView(view, 'getViewHtml', null, callback);
     }
     requestView(view, action, args, callback) {
         var the = this;
-        var token = Phink.Registry.getToken();
-        var urls = this.getPath(view, this.domain);
+        var token = Phink.Registry.token;
+        var urls = this.fullyQualifiedURL(view, this._domain);
         var postData = { "action": action, "token": token };
         if (args != null) {
             for (var key in args) {
@@ -945,8 +897,8 @@ Phink.MVC.View = class V extends Phink.Web.Object {
                     var data = (xhr.responseText !== '') ? JSON.parse(xhr.responseText) : [];
                     //            var url = Phink.Web.Object.parseUrl(pageName);
                     //            Phink.Registry.item(the.name).origin = xhr.getResponseHeader('origin');
-                    Phink.Registry.setOrigin(xhr.getResponseHeader('origin'));
-                    Phink.Registry.setToken(data.token);
+                    Phink.Registry.origin = xhr.getResponseHeader('origin');
+                    Phink.Registry.token = data.token;
                     if (data.scripts !== undefined) {
                         var l = data.scripts.length;
                         for (var i = 0; i < l; i++) {
@@ -970,8 +922,8 @@ Phink.MVC.View = class V extends Phink.Web.Object {
     }
     requestPart(pageName, action, attach, postData, callback) {
         var the = this;
-        var token = Phink.Registry.getToken();
-        var urls = this.getPath(pageName, this.domain);
+        var token = Phink.Registry.token;
+        var urls = this.fullyQualifiedURL(pageName, this._domain);
         postData = postData || {};
         postData.action = action;
         postData.token = token;
@@ -994,8 +946,8 @@ Phink.MVC.View = class V extends Phink.Web.Object {
                     data.status = xhr.status;
                     if (xhr.status === 200) {
                         var data = (xhr.responseText !== '') ? JSON.parse(xhr.responseText) : [];
-                        Phink.Registry.setToken(data.token);
-                        Phink.Registry.setOrigin(xhr.getResponseHeader('origin'));
+                        Phink.Registry.token = data.token;
+                        Phink.Registry.origin = xhr.getResponseHeader('origin');
                         if (data.scripts !== undefined) {
                             var l = data.scripts.length;
                             for (var i = 0; i < l; i++) {
@@ -1051,10 +1003,10 @@ Phink.MVC.View = class V extends Phink.Web.Object {
     }
     attachView(pageName, anchor) {
         var the = this;
-        var myToken = Phink.Registry.getToken();
+        var myToken = Phink.Registry.token;
         this.getJSON(pageName, { "action": 'getViewHtml', "token": myToken }, function (data) {
             try {
-                Phink.Registry.setToken(data.token);
+                Phink.Registry.token = data.token;
                 if (data.scripts !== undefined) {
                     var l = data.scripts.length;
                     for (var i = 0; i < l; i++) {
@@ -1087,19 +1039,20 @@ var Phink = Phink || {}
 Phink.MVC = Phink.MVC || {}
 Phink.MVC.Controller = class C extends Phink.Web.Object {
     constructor(view, name) {
-        super(view);
-        this.domain = (view !== undefined) ? view.getDomain() : '';
-        this.hasView = true;
+        super();
+        this._domain = (view !== undefined) ? view.domain : '';
+        this._isSecured = (view !== undefined) ? view.isSecured : false;
+        this._hasView = true;
         if (view instanceof Phink.MVC.View) {
-            this.parent = view;
+            this._parent = view;
         }
         else if (typeof view === 'Object') {
             throw new Error('Not a valid view');
         }
         else {
-            this.hasView = false;
+            this._hasView = false;
         }
-        this.name = name;
+        this._name = name;
     }
     oninit(callback) {
         if (typeof callback === 'function') {
@@ -1133,28 +1086,28 @@ Phink.MVC.Controller = class C extends Phink.Web.Object {
     }
     route(route, callback) {
         var routeMatcher = new RegExp(route.replace(/:[^\s/]+/g, '([\\w-]+)'));
-        this.parent.requestView(view, action, args, callback);
+        this._parent.requestView(view, action, args, callback);
     }
     getSimpleView(view, callback) {
-        this.parent.requestSimpleView(view, callback);
+        this._parent.requestSimpleView(view, callback);
     }
     getView(view, action, args, callback) {
-        this.parent.requestView(view, action, args, callback);
+        this._parent.requestView(view, action, args, callback);
     }
     getPartialView(pageName, action, attach, postData, callback) {
-        this.parent.requestPart(pageName, action, attach, postData, callback);
+        this._parent.requestPart(pageName, action, attach, postData, callback);
     }
     parseViewResponse(pageName, callback) {
-        this.parent.parseResponse(pageName, callback);
+        this._parent.parseResponse(pageName, callback);
     }
     attachWindow(pageName, anchor) {
-        this.parent.attachWindow(pageName, anchor);
+        this._parent.attachWindow(pageName, anchor);
     }
     attachView(pageName, anchor) {
-        this.parent.attachView(pageName, anchor);
+        this._parent.attachView(pageName, anchor);
     }
     attachIframe(id, src, anchor) {
-        this.parent.attachIframe(id, src, anchor);
+        this._parent.attachIframe(id, src, anchor);
     }
     static create(parent, name) {
         if (name === undefined) {

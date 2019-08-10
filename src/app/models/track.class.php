@@ -20,12 +20,12 @@ class Track
         $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
 
-        $sql = <<<SELECT
-select trk_id as id, art_name as artist, trk_title as title, trk_duration as duration
-from artist a
-inner join track t on a.art_id = t.art_id
-where trk_id = :trackId
-SELECT;
+        $sql = <<<SQL
+            select trk_id as id, art_name as artist, trk_title as title, trk_duration as duration
+            from artist a
+            inner join track t on a.art_id = t.art_id
+            where trk_id = :trackId
+            SQL;
 
         $res = $stmt->prepare($sql);
         $res->execute([':trackId' => $trackId]);

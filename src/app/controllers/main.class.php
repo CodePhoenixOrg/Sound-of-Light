@@ -15,7 +15,7 @@ class Main extends \Phink\MVC\TController
     //put your code here
     protected $hostname = SERVER_ROOT;
 
-    public function load()
+    public function load() : void
     {
         if(strstr(HTTP_HOST, 'localhost')) {
             $this->hostname = 'http://localhost:8001';

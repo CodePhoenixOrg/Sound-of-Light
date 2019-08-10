@@ -15,42 +15,42 @@ class Collection extends \Phink\MVC\TPartialController
     protected $letter = '';
     public $list0 = null;
 
-    public function setPageCount($value)
+    public function setPageCount(int $value) : void
     {
         $this->pageCount = $value;
     }
 
-    public function setLetter($value)
+    public function setLetter(string $value) : void
     {
         $this->letter = $value;
     }
 
-    public function setAnchor($value)
+    public function setAnchor(string $value) : void
     {
         $this->anchor = $value;
     }
     
-    public function setOnclick($value)
+    public function setOnclick(string $value) : void
     {
         $this->onclick = $value;
     }
     
-    public function showArtistsByLetter($letter) 
+    public function showArtistsByLetter(string $letter) : void
     {
         $this->stmt = $this->model->getArtistAlbumTitleByLetter($letter);
     }
 
-    public function showAlbumsByLetter($letter) 
+    public function showAlbumsByLetter(string $letter) : void
     {
         $this->stmt = $this->model->getAlbumTitleByLetter($letter);
     }
     
-    public function showAlbumsByDate($year) 
+    public function showAlbumsByDate(string $year) : void
     {
         $this->stmt = $this->model->getAlbumTitleByYear($year);
     }
  
-    public function getData($pagecount, $pagenum)
+    public function getData(int $pagecount, ?int $pagenum) : void
     {
         $id = $this->getViewName();
         $this->data = \Phink\Web\UI\Widget\Plugin\TPlugin::getGridData($id, $this->stmt, $pagecount);

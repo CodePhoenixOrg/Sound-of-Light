@@ -19,22 +19,22 @@ class Dummy extends TPartialController {
     protected $text = "Sound of Light";
     protected $anchor = '';
 
-    public function setAnchor($value)
+    public function setAnchor(string $value) : void
     {
         $this->anchor = $value;
     }
  
-    public function load()
+    public function load() : void
     {
         //$this->text ;
     }
     
-    public function setText($value)
+    public function setText(string $value) : void
     {
         $this->text = $value;
     }
     
-    public function getText()
+    public function getText() : string
     {
         return $this->text;
     }

@@ -17,17 +17,17 @@ use Phink\Crypto\TCrypto;
     protected $label = 'Token';
     protected $token = '';
     
-    public function setLabel($value)
+    public function setLabel(string $value) : void
     {
         $this->label = $value;
     }
     
-    public function getLabel()
+    public function getLabel() : string
     {
         return $this->label;
     }
     
-    public function showToken()
+    public function showToken() : void
     {
         $this->token = TCrypto::generateToken();
     }

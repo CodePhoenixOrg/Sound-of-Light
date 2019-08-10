@@ -2,7 +2,7 @@ sol.createView('player')
 var solPlayer = sol.createController('player', 'player')
     .actions({
         showAlbumNew: function (name) {
-            $('#wikipedia').attr('src', 'http://media.loc/main.html?artist=' + name);
+            $('#wikipedia').attr('src', 'https://media.loc/main.html?artist=' + name);
         }
         , showAlbum: function (name) {
             name = encodeURIComponent(name);
@@ -59,9 +59,9 @@ var solPlayer = sol.createController('player', 'player')
             $("a[name='playable']").each(function () {
                 $(this).on('click', function () {
                     //iTunes
-                    // var path = 'http://media.loc/Music/iTunes/iTunes%20Media/Music' + $(this).data('trackpath');
+                    // var path = 'https://media.loc/Music/iTunes/iTunes%20Media/Music' + $(this).data('trackpath');
                     //OneDrive
-                    var path = 'http://media.loc/Musique' + $(this).data('trackpath');
+                    var path = 'https://media.loc/Musique' + $(this).data('trackpath');
                     path = path.replace('./Users/David/Music', '');
                     $('#player').html(path);
                     $('#playerControl').attr('src', path);

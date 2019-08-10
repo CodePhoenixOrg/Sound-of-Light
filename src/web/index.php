@@ -6,7 +6,8 @@ define('CUSTOM_NAMESPACE', 'SoL');
  */
 
 // require dirname(__DIR__).'/../vendor/autoload.php';
-require dirname(__DIR__).'/../reload.php';
+// require dirname(__DIR__).'/../reload.php';
+include 'bootstrap.php';
 
 /**
  * Description of application
