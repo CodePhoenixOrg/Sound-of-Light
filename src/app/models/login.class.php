@@ -11,7 +11,8 @@ require_once APP_DATA . 'ladmin_connection.php';
  */
 class Login extends \Phink\MVC\TModel {
     
-    public function init() {
+    public function init(): void
+    {
         $this->connector = new \SoL\Data\LAdminConnection();
         $this->connector->open();
         //self::$logger->dump('OPEN LAdminConnection', $this->connector);        

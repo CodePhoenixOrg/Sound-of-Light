@@ -5,7 +5,7 @@ require_once APP_DATA . 'soundlib_connection.php';
 
 class Player extends \Phink\MVC\TModel
 {
-    public function init()
+    public function init(): void
     {
         $this->connector = new \SoL\Data\SoundLibConnection();
         $this->connector->open();
