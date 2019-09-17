@@ -28,6 +28,6 @@ class Index extends TWebApplication {
     }
 }
 */
-// Phink\Web\TWebApplication::create();
-\Phink\Web\TStaticApplication::create();
+Phink\Web\TWebApplication::create();
+//Phink\Web\TStaticApplication::create();
 
