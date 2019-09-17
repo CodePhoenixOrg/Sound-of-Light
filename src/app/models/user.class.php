@@ -15,6 +15,7 @@ class User
     {
         $result = [];
         $result['info'] = [];
+        $info = $result['info'];
         
         $cnn = new \SoL\Data\SoundLibConnection();
         $stmt = $cnn->open();
@@ -29,7 +30,7 @@ class User
         $res->execute([':userId' => $userId]);
         
         while ($row = $res->fetch(\PDO::FETCH_OBJ)) {
-            array_push($result['info'], $row);
+            array_push($info, $row);
         }
         
         return $result;
