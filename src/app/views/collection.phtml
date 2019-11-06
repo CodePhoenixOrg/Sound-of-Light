@@ -7,12 +7,12 @@
         <phx:TPluginChild id="items" name="Album" content="@albumItem.phtml" enabled="true" event="href#solPlayer.showAlbum(Artist)" />
         <phx:TPluginChild id="items" name="TitleId" enabled="false" />
         <phx:TPluginChild id="items" name="Title" dragHelper="@titleDragged.phtml" enabled="true" event="href#solPlayer.pl.addTrack(TitleId)" >
-        <div name="draggable" data-dragHelperId="<% TitleId %>" data-dragHelperIndex="<% Title:index %>" data-band="<% Artist %>" >
+        <div name="draggable" data-dragHelperId="{{ TitleId }}" data-dragHelperIndex="{{ Title:index }}" data-band="{{ Artist }}" >
             <a name="addable" href="#" >
                 <img src="/css/images/add.png" />
             </a>
-            <a href="<% &TitleId %>" >
-                <% Title %>
+            <a href="{{ &TitleId }}" >
+                {{ Title }}
             </a>
         </div>
         </phx:TPluginChild>
