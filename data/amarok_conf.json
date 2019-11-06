@@ -1,0 +1,8 @@
+{
+    "driver": "mysql",
+    "database": "amarokdb",
+    "host": "localhost",
+    "user": "amarokuser",
+    "password": "demo",
+    "port": "3306"
+}
