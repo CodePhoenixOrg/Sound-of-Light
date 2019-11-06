@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c77a1842368e7f8f4c1d0dc307b2096c",
+    "content-hash": "93c6ef20ffe2ec301ca858a898294827",
     "packages": [
         {
             "name": "components/bootstrap",
@@ -347,16 +347,16 @@
         },
         {
             "name": "phink/phink",
-            "version": "0.9.6.19",
+            "version": "0.9.71",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodePhoenixOrg/Phink.git",
-                "reference": "e88793d0443242aa1c778dea87beb81a2e94bc24"
+                "reference": "c0175d6d4e85ae702c8167e806bb1fc01a1fb3a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodePhoenixOrg/Phink/zipball/e88793d0443242aa1c778dea87beb81a2e94bc24",
-                "reference": "e88793d0443242aa1c778dea87beb81a2e94bc24",
+                "url": "https://api.github.com/repos/CodePhoenixOrg/Phink/zipball/c0175d6d4e85ae702c8167e806bb1fc01a1fb3a3",
+                "reference": "c0175d6d4e85ae702c8167e806bb1fc01a1fb3a3",
                 "shasum": ""
             },
             "require": {
@@ -377,16 +377,28 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/phink/"
+                    "src/phink/",
+                    "src/puzzle/"
                 ],
                 "exclude-from-classmap": [
-                    "src/phink/phink_library.php"
+                    "src/phink/phink_library.php",
+                    "src/puzzle/ipuzzle_library.php",
+                    "src/puzzle/ipz_db.php",
+                    "src/puzzle/ipz_dico.php",
+                    "src/puzzle/ipz_pdf.php",
+                    "src/puzzle/ipz_init.php",
+                    "src/puzzle/ipz_empty_file.php",
+                    "src/puzzle/ipz_calendar.php",
+                    "src/puzzle/ipz_connection.php"
                 ],
                 "psr-4": {
-                    "Phink\\": ""
+                    "Phink\\": "",
+                    "Puzzle\\": ""
                 },
                 "files": [
-                    "src/phink/core/constants.php"
+                    "src/phink/core/constants.php",
+                    "src/puzzle/ipz_misc.php",
+                    "src/puzzle/ipz_constants.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -401,12 +413,12 @@
                     "name": "David Blanchard",
                     "email": "dblanchard1@bbox.fr",
                     "homepage": "https://code-phoenix.org",
-                    "role": "Creator"
+                    "role": "Developer"
                 }
             ],
             "description": "Think ${PHP} Different",
             "homepage": "https://phink.org",
-            "time": "2019-07-14T23:31:46+00:00"
+            "time": "2019-10-04T14:11:13+00:00"
         },
         {
             "name": "phink/phinkjs",
@@ -1146,16 +1158,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1179,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -1184,12 +1196,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
                 },
                 {
-                    "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -1200,20 +1212,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
                 "shasum": ""
             },
             "require": {
@@ -1225,7 +1237,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -1259,7 +1271,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1313,16 +1325,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.11.3",
+            "version": "v2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "699ed2342557c88789a15402de5eb834dedd6792"
+                "reference": "ddd4134af9bfc6dba4eff7c8447444ecc45b9ee5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/699ed2342557c88789a15402de5eb834dedd6792",
-                "reference": "699ed2342557c88789a15402de5eb834dedd6792",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ddd4134af9bfc6dba4eff7c8447444ecc45b9ee5",
+                "reference": "ddd4134af9bfc6dba4eff7c8447444ecc45b9ee5",
                 "shasum": ""
             },
             "require": {
@@ -1332,13 +1344,13 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "^2.7",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8|^5.0"
+                "symfony/debug": "^3.4|^4.2",
+                "symfony/phpunit-bridge": "^4.4@dev|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.11-dev"
+                    "dev-master": "2.12-dev"
                 }
             },
             "autoload": {
@@ -1361,14 +1373,14 @@
                     "role": "Lead Developer"
                 },
                 {
-                    "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com",
-                    "role": "Project Founder"
-                },
-                {
                     "name": "Twig Team",
                     "homepage": "https://twig.symfony.com/contributors",
                     "role": "Contributors"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -1376,7 +1388,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-06-18T15:37:11+00:00"
+            "time": "2019-10-17T07:34:53+00:00"
         }
     ],
     "packages-dev": [],
