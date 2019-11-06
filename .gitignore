@@ -14,4 +14,6 @@ api/node_modules
 api/bower_components
 src/web/bower_components
 src/data/crypto.db
-
+src/web/assets/admin
+src/logs/*
+src/web/puzzle.js
