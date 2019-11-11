@@ -1,0 +1,8 @@
+{
+    "driver": "mysql",
+    "database": "nidus",
+    "host": "localhost",
+    "user": "ladmin",
+    "password": "demo",
+    "port": "3306"
+}
